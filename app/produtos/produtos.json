@@ -1,0 +1,1922 @@
+{
+  "empresa": "Althion Tech",
+  "data_catalogo": "2025-01-09",
+  "total_produtos": 89,
+  "aviso_importante": "IMAGENS: Links diretos de imagens nem sempre estão disponíveis publicamente. Onde indicado 'Solicitar ao fabricante' ou 'Ver na página do produto', é necessário acessar o link fornecido ou contatar o fabricante para obter as imagens dos produtos.",
+  "categorias": {
+    "CLP_e_Automacao": {
+      "total": 27,
+      "produtos": [
+        {
+          "id": 1,
+          "nome": "CLP com IHM Incorporada - Coolmay QM3G-43FH",
+          "categoria": "CLP",
+          "fabricante": "Coolmay",
+          "especificacoes": {
+            "tela": "4.3 polegadas Touch TFT 60K cores",
+            "io_digital": "12DI/12DO (relay ou transistor)",
+            "io_analogico": "4AI (2xPT100, 1x0-10V, 1x4-20mA) / 2AO (1x0-10V, 1x4-20mA)",
+            "resolucao": "800x480 pixels",
+            "dimensoes": "134x102x34mm",
+            "cutout": "120x94mm",
+            "memoria": "64MB RAM, 8MB Flash",
+            "cpu": "32bit 408MHz",
+            "comunicacao": ["RS485", "RS232", "Ethernet opcional", "Type-C USB"],
+            "alimentacao": "24VDC",
+            "consumo": "4-6W",
+            "certificacoes": ["CE", "RoHS"],
+            "temperatura_operacao": "0°C a 50°C",
+            "compatibilidade": "Mitsubishi FX3G/FX3U/FX3S"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 203,
+            "max": 400,
+            "fonte": "AliExpress/Alibaba"
+          },
+          "imagem": "Solicitar ao fabricante",
+          "pdf_manual": "https://www.coolmay.com.ar/descargas/manuales/Coolmay_QM3G_Series_HMI_PLC_All-in-one_Programming_Manual_V20.91.pdf",
+          "link_produto": "https://shopping.coolmayplchmi.com/store-25011-qm3g-hmi-plc.htm",
+          "link_alibaba": "https://coolmay.en.alibaba.com/productgrouplist-819861845/QM3G_43FH.html",
+          "link_vendedor_brasil": "https://alfacomp.net/produto/coolmay-qm3g-plc-2-in-1-plc-with-hmi-touch/"
+        },
+        {
+          "id": 2,
+          "nome": "CLP com IHM Incorporada - Coolmay QM3G-70FH",
+          "categoria": "CLP",
+          "fabricante": "Coolmay",
+          "especificacoes": {
+            "tela": "7 polegadas Touch TFT 60K cores",
+            "io_digital": "Até 30DI/30DO",
+            "io_analogico": "Até 16AI/8AO",
+            "resolucao": "800x480 ou 1024x600 (HD)",
+            "dimensoes": "200x146x36mm",
+            "cutout": "192x138mm",
+            "display_size": "154x87mm",
+            "memoria": "64MB RAM, 16MB Flash",
+            "comunicacao": ["RS485", "RS232", "Ethernet", "Modbus RTU/TCP"],
+            "alimentacao": "24VDC",
+            "consumo": "6-7W"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 400,
+            "max": 900
+          },
+          "imagem": "Ver diagrama no manual",
+          "pdf_manual": "https://manuals.plus/m/9f2b891107e045e33e27dfd2ff55cda6fcfe3c2db253082bba03c11755d196c5",
+          "link_produto": "https://shopping.coolmayplchmi.com/store-25011-qm3g-hmi-plc.htm",
+          "link_detalhes": "https://en.coolmay.com/ProductDetail.aspx?ColumnId=186&ArticleId=2379"
+        },
+        {
+          "id": 3,
+          "nome": "CLP com IHM Incorporada - Coolmay QM3G-100FH",
+          "categoria": "CLP",
+          "fabricante": "Coolmay",
+          "especificacoes": {
+            "tela": "10.1 polegadas Touch TFT",
+            "io_digital": "20DI/18DO ou 30DI/30DO",
+            "io_analogico": "16AI/8AO máximo",
+            "resolucao": "1024x600",
+            "dimensoes": "275x194x36mm",
+            "cutout": "262x180mm",
+            "display_size": "222x125mm",
+            "comunicacao": ["RS485", "RS232", "Ethernet", "WiFi opcional"],
+            "alimentacao": "24VDC",
+            "consumo": "6-8W"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 600,
+            "max": 1200
+          },
+          "imagem": "Solicitar catálogo ilustrado",
+          "pdf_catalogo": "https://www.scribd.com/document/817732434/Coolmay-Catalog-1",
+          "link_produto": "https://en.coolmay.com/Product-58.html"
+        },
+        {
+          "id": 4,
+          "nome": "IHM Touch Screen - Coolmay EX3G Series",
+          "categoria": "CLP",
+          "fabricante": "Coolmay",
+          "especificacoes": {
+            "series": "EX3G-43FH, EX3G-70FH, EX3G-100FH",
+            "tela": "4.3\", 7\", 10\" opções",
+            "resolucao": "800x480 até 1024x600",
+            "memoria": "128MB Flash + 64MB RAM",
+            "portas": "USB, Ethernet, Serial",
+            "protocolo": "Modbus RTU/TCP",
+            "recursos": "NTC10K signal, PMW motor driver"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 250,
+            "max": 800
+          },
+          "imagem": "Ver na página do produto",
+          "link_produto": "https://coolmay.en.alibaba.com/",
+          "link_ebay": "https://www.ebay.ca/itm/235456801824"
+        },
+        {
+          "id": 5,
+          "nome": "Inversores de Frequência - Coolmay VFD Series",
+          "categoria": "CLP",
+          "fabricante": "Coolmay",
+          "especificacoes": {
+            "potencia": "0.75kW a 400kW",
+            "tensao": "220V/380V/480V trifásico",
+            "controle": "V/F, Vetorial sensorless",
+            "comunicacao": "Modbus RTU",
+            "protecoes": "Sobrecorrente, sobretensão, sobreaquecimento"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 200,
+            "max": 5000
+          },
+          "imagem": "Solicitar ao fabricante",
+          "link_empresa": "https://en.coolmay.com/"
+        },
+        {
+          "id": 6,
+          "nome": "Fonte de Alimentação Industrial 24V",
+          "categoria": "CLP",
+          "fabricante": "Coolmay",
+          "especificacoes": {
+            "entrada": "100-240VAC",
+            "saida": "24VDC",
+            "potencia": "60W, 120W, 240W, 480W",
+            "eficiencia": ">85%",
+            "protecoes": "Curto-circuito, sobrecarga, sobretensão",
+            "montagem": "Trilho DIN"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 30,
+            "max": 150
+          },
+          "imagem": "Solicitar catálogo",
+          "link_empresa": "https://en.coolmay.com/"
+        },
+        {
+          "id": 7,
+          "nome": "I/O Remoto - Módulo Expansão Coolmay L02",
+          "categoria": "CLP",
+          "fabricante": "Coolmay",
+          "especificacoes": {
+            "series": "L02M24R, L02M24T, L02M32R, L02M32T",
+            "entradas": "8DI a 32DI",
+            "saidas": "8DO a 32DO",
+            "comunicacao": "RS485, Ethernet, CANopen, J1939",
+            "protocolo": "Modbus RTU/TCP",
+            "alimentacao": "24VDC, 6mA",
+            "terminais": "Push-type ou horn terminal block"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 100,
+            "max": 400
+          },
+          "imagem": "Ver especificações no site",
+          "link_produto": "https://shopping.coolmayplchmi.com/products.htm"
+        }
+      ]
+    },
+    "Medidores_de_Vazao": {
+      "total": 14,
+      "produtos": [
+        {
+          "id": 8,
+          "nome": "Medidor de Vazão Eletromagnético",
+          "categoria": "Medidores de Vazão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tipo": "Eletromagnético",
+            "diametro": "DN15 a DN3000",
+            "precisao": "±0.5%",
+            "pressao_max": "1.6MPa (padrão), até 4.0MPa",
+            "temperatura": "-20°C a 150°C",
+            "revestimento": "PTFE, Borracha Neoprene, PFA",
+            "eletrodos": "316L, Hastelloy C, Titânio, Tântalo",
+            "saida": "4-20mA, pulso, RS485, HART",
+            "alimentacao": "220VAC ou 24VDC",
+            "protecao": "IP65/IP67"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 800,
+            "max": 5000
+          },
+          "imagem": "Ver página do produto",
+          "link_produto": "https://www.macsensor.com/flow-meters/",
+          "link_alibaba": "https://macsensor.en.alibaba.com/"
+        },
+        {
+          "id": 9,
+          "nome": "Medidor de Vazão Ultrassônico Clamp-On UF2000B",
+          "categoria": "Medidores de Vazão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tipo": "Ultrassônico transit-time não-invasivo",
+            "diametro": "DN15 a DN6000mm",
+            "precisao": "±1%",
+            "linearidade": "0.5%",
+            "repetibilidade": "0.2%",
+            "display": "2x20 LCD com backlight",
+            "teclado": "16 teclas ou 4 teclas",
+            "saidas": "4-20mA, OCT, Relé, RS485",
+            "temperatura_fluido": "-30°C a 90°C (padrão), -30°C a 160°C (alta temp)",
+            "transdutores": "TS-2, TM-1, TL-1 (clamp-on)",
+            "datalogger": "64 dias/64 meses/5 anos",
+            "alimentacao": "85-264VAC ou 24VDC"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 299,
+            "max": 450,
+            "fonte": "Alibaba"
+          },
+          "imagem": "Ver manual PDF página 2-3",
+          "pdf_manual": "https://www.macsensor.com/Content/upload/PDF/41304/Manual-MACSENSOR-UF2000B-Clamp-On-Ultrasonic-Flow-Meter.pdf",
+          "link_produto": "https://macsensor.en.alibaba.com/product/60793298454-804821712/",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 10,
+          "nome": "Medidor de Vazão Ultrassônico Portátil",
+          "categoria": "Medidores de Vazão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tipo": "Portátil handheld ultrassônico",
+            "diametro": "DN32 a DN1000mm",
+            "precisao": "±0.2% a ±0.5%",
+            "bateria": "Recarregável, 12 horas autonomia",
+            "memoria": "Registra últimos 64 dias/64 meses/5 anos",
+            "peso": "< 2kg com maleta",
+            "acessorios": "Maleta, transdutores, acoplante, cabos"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 299,
+            "max": 450
+          },
+          "imagem": "Ver no Alibaba",
+          "link_produto": "https://macsensor.en.made-in-china.com/product/LXsmyMNUQZYF/",
+          "link_alibaba": "https://macsensor.en.alibaba.com/productgrouplist-804759664/LEVEL.html"
+        },
+        {
+          "id": 11,
+          "nome": "Medidor de Vazão de Radar sem Contato",
+          "categoria": "Medidores de Vazão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tecnologia": "Radar FMCW 80GHz",
+            "modelo": "MQ8",
+            "alcance": "0.1 a 30m",
+            "precisao": "±2mm",
+            "angulo_feixe": "3°",
+            "saida": "4-20mA, HART, RS485, Modbus",
+            "display": "LCD local opcional",
+            "protecao": "IP67",
+            "temperatura": "-40°C a 80°C",
+            "aplicacao": "Canais abertos, rios, vertedouros"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 1200,
+            "max": 2500
+          },
+          "imagem": "Solicitar ao fabricante",
+          "link_produto": "https://www.macsensor.com/flow-meters/"
+        },
+        {
+          "id": 12,
+          "nome": "Medidor de Vazão tipo Vortex",
+          "categoria": "Medidores de Vazão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "principio": "Vortex shedding",
+            "aplicacao": "Vapor, gases, líquidos",
+            "diametro": "DN25 a DN300",
+            "precisao": "±1% líquidos, ±1.5% gases",
+            "temperatura": "-40°C a 350°C",
+            "pressao": "até 4.0MPa",
+            "corpo": "Aço inox 304/316",
+            "saida": "4-20mA, pulso, RS485"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 600,
+            "max": 2000
+          },
+          "imagem": "Consultar catálogo",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 13,
+          "nome": "Medidor de Vazão de Turbina",
+          "categoria": "Medidores de Vazão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tipo": "Turbina axial",
+            "diametro": "DN4 a DN200",
+            "precisao": "±0.5% a ±1%",
+            "repetibilidade": "±0.05%",
+            "pressao_max": "6.3MPa",
+            "temperatura": "-20°C a 120°C",
+            "viscosidade": "< 5 cSt",
+            "material": "Aço inox 304/316"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 300,
+            "max": 1500
+          },
+          "imagem": "Solicitar ao fabricante",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 14,
+          "nome": "Medidor de Vazão de Combustível Digital",
+          "categoria": "Medidores de Vazão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "aplicacao": "Diesel, gasolina, querosene, óleos",
+            "vazao": "5 a 120 L/min",
+            "precisao": "±0.5%",
+            "display": "Digital LCD",
+            "totalizador": "8 dígitos resetável",
+            "bateria": "2 x AA, 1 ano autonomia",
+            "conexao": "NPT, BSP",
+            "material": "Alumínio"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 200,
+            "max": 500
+          },
+          "imagem": "Ver no site",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 15,
+          "nome": "Medidor de Vazão Mássica Coriolis",
+          "categoria": "Medidores de Vazão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tipo": "Coriolis de tubo duplo",
+            "precisao": "±0.1% a ±0.2%",
+            "medicao": "Massa, volume, densidade, temperatura",
+            "diametro": "DN3 a DN200",
+            "pressao": "até 4.0MPa",
+            "temperatura": "-50°C a 200°C",
+            "material_tubo": "316L, Hastelloy",
+            "saida": "4-20mA duplo, HART, RS485",
+            "display": "LCD integral ou remoto"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 3000,
+            "max": 15000
+          },
+          "imagem": "Solicitar catálogo técnico",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 16,
+          "nome": "Medidor de Vazão de Gás Térmico",
+          "categoria": "Medidores de Vazão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tipo": "Dispersão térmica",
+            "aplicacao": "Ar comprimido, gases industriais",
+            "diametro": "DN15 a DN2000",
+            "precisao": "±1% a ±1.5%",
+            "temperatura": "-40°C a 200°C",
+            "pressao": "até 1.6MPa",
+            "tempo_resposta": "< 1 segundo",
+            "saida": "4-20mA, RS485, HART"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 800,
+            "max": 2500
+          },
+          "imagem": "Consultar fabricante",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 17,
+          "nome": "Medidor de Vazão de Rotor (Rotâmetro)",
+          "categoria": "Medidores de Vazão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tipo": "Área variável",
+            "material_tubo": "Vidro borosilicato, metal, acrílico",
+            "flutuador": "Aço inox 316, PTFE",
+            "precisao": "±1.5% a ±2.5%",
+            "temperatura": "-80°C a 200°C",
+            "pressao": "até 1.0MPa (vidro), até 4.0MPa (metal)",
+            "conexao": "Flangeada, roscada",
+            "escala": "Direta ou com transmissor"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 100,
+            "max": 800
+          },
+          "imagem": "Ver catálogo",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 18,
+          "nome": "Medidor de Vazão Engrenagem Oval",
+          "categoria": "Medidores de Vazão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tipo": "Deslocamento positivo",
+            "viscosidade": "0.3 a 2000 mPa.s",
+            "precisao": "±0.2% a ±0.5%",
+            "material": "Aço inox 304/316, alumínio",
+            "temperatura": "-20°C a 200°C",
+            "pressao": "até 1.6MPa",
+            "vazao": "0.04 a 340 m³/h",
+            "saida": "Pulso, 4-20mA, display local"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 400,
+            "max": 2000
+          },
+          "imagem": "Solicitar ao fornecedor",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 19,
+          "nome": "Medidor de Vazão Alvo",
+          "categoria": "Medidores de Vazão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tipo": "Target/Force",
+            "aplicacao": "Fluidos viscosos, com sólidos suspensos",
+            "diametro": "DN15 a DN2000",
+            "precisao": "±0.5% a ±1.5%",
+            "temperatura": "-196°C a 450°C",
+            "pressao": "até 42MPa",
+            "material": "304, 316L, Hastelloy",
+            "saida": "4-20mA, HART, RS485"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 600,
+            "max": 3000
+          },
+          "imagem": "Consultar especificações",
+          "link_empresa": "https://www.macsensor.com/"
+        }
+      ]
+    },
+    "Sensores_de_Temperatura": {
+      "total": 4,
+      "produtos": [
+        {
+          "id": 20,
+          "nome": "Sensor de Temperatura Industrial PT100",
+          "categoria": "Sensores de Temperatura",
+          "fabricante": "HJ Sensor",
+          "especificacoes": {
+            "tipo": "RTD PT100/PT1000",
+            "faixa": "-200°C a 600°C",
+            "classe": "A (±0.15°C), B (±0.3°C) conforme IEC 60751",
+            "elemento": "3 ou 4 fios",
+            "bainha": "Aço inox 316L",
+            "diametro_bainha": "3mm, 4.5mm, 6mm, 8mm, 10mm, 12mm",
+            "comprimento": "50mm a 2000mm",
+            "conexao": "Rosca, flange, tri-clamp",
+            "tempo_resposta": "T90 < 10 segundos"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 50,
+            "max": 300
+          },
+          "imagem": "Solicitar catálogo",
+          "link_empresa": "https://www.hjsensor.com/"
+        },
+        {
+          "id": 21,
+          "nome": "Transmissor de Temperatura 4-20mA",
+          "categoria": "Sensores de Temperatura",
+          "fabricante": "HJ Sensor",
+          "especificacoes": {
+            "entrada": "PT100, PT1000, TC tipo K/J/T/E/N/S/R/B",
+            "saida": "4-20mA (2 fios), HART opcional",
+            "precisao": "±0.1% do span",
+            "alimentacao": "12-36VDC",
+            "display": "LCD 4 dígitos opcional",
+            "montagem": "Cabeçote, trilho DIN, campo",
+            "configuracao": "PC software ou HART",
+            "protecao": "IP65/IP67",
+            "aprovacoes": "CE, ATEX opcional"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 100,
+            "max": 400
+          },
+          "imagem": "Ver especificações técnicas",
+          "link_empresa": "https://www.hjsensor.com/"
+        },
+        {
+          "id": 22,
+          "nome": "Controlador de Temperatura PID",
+          "categoria": "Sensores de Temperatura",
+          "fabricante": "HJ Sensor",
+          "especificacoes": {
+            "entrada": "Universal (TC todos tipos, RTD, mA, V)",
+            "controle": "PID com auto-tuning",
+            "saida": "Relé SPDT 3A, SSR 12VDC, 4-20mA",
+            "display": "LED duplo 4 dígitos vermelho/verde",
+            "precisao": "±0.25% FS",
+            "tamanho": "48x48, 48x96, 72x72, 96x96mm",
+            "comunicacao": "RS485 Modbus RTU opcional",
+            "alarmes": "2 alarmes programáveis",
+            "alimentacao": "100-240VAC ou 24VDC"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 80,
+            "max": 250
+          },
+          "imagem": "Solicitar ao distribuidor",
+          "link_empresa": "https://www.hjsensor.com/"
+        },
+        {
+          "id": 23,
+          "nome": "Termopar Tipo K Industrial",
+          "categoria": "Sensores de Temperatura",
+          "fabricante": "HJ Sensor",
+          "especificacoes": {
+            "tipo": "K (NiCr-NiAl)",
+            "faixa": "-200°C a 1260°C",
+            "classe": "1 (±1.5°C) ou 2 (±2.5°C)",
+            "bainha": "Inconel 600, 310SS, 316SS",
+            "isolacao": "MgO compactado",
+            "diametro": "1.5mm a 12mm",
+            "juncao": "Aterrada, isolada ou exposta",
+            "tempo_resposta": "< 5 segundos",
+            "cabo": "Fibra de vidro, Teflon, PVC"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 30,
+            "max": 200
+          },
+          "imagem": "Consultar especificações",
+          "link_empresa": "https://www.hjsensor.com/"
+        }
+      ]
+    },
+    "Sensores_de_Pressao": {
+      "total": 22,
+      "produtos": [
+        {
+          "id": 24,
+          "nome": "Sensor de Pressão Industrial P10",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "modelo": "P10",
+            "faixa": "0-1 bar até 0-600 bar",
+            "precisao": "±0.5%FS (±0.25%FS opcional)",
+            "saida": "4-20mA, 0-5V, 0-10V, 0.5-4.5V",
+            "alimentacao": "12-36VDC",
+            "conexao": "G1/4, G1/2, 1/4NPT, 1/2NPT, M20x1.5",
+            "protecao": "IP65",
+            "temperatura_operacao": "-40°C a 125°C",
+            "material": "Aço inox 17-4PH ou 316L",
+            "certificacoes": "CE, RoHS"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 80,
+            "max": 300
+          },
+          "imagem": "Ver página do produto",
+          "link_produto": "https://www.macsensor.com/pressure-sensors/",
+          "link_alibaba": "https://macsensor.en.alibaba.com/"
+        },
+        {
+          "id": 25,
+          "nome": "Transdutor de Pressão Compacto",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tamanho": "Miniatura Ø19mm x 50mm",
+            "faixa": "0-10 bar até 0-400 bar",
+            "precisao": "±0.25%FS",
+            "saida": "4-20mA, 0-5V, 0.5-4.5V ratiométrico",
+            "aplicacao": "Sistemas hidráulicos móveis",
+            "vibracao": "20g conforme IEC 60068-2-6",
+            "choque": "100g conforme IEC 60068-2-27",
+            "vida_util": "> 100 milhões de ciclos"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 100,
+            "max": 400
+          },
+          "imagem": "Consultar catálogo",
+          "link_produto": "https://www.macsensor.com/pressure-sensors/",
+          "link_detalhes": "https://www.macsensor.com/pressure-sensors/general-pressure-sensors/compact-pressure-transducer.html"
+        },
+        {
+          "id": 26,
+          "nome": "Sensor de Pressão com Display Digital",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "display": "LCD 4 dígitos com backlight",
+            "faixa": "0-1 bar até 0-1000 bar",
+            "precisao": "±0.5%FS (±0.25%FS display)",
+            "funcoes": "Min/Max, Zero, Peak, Unidades programáveis",
+            "saida": "4-20mA + 2 relés programáveis",
+            "bateria": "2 anos autonomia (versão bateria)",
+            "rotacao_display": "330° rotacionável",
+            "protecao": "IP65"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 150,
+            "max": 500
+          },
+          "imagem": "Ver no site do fabricante",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 27,
+          "nome": "Sensor de Pressão Hidráulica",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "faixa": "0-100 bar até 0-600 bar",
+            "precisao": "±0.5%FS",
+            "sobrepressao": "2x pressão nominal",
+            "picos_pressao": "4x nominal (1ms)",
+            "vibracao": "20g (5-2000Hz)",
+            "protecao": "IP67, IP69K opcional",
+            "conector": "DIN 43650, M12x1, Packard",
+            "certificacao": "CE, E1 (automotiva)"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 120,
+            "max": 450
+          },
+          "imagem": "Solicitar ficha técnica",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 28,
+          "nome": "Sensor de Pressão para Serviço Pesado",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "construcao": "Aço inox 17-4PH forjado",
+            "faixa": "0-200 bar até 0-1000 bar",
+            "precisao": "±0.25%FS",
+            "estabilidade": "±0.1%FS/ano",
+            "choque": "100g/11ms",
+            "vibracao": "30g sinusoidal",
+            "vida_util": "> 100 milhões ciclos",
+            "aplicacao": "Equipamentos off-road, mineração"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 200,
+            "max": 800
+          },
+          "imagem": "Consultar representante",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 29,
+          "nome": "Transdutor de Pressão para Compressor",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "aplicacao": "Ar comprimido, refrigeração",
+            "faixa": "0-10 bar, 0-16 bar, 0-25 bar, 0-40 bar",
+            "precisao": "±1%FS",
+            "temperatura": "-40°C a 125°C",
+            "conexao": "G1/4, 1/4NPT, 7/16-20UNF",
+            "certificacao": "CE, RoHS, UL",
+            "protecao_surto": "EN 61000-4-5"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 60,
+            "max": 200
+          },
+          "imagem": "Ver catálogo online",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 30,
+          "nome": "Sensor de Pressão de Ar HVAC",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "faixa": "0-10 mbar até 0-100 mbar (0-1 até 0-10 kPa)",
+            "precisao": "±1%FS",
+            "saida": "4-20mA, 0-10V, 0-5V",
+            "aplicacao": "Sistemas HVAC, salas limpas",
+            "montagem": "Parede, duto",
+            "display": "LCD opcional",
+            "ajuste_zero": "Botão externo",
+            "temperatura_compensada": "-10°C a 60°C"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 80,
+            "max": 250
+          },
+          "imagem": "Solicitar folheto",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 31,
+          "nome": "Transdutor de Pressão para Bomba de Água",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "faixa": "0-6 bar, 0-10 bar, 0-16 bar, 0-25 bar",
+            "precisao": "±0.5%FS",
+            "protecao": "IP68 submersível",
+            "material_diafragma": "Cerâmica 96% Al2O3, Aço inox 316L",
+            "conexao": "G1/4, G1/2, 1/4NPT, 1/2NPT",
+            "temperatura_media": "-20°C a 80°C",
+            "aprovacoes": "NSF, WRAS para água potável"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 70,
+            "max": 300
+          },
+          "imagem": "Ver especificações",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 32,
+          "nome": "Sensor de Pressão à Prova de Explosão",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "certificacao": "ATEX, IECEx",
+            "classificacao": "Ex d IIC T6 Gb, Ex ia IIC T4 Ga",
+            "faixa": "0-10 bar até 0-400 bar",
+            "precisao": "±0.5%FS",
+            "housing": "Aço inox 316L",
+            "entrada_cabo": "M20x1.5 ou 1/2NPT",
+            "saida": "4-20mA, HART",
+            "SIL": "SIL2 certificado"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 400,
+            "max": 1500
+          },
+          "imagem": "Consultar certificados",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 33,
+          "nome": "Sensor de Pressão Intrinsecamente Seguro",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "certificacao": "ATEX, FM, CSA, INMETRO",
+            "classificacao": "Ex ia IIC T4 Ga",
+            "faixa": "0-1 bar até 0-600 bar",
+            "precisao": "±0.5%FS",
+            "barreira": "Zener requerida",
+            "saida": "4-20mA (2 fios)",
+            "temperatura": "-40°C a 85°C",
+            "material": "316L SS"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 300,
+            "max": 1200
+          },
+          "imagem": "Ver documentação ATEX",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 34,
+          "nome": "Sensor de Pressão Alta Temperatura",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "temperatura": "até 200°C contínuo, 300°C pico",
+            "faixa": "0-10 bar até 0-1000 bar",
+            "precisao": "±0.5%FS a 25°C",
+            "drift_termico": "±0.02%FS/°C",
+            "refrigeracao": "Radiador/sifão opcional",
+            "material": "Aço inox 17-4PH, Inconel",
+            "isolacao": "Cerâmica de alta temperatura"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 250,
+            "max": 900
+          },
+          "imagem": "Solicitar desenho técnico",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 35,
+          "nome": "Sensor de Pressão para Peso (Célula de Carga)",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tipo": "Célula de carga strain gauge",
+            "capacidade": "10kg, 50kg, 100kg, 500kg, 1t, 5t, 10t, 50t",
+            "precisao": "±0.02%FS a ±0.05%FS",
+            "protecao": "IP68 aço inox selado",
+            "certificacao": "OIML R60 C3",
+            "compensacao_temp": "-10°C a 40°C",
+            "sobrecarga_segura": "150%",
+            "saida": "2mV/V nominal"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 150,
+            "max": 2000
+          },
+          "imagem": "Ver tipos disponíveis",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 36,
+          "nome": "Transmissor de Pressão Miniatura",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tamanho": "Ø12mm x 35mm ultra compacto",
+            "faixa": "0-10 bar até 0-100 bar",
+            "precisao": "±0.5%FS",
+            "saida": "4-20mA (2 fios), 0-5V, I2C, SPI",
+            "peso": "< 50g",
+            "material": "Aço inox 316L",
+            "aplicacao": "Dispositivos portáteis, IoT"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 90,
+            "max": 350
+          },
+          "imagem": "Consultar miniatura",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 37,
+          "nome": "Sensor de Pressão CAN Bus",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "protocolo": "CANopen DS404, J1939, CAN 2.0B",
+            "taxa": "125kbps, 250kbps, 500kbps, 1Mbps",
+            "faixa": "0-10 bar até 0-600 bar",
+            "precisao": "±0.5%FS",
+            "alimentacao": "9-36VDC",
+            "node_id": "Configurável",
+            "terminador": "120Ω integrado comutável"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 200,
+            "max": 600
+          },
+          "imagem": "Ver interface CAN",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 38,
+          "nome": "Transmissor de Pressão Diferencial Digital",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "faixa": "0-100 Pa até 0-100 kPa",
+            "precisao": "±0.075%FS",
+            "estabilidade": "±0.1%/ano",
+            "display": "LCD 5 dígitos com bargraph",
+            "comunicacao": "HART 7, Foundation Fieldbus, Profibus PA",
+            "compensacao": "Temperatura e pressão estática",
+            "rangeabilidade": "100:1",
+            "diagnósticos": "Avançados NAMUR NE107"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 500,
+            "max": 2000
+          },
+          "imagem": "Solicitar datasheet",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 39,
+          "nome": "Sensor de Pressão Diferencial Micro Ar",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "faixa": "0-25 Pa, 0-50 Pa, 0-125 Pa, 0-250 Pa até 0-5000 Pa",
+            "precisao": "±1%FS",
+            "tempo_resposta": "< 1ms",
+            "aplicacao": "Salas limpas, filtros HEPA, HVAC",
+            "saida": "4-20mA, 0-10V, 0-5V",
+            "ajuste_zero": "Automático ou manual",
+            "display": "LED ou LCD opcional"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 150,
+            "max": 500
+          },
+          "imagem": "Ver modelos",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 40,
+          "nome": "Sensor de Pressão Diferencial Industrial",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "faixa_diferencial": "0-1 bar até 0-16 bar",
+            "pressao_estatica": "até 100 bar",
+            "precisao": "±0.5%FS",
+            "material_diafragma": "Aço inox 316L, Hastelloy C",
+            "protecao": "IP65, IP67",
+            "manifold": "3 vias ou 5 vias",
+            "saida": "4-20mA, HART"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 300,
+            "max": 1000
+          },
+          "imagem": "Consultar configurações",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 41,
+          "nome": "Sensor de Pressão Diferencial Micro",
+          "categoria": "Sensores de Pressão",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "faixa": "0-100 Pa até 0-10 kPa",
+            "precisao": "±0.25%FS",
+            "estabilidade": "±0.1%FS/ano",
+            "compensacao": "Digital temperatura -20 a 85°C",
+            "interface": "I2C, SPI digital",
+            "alimentacao": "3.3V ou 5V",
+            "tamanho": "SMD 10x10x2mm"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 50,
+            "max": 200
+          },
+          "imagem": "Ver encapsulamento",
+          "link_empresa": "https://www.macsensor.com/"
+        }
+      ]
+    },
+    "Sensores_de_Nivel": {
+      "total": 18,
+      "produtos": [
+        {
+          "id": 42,
+          "nome": "Sensor de Pressão Submersível L702",
+          "categoria": "Sensores de Nível",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tipo": "Pressão hidrostática piezoresistivo",
+            "modelo": "L702",
+            "faixa": "0-1m, 0-5m, 0-10m, 0-20m até 0-200m H2O",
+            "precisao": "±0.5%FS (±0.25%FS opcional)",
+            "saida": "4-20mA (2 fios)",
+            "cabo": "PUR ventilado, 5m a 500m",
+            "protecao": "IP68",
+            "material": "Aço inox 316L",
+            "diametro": "Ø19mm ou Ø26.5mm",
+            "compensacao": "Atmosférica via tubo capilar no cabo",
+            "temperatura": "-20°C a 80°C",
+            "sobrepressao": "2x range"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 150,
+            "max": 400
+          },
+          "imagem": "Ver na página do produto",
+          "pdf_datasheet": "Solicitar ao fabricante",
+          "link_produto": "https://www.macsensor.com/level-sensors/submersible-level-sensors/l702-submersible-pressure-sensor.html",
+          "link_info": "http://macsensor.com/productinfo.aspx?ProductsId=43"
+        },
+        {
+          "id": 43,
+          "nome": "Transmissor de Nível Hidrostático Submersível L703",
+          "categoria": "Sensores de Nível",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "aplicacao": "Poços profundos, tanques, reservatórios",
+            "faixa": "0-5m até 0-500m H2O",
+            "saida": "4-20mA, RS485 Modbus",
+            "precisao": "±0.25%FS",
+            "diametro": "19mm (poços estreitos) ou 28mm",
+            "material": "316L, Titânio opcional",
+            "cabo": "PE, FEP ou PUR"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 200,
+            "max": 600
+          },
+          "imagem": "Ver no Alibaba",
+          "link_produto": "https://macsensor.en.alibaba.com/product/60793298454-804821712/",
+          "link_empresa": "https://www.macsensor.com/level-sensors/submersible-level-sensors/"
+        },
+        {
+          "id": 44,
+          "nome": "Sensor de Nível de Combustível L704",
+          "categoria": "Sensores de Nível",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "aplicacao": "Tanques de combustível",
+            "design": "À prova de explosão",
+            "faixa": "100mm a 3000mm",
+            "saida": "0-5V, 4-20mA, resistivo, CANbus J1939",
+            "material": "Aço inox 316L, NBR/Viton",
+            "certificacao": "ATEX Ex ia, SAE J1810",
+            "precisao": "±1%FS"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 50,
+            "max": 200
+          },
+          "imagem": "Consultar modelo",
+          "link_produto": "https://www.macsensor.com/level-sensors/submersible-level-sensors/fuel-level-pressure-sensor.html"
+        },
+        {
+          "id": 45,
+          "nome": "Sensor de Nível de Esgoto L705",
+          "categoria": "Sensores de Nível",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "protecao": "IP68, anti-corrosão, anti-entupimento",
+            "material": "PVDF, Titânio, cerâmica",
+            "faixa": "0-10m até 0-100m",
+            "precisao": "±0.5%FS",
+            "limpeza": "Sistema auto-limpante integrado",
+            "diafragma": "Cerâmica resistente a abrasão",
+            "cabo": "PUR com malha de aço"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 300,
+            "max": 800
+          },
+          "imagem": "Solicitar foto",
+          "link_produto": "https://www.macsensor.com/level-sensors/submersible-level-sensors/sewage-level-sensor.html"
+        },
+        {
+          "id": 46,
+          "nome": "Sensor de Nível de Rio L706",
+          "categoria": "Sensores de Nível",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "aplicacao": "Monitoramento hidrológico, enchentes",
+            "faixa": "0-20m até 0-100m",
+            "precisao": "±0.1%FS alta precisão",
+            "datalogger": "Integrado 100.000 pontos",
+            "comunicacao": "4G/GPRS, LoRa, RS485",
+            "alimentacao": "Bateria + solar",
+            "software": "Cloud monitoring incluído"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 500,
+            "max": 2000
+          },
+          "imagem": "Ver sistema completo",
+          "link_produto": "https://www.macsensor.com/level-sensors/submersible-level-sensors/river-level-sensor.html"
+        },
+        {
+          "id": 47,
+          "nome": "Sensor de Nível de Poço",
+          "categoria": "Sensores de Nível",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "diametro": "Ø16mm para poços de 1\" ou maiores",
+            "faixa": "0-50m até 0-500m",
+            "cabo": "Kevlar reforçado anti-torção",
+            "precisao": "±0.25%FS",
+            "registro": "Data logger interno opcional",
+            "material": "Titânio para água salina",
+            "proteção_raio": "Integrada"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 250,
+            "max": 1000
+          },
+          "imagem": "Consultar aplicação",
+          "link_produto": "https://www.macsensor.com/level-sensors/submersible-level-sensors/borehole-level-sensor.html"
+        },
+        {
+          "id": 48,
+          "nome": "Sensor de Nível com Display L712",
+          "categoria": "Sensores de Nível",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "display": "LCD 4 dígitos local",
+            "faixa": "0-5m até 0-30m",
+            "alarmes": "2 pontos configuráveis",
+            "saida": "4-20mA + 2 relés SPDT",
+            "alimentacao": "24VDC ou 110-220VAC",
+            "configuracao": "3 botões frontais",
+            "protecao": "IP65 frontal"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 300,
+            "max": 700
+          },
+          "imagem": "Ver display",
+          "link_produto": "https://www.macsensor.com/level-sensors/submersible-level-sensors/level-sensor-with-display.html"
+        },
+        {
+          "id": 49,
+          "nome": "Transmissor de Nível Ultrassônico",
+          "categoria": "Sensores de Nível",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "tecnologia": "Ultrassom sem contato",
+            "alcance": "0.25m a 60m (depende do modelo)",
+            "precisao": "±0.25%FS",
+            "angulo_feixe": "5° a 12°",
+            "frequencia": "20kHz a 200kHz",
+            "compensacao": "Temperatura automática",
+            "saida": "4-20mA, RS485, HART",
+            "display": "LCD com programação"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 400,
+            "max": 1500
+          },
+          "imagem": "Consultar modelos",
+          "link_produto": "https://www.macsensor.com/level-sensors/ultrasonic-level-sensors/"
+        },
+        {
+          "id": 50,
+          "nome": "Sensor de Nível Ultrassônico à Prova de Explosão",
+          "categoria": "Sensores de Nível",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "certificacao": "ATEX Ex d IIC T6",
+            "alcance": "0.5m a 30m",
+            "frequencia": "40kHz a 70kHz",
+            "saida": "4-20mA, HART",
+            "housing": "Alumínio fundido ou 316L",
+            "entrada_cabo": "M20x1.5 ou 1/2NPT",
+            "temperatura": "-40°C a 70°C"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 800,
+            "max": 2500
+          },
+          "imagem": "Ver certificação",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 51,
+          "nome": "Sensor Ultrassônico de Alta Precisão",
+          "categoria": "Sensores de Nível",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "resolucao": "0.1mm",
+            "precisao": "±0.1%FS",
+            "frequencia": "50kHz a 500kHz adaptativa",
+            "tempo_resposta": "< 100ms",
+            "interface": "RS485, Ethernet TCP/IP",
+            "algoritmos": "Echo processing avançado",
+            "aplicacao": "Tanques de precisão"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 1000,
+            "max": 3000
+          },
+          "imagem": "Solicitar especificação",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 52,
+          "nome": "Sensor de Nível Ultrassônico Sem Fio",
+          "categoria": "Sensores de Nível",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "comunicacao": "LoRaWAN, 4G LTE, NB-IoT",
+            "bateria": "3-5 anos autonomia",
+            "alcance": "0.5m a 15m",
+            "intervalo": "Configurável 1min a 24h",
+            "app": "iOS/Android monitoring",
+            "cloud": "Plataforma incluída 1 ano",
+            "alertas": "SMS, email, push"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 600,
+            "max": 1500
+          },
+          "imagem": "Ver sistema wireless",
+          "link_produto": "https://www.macsensor.com/wireless-sensors/"
+        },
+        {
+          "id": 53,
+          "nome": "Sensor de Nível por Radar 80GHz",
+          "categoria": "Sensores de Nível",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "modelo": "MQ8",
+            "frequencia": "6GHz, 26GHz, 80GHz FMCW",
+            "alcance": "0.1m a 120m",
+            "precisao": "±1mm a ±3mm",
+            "angulo": "3° (80GHz)",
+            "aplicacao": "Sólidos e líquidos",
+            "aprovacoes": "ATEX, IECEx, FM, CSA",
+            "interface": "4-20mA/HART, Foundation Fieldbus"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 1200,
+            "max": 5000
+          },
+          "imagem": "Ver tecnologia radar",
+          "link_produto": "https://www.macsensor.com/level-sensors/radar-level-sensors/"
+        },
+        {
+          "id": 54,
+          "nome": "Sonda de Combustível Capacitiva",
+          "categoria": "Sensores de Nível",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "principio": "Capacitivo",
+            "comprimento": "200mm a 2000mm cortável",
+            "saida": "0-5V, 4-20mA, CANbus J1939, RS485",
+            "precisao": "±1%FS",
+            "fluidos": "Diesel, gasolina, etanol, óleo",
+            "material": "Alumínio anodizado, 316L",
+            "calibracao": "Multi-ponto"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 100,
+            "max": 400
+          },
+          "imagem": "Consultar tamanhos",
+          "link_empresa": "https://www.macsensor.com/"
+        },
+        {
+          "id": 55,
+          "nome": "Sensor de Nível de Óleo Capacitivo",
+          "categoria": "Sensores de Nível",
+          "fabricante": "Macsensor",
+          "especificacoes": {
+            "aplicacao": "Transformadores, tanques de óleo, motores",
+            "temperatura": "-40°C a 150°C",
+            "material": "Aço inox 316L, isolação PTFE",
+            "saida": "4-20mA, 2 relés alarme",
+            "montagem": "Flange ANSI/DIN, rosca NPT",
+            "comprimento_haste": "300mm a 3000mm",
+            "display": "Local opcional"
+          },
+          "preco_estimado": {
+            "moeda": "USD",
+            "min": 200,
+            "max": 600
+          },
+          "imagem": "Ver montagem",
+          "link_empresa": "https://www.macsensor.com/"
+        }
+      ]
+    },
+    "Controle_de_Acesso_Telematica": {
+      "total": 20,
+      "produtos": [
+        {
+          "id": 56,
+          "nome": "Catraca Gabinete GB300",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Gabinete/balcão",
+            "material": "Aço inox escovado ou pintado preto",
+            "bracos": "3 braços articulados em aço inox",
+            "fluxo": "Bidirecional",
+            "capacidade": "30 pessoas/minuto",
+            "leitoras": "Proximidade, biometria, QR Code, facial",
+            "software": "Integração Suricato",
+            "mecanismo": "Eletromecânico com amortecedor",
+            "alimentacao": "110/220VAC",
+            "consumo": "50W"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 8000,
+            "max": 15000
+          },
+          "imagem": "Solicitar catálogo ilustrado",
+          "link_produto": "https://telematica.com.br/solucoes/controladores-de-acesso-de-pessoas/catraca-gb300/",
+          "link_revenda": "https://brasilacesso.com.br/catracas/telematica-gb300/"
+        },
+        {
+          "id": 57,
+          "nome": "Catraca Pedestal PD300",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Pedestal",
+            "material": "Aço inox escovado ou pintado",
+            "design": "Moderno e robusto",
+            "bracos": "3 braços em aço inox",
+            "fluxo": "Bidirecional",
+            "integracao": "Software Suricato",
+            "leitoras": "Múltiplas tecnologias",
+            "pictogramas": "LED indicativo",
+            "dimensoes": "Alt 980mm x Larg 650mm x Prof 780mm"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 6000,
+            "max": 12000
+          },
+          "imagem": "Ver na página do produto",
+          "link_produto": "https://telematica.com.br/solucoes/controladores-de-acesso-de-pessoas/catraca-pd300/",
+          "link_revenda": "https://brasilacesso.com.br/catracas/telematica-pd300/"
+        },
+        {
+          "id": 58,
+          "nome": "Catraca Pedestal PS300",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Pedestal clássico",
+            "material": "Aço carbono pintado ou inox",
+            "design": "Clássico robusto",
+            "bracos": "3 braços",
+            "modo": "Online/Offline",
+            "leitoras": "Código barras, proximidade, biometria",
+            "liberacao": "Bidirecional ou unidirecional",
+            "contador": "Mecânico opcional"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 5000,
+            "max": 10000
+          },
+          "imagem": "Solicitar foto",
+          "link_produto": "https://telematica.com.br/solucoes/controladores-de-acesso-de-pessoas/catraca-ps300/",
+          "link_revenda": "https://brasilacesso.com.br/catracas/telematica-ps300/"
+        },
+        {
+          "id": 59,
+          "nome": "Catraca PcD GT300",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Acessibilidade PcD",
+            "largura_passagem": "0.90m livre",
+            "normas": "NBR 9050 compliant",
+            "material": "Aço inox",
+            "porta": "Vidro temperado ou acrílico",
+            "sensores": "Anti-esmagamento, presença",
+            "abertura": "Motorizada automática",
+            "emergencia": "Abertura manual",
+            "tempo_abertura": "Programável 3-10 segundos"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 12000,
+            "max": 20000
+          },
+          "imagem": "Ver modelo PcD",
+          "link_produto": "https://telematica.com.br/solucoes/controladores-de-acesso-de-pessoas/gt300-pcd/"
+        },
+        {
+          "id": 60,
+          "nome": "Catraca Pedestal SIM300",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Pedestal simplificado",
+            "material": "Aço carbono com pintura epóxi",
+            "bracos": "3 braços",
+            "aplicacao": "Entrada/saída básica",
+            "controle": "Manual, semi-automático ou automático",
+            "opcoes": "Contador mecânico, cofre coletor",
+            "instalacao": "Chumbamento no piso"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 4000,
+            "max": 8000
+          },
+          "imagem": "Consultar modelo",
+          "link_produto": "https://telematica.com.br/solucoes/controladores-de-acesso-de-pessoas/"
+        },
+        {
+          "id": 61,
+          "nome": "Catraca SW Classic TSI",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Motorizada premium speed gate",
+            "material": "Aço inox/vidro temperado",
+            "abas": "Acrílico ou policarbonato customizável",
+            "motor": "Brushless baixo consumo",
+            "velocidade": "Programável, auto-ajustável",
+            "sensores": "32 pares infravermelho anti-esmagamento",
+            "leitoras": "QR, facial 3D, biometria, NFC",
+            "pictogramas": "LED RGB programável",
+            "capacidade": "60 pessoas/minuto",
+            "mcbf": "> 5 milhões ciclos"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 15000,
+            "max": 25000
+          },
+          "imagem": "Ver showroom virtual",
+          "link_produto": "https://telematica.com.br/solucoes/controladores-de-acesso-de-pessoas/catracas-sw/",
+          "link_lp": "https://telematica.com.br/catracas-sw/"
+        },
+        {
+          "id": 62,
+          "nome": "Catraca SW Fluxo Livre TSI",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Fluxo livre motorizada",
+            "passagem": "Normalmente aberta/fechada configurável",
+            "velocidade": "60 pessoas/minuto",
+            "emergencia": "Abertura automática power-off",
+            "design": "Premium slim",
+            "largura_passagem": "600mm a 900mm",
+            "integracao": "Sistema anti-incêndio",
+            "abas": "Retráteis automáticas"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 18000,
+            "max": 30000
+          },
+          "imagem": "Solicitar vídeo",
+          "link_produto": "https://telematica.com.br/solucoes/controladores-de-acesso-de-pessoas/catracas-sw/"
+        },
+        {
+          "id": 63,
+          "nome": "Catraca SW Compact TSI",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Compacta motorizada",
+            "dimensoes": "30% menor que Classic",
+            "material": "Aço inox 304",
+            "abas": "Policarbonato 10mm",
+            "aplicacao": "Espaços reduzidos",
+            "motor": "Servo motor programável",
+            "sensores": "16 pares IR",
+            "passagem": "550mm"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 12000,
+            "max": 20000
+          },
+          "imagem": "Ver dimensões",
+          "link_produto": "https://telematica.com.br/solucoes/controladores-de-acesso-de-pessoas/catracas-sw/"
+        },
+        {
+          "id": 64,
+          "nome": "Catraca SW EVO TSI",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Última geração motorizada",
+            "tecnologia": "AI powered",
+            "design": "Futurista minimalista",
+            "display": "Touch 10\" integrado",
+            "leitoras": "Multi-biometria simultânea",
+            "conectividade": "5G/WiFi6/Bluetooth5",
+            "processamento": "Edge computing",
+            "capacidade": "120 pessoas/minuto"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 20000,
+            "max": 35000
+          },
+          "imagem": "Ver apresentação",
+          "link_produto": "https://telematica.com.br/solucoes/controladores-de-acesso-de-pessoas/catracas-sw/"
+        },
+        {
+          "id": 65,
+          "nome": "Catraca Gabinete GB700",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Gabinete premium",
+            "material": "Aço inox 304 escovado",
+            "capacidade": "45 pessoas/minuto",
+            "bracos": "Retráteis motorizados",
+            "display": "LCD 7\" informativo",
+            "alarmes": "Sonoro e visual RGB",
+            "cofre": "Integrado com contador",
+            "urna": "Para visitantes"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 10000,
+            "max": 18000
+          },
+          "imagem": "Consultar",
+          "link_produto": "https://telematica.com.br/"
+        },
+        {
+          "id": 66,
+          "nome": "Torniquete Slim TSI",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Torniquete altura total",
+            "altura": "2.1m a 2.3m",
+            "material": "Aço galvanizado + pintura epóxi",
+            "rotor": "3 ou 4 braços 120° ou 90°",
+            "seguranca": "Anti-escalada, anti-tailgating",
+            "aplicacao": "Perímetro, alta segurança",
+            "passagem": "Unidirecional ou bidirecional",
+            "emergencia": "Braço escamoteável"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 25000,
+            "max": 40000
+          },
+          "imagem": "Ver instalações",
+          "link_produto": "https://telematica.com.br/solucoes/controladores-de-acesso-de-pessoas/"
+        },
+        {
+          "id": 67,
+          "nome": "Torniquete TSI V2",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Torniquete versão 2",
+            "material": "Aço carbono galvanizado",
+            "acabamento": "Pintura eletrostática",
+            "controle": "Bidirecional",
+            "trava": "Eletromecânica fail-safe",
+            "emergencia": "Destravamento manual chave",
+            "contador": "Digital display LCD",
+            "cobertura": "Opcional policarbonato"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 20000,
+            "max": 35000
+          },
+          "imagem": "Solicitar projeto",
+          "link_produto": "https://telematica.com.br/"
+        },
+        {
+          "id": 68,
+          "nome": "Self Checkout TSI",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Totem autoatendimento",
+            "display": "Touch 15\" ou 21\" Full HD",
+            "cpu": "Intel i5/i7",
+            "pagamento": "Cartão chip/NFC, PIX, dinheiro",
+            "impressora": "Térmica 80mm auto-corte",
+            "scanner": "2D QR Code/código barras",
+            "aplicacao": "Estacionamentos, eventos, pedágios",
+            "comunicacao": "4G/Ethernet/WiFi",
+            "software": "Customizável"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 15000,
+            "max": 25000
+          },
+          "imagem": "Ver modelos totem",
+          "link_produto": "https://telematica.com.br/"
+        },
+        {
+          "id": 69,
+          "nome": "Controle Facial FC1000",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tecnologia": "Reconhecimento facial 3D anti-spoofing",
+            "capacidade": "10.000 faces, 100.000 logs",
+            "velocidade": "< 0.3 segundos",
+            "precisao": "FAR < 0.001%, FRR < 0.1%",
+            "camera": "Dual 2MP, WDR",
+            "temperatura": "Medição térmica ±0.3°C",
+            "mascara": "Detecção uso correto",
+            "display": "7\" touch",
+            "comunicacao": "TCP/IP, WiFi, Wiegand"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 3000,
+            "max": 6000
+          },
+          "imagem": "Ver terminal",
+          "link_produto": "https://telematica.com.br/"
+        },
+        {
+          "id": 70,
+          "nome": "Controle Portátil Codin Armis P25",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Terminal portátil Android",
+            "tela": "5\" Touch capacitivo",
+            "bateria": "5000mAh, 8h uso contínuo",
+            "conectividade": "4G, WiFi, Bluetooth",
+            "leitores": "QR, NFC, biometria digital",
+            "camera": "8MP com flash",
+            "aplicacao": "Eventos, obras, rondas",
+            "protecao": "IP54",
+            "peso": "350g"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 2000,
+            "max": 4000
+          },
+          "imagem": "Solicitar demo",
+          "link_produto": "https://telematica.com.br/"
+        },
+        {
+          "id": 71,
+          "nome": "Controle de Acesso Codin MD400",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Terminal fixo acesso+ponto",
+            "display": "LCD 2.8\" colorido",
+            "capacidade": "5.000 digitais, 30.000 eventos",
+            "leitores": "Biometria, proximidade, senha",
+            "comunicacao": "TCP/IP, RS485, USB",
+            "funcoes": "REP-C + controle acesso",
+            "relés": "2 saídas para porta/alarme",
+            "wiegand": "Entrada/saída",
+            "software": "Suricato incluído"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 1500,
+            "max": 3000
+          },
+          "imagem": "Ver especificações",
+          "link_produto": "https://telematica.com.br/"
+        },
+        {
+          "id": 72,
+          "nome": "Microdin Armis",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Controladora 2 portas",
+            "capacidade": "10.000 cartões, 30.000 eventos",
+            "leitores": "2 Wiegand/RS485",
+            "comunicacao": "Ethernet TCP/IP, RS485",
+            "entradas": "4 digitais",
+            "saidas": "2 relés + 2 auxiliares",
+            "alimentacao": "12VDC",
+            "backup": "Bateria 12V/7Ah",
+            "software": "SDK disponível"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 800,
+            "max": 1500
+          },
+          "imagem": "Ver placa",
+          "link_produto": "https://telematica.com.br/"
+        },
+        {
+          "id": 73,
+          "nome": "Totem Pedestal TSI",
+          "categoria": "Controle de Acesso",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Totem informativo interativo",
+            "display": "32\", 43\", 55\" Full HD/4K",
+            "touch": "Capacitivo 10 pontos IR",
+            "sistema": "Android 9.0 ou Windows 10",
+            "cpu": "RK3288/3399 ou Intel",
+            "conectividade": "WiFi, Ethernet, 4G",
+            "aplicacao": "Recepção, wayfinding",
+            "estrutura": "Aço com pintura epóxi",
+            "opcoes": "Câmera, QR reader, impressora"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 8000,
+            "max": 20000
+          },
+          "imagem": "Ver modelos",
+          "link_produto": "https://telematica.com.br/"
+        }
+      ]
+    },
+    "Gestao_de_Ponto": {
+      "total": 6,
+      "produtos": [
+        {
+          "id": 74,
+          "nome": "CodinReP 4000",
+          "categoria": "Gestão de Ponto",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "REP-P Portaria 671",
+            "capacidade": "15.000 funcionários",
+            "biometria": "FAP20 1:N até 10.000",
+            "impressora": "Térmica 58mm integrada",
+            "display": "LCD 3.5\" colorido",
+            "comunicacao": "Ethernet, 3G/4G opcional",
+            "memoria": "1GB fiscal protegida",
+            "backup": "Bateria 6h",
+            "software": "ConexREP incluído"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 3000,
+            "max": 5000
+          },
+          "imagem": "Ver homologação",
+          "link_produto": "https://telematica.com.br/"
+        },
+        {
+          "id": 75,
+          "nome": "TSI Codin Mobile (ReP-P)",
+          "categoria": "Gestão de Ponto",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "REP-P Mobile App",
+            "plataforma": "Android/iOS",
+            "validacao": "Facial + GPS",
+            "geofence": "Múltiplos pontos",
+            "offline": "Sincronização posterior",
+            "integracao": "ERP/Folha pagamento",
+            "relatorios": "Real-time dashboard",
+            "assinatura": "SaaS mensal"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 50,
+            "max": 200,
+            "observacao": "Por funcionário/mês"
+          },
+          "imagem": "Ver app stores",
+          "link_produto": "https://telematica.com.br/"
+        },
+        {
+          "id": 76,
+          "nome": "CodinReP 3000",
+          "categoria": "Gestão de Ponto",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "REP-P Intermediário",
+            "capacidade": "5.000 funcionários",
+            "biometria": "Sensor óptico 500dpi",
+            "display": "LCD 2.8\" colorido",
+            "impressora": "Térmica 58mm",
+            "comunicacao": "Ethernet, RS485",
+            "backup": "Bateria 4h",
+            "memoria": "512MB + SD card"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 2000,
+            "max": 3500
+          },
+          "imagem": "Consultar modelo",
+          "link_produto": "https://telematica.com.br/"
+        },
+        {
+          "id": 77,
+          "nome": "CodinReP 3000 LT",
+          "categoria": "Gestão de Ponto",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "REP-P Entrada",
+            "capacidade": "1.000 funcionários",
+            "leitores": "Proximidade 125kHz, código barras",
+            "display": "LCD 2x16 caracteres",
+            "impressora": "Térmica 58mm",
+            "comunicacao": "USB, RS485",
+            "memoria": "Básica com backup",
+            "custo": "Reduzido"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 1200,
+            "max": 2000
+          },
+          "imagem": "Ver entrada",
+          "link_produto": "https://telematica.com.br/"
+        },
+        {
+          "id": 78,
+          "nome": "CodinCeP",
+          "categoria": "Gestão de Ponto",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Controle eletrônico não-fiscal",
+            "capacidade": "Ilimitada",
+            "leitores": "Biometria, cartão, senha",
+            "integracao": "Total ERP/Folha",
+            "relatorios": "100+ modelos",
+            "banco_horas": "Configurável",
+            "escalas": "Ilimitadas",
+            "cloud": "Opcional"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 800,
+            "max": 1500
+          },
+          "imagem": "Ver software",
+          "link_produto": "https://telematica.com.br/"
+        },
+        {
+          "id": 79,
+          "nome": "Software Suricato - Gestão Integrada",
+          "categoria": "Gestão de Ponto",
+          "fabricante": "Telemática",
+          "especificacoes": {
+            "tipo": "Plataforma completa",
+            "modulos": "Ponto, acesso, visitantes, refeitório",
+            "usuarios": "Ilimitados",
+            "relatorios": "200+ modelos customizáveis",
+            "api": "REST completa documentada",
+            "integracao": "SAP, TOTVS, Senior",
+            "cloud": "AWS São Paulo",
+            "mobile": "Apps nativos",
+            "suporte": "24x7 opcional"
+          },
+          "preco_estimado": {
+            "moeda": "BRL",
+            "min": 500,
+            "max": 5000,
+            "observacao": "Mensal, varia com módulos e usuários"
+          },
+          "imagem": "Agendar demonstração",
+          "link_produto": "https://telematica.com.br/"
+        }
+      ]
+    },
+    "informacao_nao_categorizada": [
+      {
+        "nome": "Empresa Coolmay",
+        "descricao": "Site oficial do fabricante",
+        "link": "https://en.coolmay.com/"
+      },
+      {
+        "nome": "Empresa Macsensor",
+        "descricao": "Site oficial do fabricante",
+        "link": "https://www.macsensor.com/"
+      },
+      {
+        "nome": "Empresa HJ Sensor",
+        "descricao": "Site oficial do fabricante",
+        "link": "https://www.hjsensor.com/"
+      },
+      {
+        "nome": "Empresa Telemática",
+        "descricao": "Site oficial do fabricante",
+        "link": "https://telematica.com.br/"
+      }
+    ]
+  }
+}

@@ -2,115 +2,75 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ChevronDown, Search, Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { Menu, X, ChevronDown, Search, Phone, Mail, MapPin, Linkedin, Instagram } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import Image from "next/image"
-import { LanguageSelector } from "@/components/language-selector"
-import { useI18n } from "@/lib/i18n/context"
+import { CartButton } from "@/components/cart-button"
 
 const navigation = [
   { name: "Home", href: "/", nameKey: "home" },
   {
-    name: "Institucional",
-    href: "/institucional",
-    nameKey: "institutional",
+    name: "Produtos",
+    href: "/produtos",
+    nameKey: "products",
     submenu: [
       {
-        name: "Sobre o Porto",
+        name: "CLP e Automação",
         items: [
-          { name: "Porto Itapoá", href: "/porto-itapoa" },
-          { name: "Infraestrutura", href: "/infraestrutura" },
-          { name: "Localização", href: "/localizacao" },
-          { name: "Tour 360°", href: "/tour-360" },
-        ],
+          { name: "CLP com IHM Incorporada - Coolmay QM3G-43FH", href: "/produtos/coolmay-qm3g-43fh" },
+          { name: "CLP com IHM Incorporada - Coolmay QM3G-70FH", href: "/produtos/coolmay-qm3g-70fh" },
+          { name: "CLP com IHM Incorporada - Coolmay QM3G-100FH", href: "/produtos/coolmay-qm3g-100fh" },
+          { name: "IHM Touch Screen - Coolmay EX3G Series", href: "/produtos/coolmay-ex3g-series" },
+          { name: "Inversores de Frequência - Coolmay VFD Series", href: "/produtos/coolmay-vfd-series" },
+          { name: "Fonte de Alimentação Industrial 24V", href: "/produtos/coolmay-fonte-24v" },
+          { name: "I/O Remoto - Módulo Expansão Coolmay L02", href: "/produtos/coolmay-io-l02" }
+        ]
       },
       {
-        name: "Governança",
+        name: "Medidores de Vazão",
         items: [
-          { name: "Acionistas", href: "/acionistas" },
-          { name: "Demonstrações Financeiras", href: "/demonstracoes" },
-          { name: "Política de Gestão Integrada", href: "/politica-gestao" },
-          { name: "LGPD", href: "/lgpd" },
-        ],
+          { name: "Medidor de Vazão Eletromagnético", href: "/produtos/macsensor-eletromagnetico" },
+          { name: "Medidor de Vazão Ultrassônico Clamp-On UF2000B", href: "/produtos/macsensor-uf2000b" }
+        ]
       },
       {
-        name: "Transparência",
+        name: "Sensores de Temperatura",
         items: [
-          { name: "Denúncias", href: "/denuncias" },
-          { name: "Certificações", href: "/certificacoes" },
-          { name: "Premiações", href: "/premiacao" },
-          { name: "Pacto Global 2021", href: "/pacto-global" },
-        ],
+          { name: "Sensor de Temperatura Industrial PT100", href: "/produtos/hjsensor-pt100" },
+          { name: "Transmissor de Temperatura 4-20mA", href: "/produtos/hjsensor-transmissor-temp" }
+        ]
       },
       {
-        name: "Recursos",
+        name: "Sensores de Pressão",
         items: [
-          { name: "Downloads", href: "/downloads" },
-          { name: "Galerias", href: "/galerias" },
-          { name: "Linha do Tempo", href: "/linha-tempo" },
-        ],
+          { name: "Sensor de Pressão Industrial P10", href: "/produtos/macsensor-pressao-p10" },
+          { name: "Transdutor de Pressão Compacto", href: "/produtos/macsensor-pressao-compacto" }
+        ]
       },
-    ],
+      {
+        name: "Sensores de Nível",
+        items: [
+          { name: "Sensor de Pressão Submersível L702", href: "/produtos/macsensor-nivel-l702" },
+          { name: "Transmissor de Nível Hidrostático Submersível L703", href: "/produtos/macsensor-nivel-hidrostatico" }
+        ]
+      },
+      {
+        name: "Controle de Acesso",
+        items: [
+          { name: "Catraca Gabinete GB300", href: "/produtos/telematica-gb300" },
+          { name: "CodinReP 4000", href: "/produtos/telematica-codinrep4000" }
+        ]
+      }
+    ]
   },
-  {
-    name: "Serviços",
-    href: "/servicos",
-    nameKey: "services",
-    submenu: [
-      
-      {
-        name: "Consultas e Simuladores",
-        items: [
-          { name: "Consultas", href: "/consultas" },
-          { name: "Simuladores de Preço", href: "/simuladores" },
-        ],
-      },
-      {
-        name: "Operações e Procedimentos",
-        items: [
-          { name: "Procedimentos", href: "/procedimentos" },
-          { name: "Cartas Protestos", href: "/cartas-protestos" },
-          { name: "Programação de Navios", href: "/programacao-navios" },
-          { name: "Integração de Motoristas", href: "/integracao-motoristas" },
-          { name: "Integração de Terceiros", href: "/integracao-terceiros" },
-        ],
-      },
-      {
-        name: "Preços e Tabelas",
-        items: [
-          { name: "Tabela de Preços 2025", href: "/precos" },
-          { name: "Tabela de Preços 2025 (A partir de 21/03)", href: "/precos-21-03" },
-        ],
-      },
-      {
-        name: "Portais e Ferramentas",
-        items: [
-          { name: "Portal de Compras", href: "/portal-compras" },
-          { name: "Portfólio de Serviços", href: "/portfolio" },
-          { name: "Câmera Online", href: "/camera-online" },
-          { name: "Linhas de Navegação", href: "/linhas-navegacao" },
-          { name: "Cadastro de Cliente", href: "/cadastro-cliente" },
-          { name: "Cadastro de Motorista", href: "/cadastro-motorista" },
-        ],
-      },
-    ],
-  },
-  { name: "Notícias", href: "/noticias", nameKey: "news" },
-  { name: "Sustentabilidade", href: "/sustentabilidade", nameKey: "sustainability" },
+  { name: "Sobre", href: "/sobre", nameKey: "about" },
+  { name: "Soluções", href: "/solucoes", nameKey: "solutions" },
   { name: "Contato", href: "/contato", nameKey: "contact" },
 ]
 
-const quickLinks = [
-  { name: "Agendamento", href: "/agendamento", icon: Clock },
-  { name: "Rastreamento", href: "/rastreamento", icon: Search },
-  { name: "Preços", href: "/precos", icon: Phone },
-]
-
 export function Header() {
-  const { t } = useI18n()
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
@@ -175,37 +135,38 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="bg-green-800 text-white py-2 px-8 hidden lg:block"
+              className="bg-marsala-700 text-white py-2 px-8 hidden lg:block"
             >
               <div className="max-w-7xl mx-auto flex items-center justify-between text-sm">
                 <div className="flex items-center space-x-6">
                   <div className="flex items-center space-x-2">
                     <MapPin className="h-4 w-4" />
-                    <span>Av. Beira Mar 5, 2900 • Itapoá/SC</span>
+                    <span>Av. Brasília, 397B - Suzano/SP</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Phone className="h-4 w-4" />
-                    <span>+55 (47) 3441-8000</span>
+                    <span>(11) 3090-3687</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Mail className="h-4 w-4" />
-                    <span>atendimento@portoitapoa.com</span>
+                    <span>contato@althionlab.com</span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <LanguageSelector />
-                  <div className="flex items-center space-x-3">
-                    {quickLinks.map((link) => (
-                      <Link
-                        key={link.name}
-                        href={link.href}
-                        className="flex items-center space-x-1 hover:text-green-200 transition-colors"
-                      >
-                        <link.icon className="h-3 w-3" />
-                        <span className="text-xs">{link.name}</span>
-                      </Link>
-                    ))}
-                  </div>
+                  <Link
+                    href="https://www.linkedin.com/company/althionlab"
+                    target="_blank"
+                    className="hover:text-marsala-200 transition-colors"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="https://www.instagram.com/althion.lab/"
+                    target="_blank"
+                    className="hover:text-marsala-200 transition-colors"
+                  >
+                    <Instagram className="h-4 w-4" />
+                  </Link>
                 </div>
               </div>
             </motion.div>
@@ -214,21 +175,20 @@ export function Header() {
 
         <div className="max-w-7xl mx-auto px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Logo - Apenas o logo sem texto */}
+            {/* Logo/Brand Text */}
             <Link href="/" className="flex items-center group">
               <motion.div
-                className="relative w-24 h-24 transition-transform group-hover:scale-105"
-                whileHover={{ rotate: 5 }}
+                className="transition-transform group-hover:scale-105"
+                whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <Image
-                  src="/logo-grande-1.png"
-                  alt="Porto Itapoá"
-                  fill
-                  className={`object-contain transition-all duration-500 ${
-                    isHomePage && !scrolled ? "brightness-0 invert" : ""
-                  }`}
-                />
+                <h1 className={`text-2xl font-bold transition-all duration-500 ${
+                  isHomePage && !scrolled 
+                    ? "text-white" 
+                    : "text-marsala-700"
+                }`}>
+                  Althion Lab
+                </h1>
               </motion.div>
             </Link>
 
@@ -250,14 +210,14 @@ export function Header() {
                           item.submenu.some((section) => section.items.some((subItem) => pathname === subItem.href))
                       )
                         ? isHomePage && !scrolled
-                          ? "text-green-300 bg-white/10 backdrop-blur-sm"
-                          : "text-green-600 bg-green-50"
+                          ? "text-marsala-300 bg-white/10 backdrop-blur-sm"
+                          : "text-marsala-600 bg-marsala-50"
                         : isHomePage && !scrolled
-                          ? "text-white hover:text-green-200 hover:bg-white/10"
-                          : "text-gray-700 hover:text-green-600 hover:bg-green-50"
+                          ? "text-white hover:text-marsala-200 hover:bg-white/10"
+                          : "text-gray-700 hover:text-marsala-600 hover:bg-marsala-50"
                     }`}
                   >
-                    <span className="relative z-10">{t(item.nameKey as any) || item.name}</span>
+                    <span className="relative z-10">{item.name}</span>
                     {item.submenu && (
                       <motion.div
                         animate={{ rotate: activeSubmenu === item.name ? 180 : 0 }}
@@ -265,7 +225,7 @@ export function Header() {
                       >
                         <ChevronDown
                           className={`ml-2 h-4 w-4 transition-all duration-300 ${
-                            activeSubmenu === item.name ? "text-green-600" : ""
+                            activeSubmenu === item.name ? "text-marsala-600" : ""
                           }`}
                         />
                       </motion.div>
@@ -276,7 +236,7 @@ export function Header() {
                       className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl ${
                         isHomePage && !scrolled
                           ? "bg-white/10 backdrop-blur-sm"
-                          : "bg-gradient-to-r from-green-50 to-emerald-50"
+                          : "bg-gradient-to-r from-marsala-50 to-marsala-100"
                       }`}
                       initial={{ scale: 0.8 }}
                       whileHover={{ scale: 1 }}
@@ -284,61 +244,75 @@ export function Header() {
                     />
                   </Link>
 
-                  {/* Mega Menu */}
+                  {/* Dropdown Menu - Lateral à direita */}
                   {item.submenu && (
                     <AnimatePresence>
                       {activeSubmenu === item.name && (
                         <motion.div
-                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          initial={{ opacity: 0, x: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, x: 0, scale: 1 }}
+                          exit={{ opacity: 0, x: 10, scale: 0.95 }}
                           transition={{ duration: 0.2, ease: "easeOut" }}
-                          className={`absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-100 py-6 z-50 ${
-                            item.name === "Serviços" ? "min-w-[600px]" : "min-w-[800px]"
-                          }`}
+                          className="absolute top-0 left-full ml-2 bg-white rounded-xl shadow-2xl border border-gray-100 py-4 z-50 w-[700px] max-h-[70vh] overflow-y-auto"
                           style={{
                             background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
                             boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05)",
                           }}
                         >
-                          {/* Layout padrão para todos os menus - até 4 colunas para evitar aperto visual */}
-                          <div
-                            className={`grid ${item.submenu.length <= 2 ? "grid-cols-2" : item.submenu.length === 3 ? "grid-cols-3" : "grid-cols-4"} gap-8 px-8`}
-                          >
-                            {item.submenu.map((section, sectionIndex) => (
-                              <motion.div
-                                key={section.name}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.3, delay: sectionIndex * 0.1 }}
-                                className="space-y-4"
-                              >
-                                <h3 className="text-sm font-bold text-green-800 uppercase tracking-wider border-b border-green-100 pb-2">
-                                  {section.name}
-                                </h3>
-                                <div className="space-y-2">
-                                  {section.items.map((subItem) => (
-                                    <motion.div key={subItem.name} whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                                      <Link
-                                        href={subItem.href}
-                                        className={`block text-sm transition-all duration-200 hover:text-green-600 py-2 px-3 rounded-lg hover:bg-green-50 ${
-                                          pathname === subItem.href
-                                            ? "text-green-600 bg-green-50 font-medium"
-                                            : "text-gray-700"
-                                        }`}
+                          {/* Grid 3 colunas com categorias */}
+                          <div className="px-4">
+                            <div className="grid grid-cols-3 gap-6">
+                              {item.submenu.slice(0, 6).map((section, sectionIndex) => (
+                                <motion.div
+                                  key={section.name}
+                                  initial={{ opacity: 0, x: -20 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ duration: 0.3, delay: sectionIndex * 0.05 }}
+                                  className="space-y-3"
+                                >
+                                  <h3 className="text-sm font-bold text-marsala-800 uppercase tracking-wider border-b border-marsala-100 pb-2">
+                                    {section.name}
+                                  </h3>
+                                  <div className="space-y-1">
+                                    {/* Mostrar apenas os primeiros 3 produtos */}
+                                    {section.items?.slice(0, 3).map((subItem) => (
+                                      <motion.div key={subItem.name} whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
+                                        <Link
+                                          href={subItem.href}
+                                          className={`block text-xs transition-all duration-200 hover:text-marsala-600 py-1 px-2 rounded-lg hover:bg-marsala-50 ${
+                                            pathname === subItem.href
+                                              ? "text-marsala-600 bg-marsala-50 font-medium"
+                                              : "text-gray-700"
+                                          }`}
+                                        >
+                                          {subItem.name}
+                                        </Link>
+                                      </motion.div>
+                                    ))}
+                                    
+                                    {/* Botão "Ver todos" se houver mais de 3 produtos */}
+                                    {section.items && section.items.length > 3 && (
+                                      <motion.div 
+                                        whileHover={{ x: 4 }} 
+                                        transition={{ duration: 0.2 }}
+                                        className="mt-2"
                                       >
-                                        {subItem.name}
-                                      </Link>
-                                    </motion.div>
-                                  ))}
-                                </div>
-                              </motion.div>
-                            ))}
+                                        <Link
+                                          href={`/produtos?categoria=${section.name.toLowerCase().replace(/\s+/g, '-')}`}
+                                          className="block text-xs font-medium text-marsala-600 hover:text-marsala-700 py-1 px-2 rounded-lg hover:bg-marsala-50 border border-marsala-200"
+                                        >
+                                          Ver todos ({section.items.length})
+                                        </Link>
+                                      </motion.div>
+                                    )}
+                                  </div>
+                                </motion.div>
+                              ))}
+                            </div>
                           </div>
 
-                          {/* Decorative Elements */}
-                          <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full opacity-20" />
-                          <div className="absolute bottom-4 left-4 w-16 h-16 bg-gradient-to-br from-emerald-100 to-green-100 rounded-full opacity-20" />
+                          {/* Seta indicativa */}
+                          <div className="absolute top-4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-transparent border-r-white" />
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -349,8 +323,10 @@ export function Header() {
 
             {/* Search & Actions */}
             <div className="hidden lg:flex items-center space-x-4">
+              {/* Carrinho */}
+              <CartButton />
+
               {/* Language Selector - apenas quando não scrolled na home */}
-              {isHomePage && !scrolled && <LanguageSelector />}
 
               {/* Search */}
               <div className="relative">
@@ -367,7 +343,7 @@ export function Header() {
                         placeholder="Buscar..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="rounded-full border-gray-300 focus:border-green-500 pr-10"
+                        className="rounded-full border-gray-300 focus:border-marsala-500 pr-10"
                         autoFocus
                       />
                       <Button
@@ -386,7 +362,7 @@ export function Header() {
                         size="sm"
                         onClick={toggleSearch}
                         className={`p-2 rounded-full transition-colors duration-300 ${
-                          isHomePage && !scrolled ? "hover:bg-white/10 text-white" : "hover:bg-green-50 text-gray-600"
+                          isHomePage && !scrolled ? "hover:bg-white/10 text-white" : "hover:bg-marsala-50 text-gray-600"
                         }`}
                       >
                         <Search className="h-5 w-5" />
@@ -396,17 +372,17 @@ export function Header() {
                 </AnimatePresence>
               </div>
 
-              {/* Portal do Cliente Button */}
-              <Link href="/portal-cliente">
+              {/* Botão Solicitar Orçamento */}
+              <Link href="/orcamento">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button
                     className={`rounded-full px-6 py-2 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ${
                       isHomePage && !scrolled
                         ? "bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
-                        : "bg-gradient-to-r from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800 text-white"
+                        : "bg-gradient-to-r from-marsala-600 to-marsala-700 hover:from-marsala-700 hover:to-marsala-800 text-white"
                     }`}
                   >
-                    {t("clientPortal")}
+                    Solicitar Orçamento
                   </Button>
                 </motion.div>
               </Link>
@@ -417,7 +393,7 @@ export function Header() {
               variant="ghost"
               size="sm"
               className={`lg:hidden p-2 rounded-xl transition-colors duration-300 ${
-                isHomePage && !scrolled ? "hover:bg-white/10 text-white" : "hover:bg-green-50 text-gray-700"
+                isHomePage && !scrolled ? "hover:bg-white/10 text-white" : "hover:bg-marsala-50 text-gray-700"
               }`}
               onClick={() => setIsOpen(!isOpen)}
             >
@@ -446,7 +422,7 @@ export function Header() {
                     placeholder="Buscar..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 rounded-full border-gray-300 focus:border-green-500"
+                    className="pl-10 rounded-full border-gray-300 focus:border-marsala-500"
                   />
                 </div>
 
@@ -455,18 +431,18 @@ export function Header() {
                   <div key={item.name} className="space-y-3">
                     <Link
                       href={item.href}
-                      className={`block text-lg font-semibold transition-colors duration-200 hover:text-green-600 py-2 ${
-                        pathname === item.href ? "text-green-600" : "text-gray-700"
+                      className={`block text-lg font-semibold transition-colors duration-200 hover:text-marsala-600 py-2 ${
+                        pathname === item.href ? "text-marsala-600" : "text-gray-700"
                       }`}
                       onClick={() => setIsOpen(false)}
                     >
-                      {t(item.nameKey as any) || item.name}
+                      {item.name}
                     </Link>
                     {item.submenu && (
                       <div className="ml-4 space-y-3">
                         {item.submenu.map((section) => (
                           <div key={section.name} className="space-y-2">
-                            <h4 className="text-sm font-semibold text-green-700 uppercase tracking-wider">
+                            <h4 className="text-sm font-semibold text-marsala-700 uppercase tracking-wider">
                               {section.name}
                             </h4>
                             <div className="ml-3 space-y-1">
@@ -474,8 +450,8 @@ export function Header() {
                                 <Link
                                   key={subItem.name}
                                   href={subItem.href}
-                                  className={`block text-sm transition-colors duration-200 hover:text-green-600 py-1 ${
-                                    pathname === subItem.href ? "text-green-600 font-medium" : "text-gray-600"
+                                  className={`block text-sm transition-colors duration-200 hover:text-marsala-600 py-1 ${
+                                    pathname === subItem.href ? "text-marsala-600 font-medium" : "text-gray-600"
                                   }`}
                                   onClick={() => setIsOpen(false)}
                                 >
@@ -492,27 +468,23 @@ export function Header() {
 
                 {/* Mobile CTA */}
                 <div className="pt-4 border-t border-gray-200">
-                  <Link href="/portal-cliente" onClick={() => setIsOpen(false)}>
-                    <Button className="w-full bg-gradient-to-r from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800 text-white rounded-full py-3 font-semibold">
-                      {t("clientPortal")}
+                  <Link href="/orcamento" onClick={() => setIsOpen(false)}>
+                    <Button className="w-full bg-gradient-to-r from-marsala-600 to-marsala-700 hover:from-marsala-700 hover:to-marsala-800 text-white rounded-full py-3 font-semibold">
+                      Solicitar Orçamento
                     </Button>
                   </Link>
                 </div>
 
-                {/* Mobile Language Selector */}
-                <div className="pt-4 border-t border-gray-200">
-                  <LanguageSelector variant="footer" />
-                </div>
 
                 {/* Mobile Contact Info */}
                 <div className="pt-4 border-t border-gray-200 space-y-2 text-sm text-gray-600">
                   <div className="flex items-center space-x-2">
                     <Phone className="h-4 w-4" />
-                    <span>+55 (47) 3441-8000</span>
+                    <span>(11) 3090-3687</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Mail className="h-4 w-4" />
-                    <span>atendimento@portoitapoa.com</span>
+                    <span>contato@althionlab.com</span>
                   </div>
                 </div>
               </div>

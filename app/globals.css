@@ -12,20 +12,27 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 142 76% 36%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --primary: 355 45% 35%; /* Marsala */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 355 35% 88%; /* Marsala claro */
+    --secondary-foreground: 355 45% 25%;
+    --muted: 355 20% 94%;
+    --muted-foreground: 355 15% 35%;
+    --accent: 355 40% 45%; /* Marsala accent */
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 142 76% 36%;
+    --border: 355 15% 88%;
+    --input: 355 15% 88%;
+    --ring: 355 45% 35%;
     --radius: 0.75rem;
+    
+    /* Cores customizadas Marsala */
+    --marsala: 355 45% 35%;
+    --marsala-light: 355 35% 50%;
+    --marsala-dark: 355 45% 25%;
+    --marsala-bg: 355 30% 95%;
+    --gray-warm: 30 10% 92%;
   }
 
   .dark {

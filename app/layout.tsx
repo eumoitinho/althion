@@ -13,18 +13,18 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Porto Itapoá - Gateway da América Latina",
+  title: "Althion ",
   description:
-    "Terminal portuário de última geração, conectando o Brasil ao mundo com eficiência, tecnologia e sustentabilidade.",
+    "Produtos e soluções tecnológicas para a industria.",
   keywords: "porto, itapoá, terminal, portuário, brasil, logística, containers, navegação",
   openGraph: {
-    title: "Porto Itapoá - Gateway da América Latina",
+    title: "Althion - Produtos e Soluções Tecnológicas",
     description:
-      "Terminal portuário de última geração, conectando o Brasil ao mundo com eficiência, tecnologia e sustentabilidade.",
+      "Oferecendo uma ampla gama de produtos e soluções para a indústria.",
     type: "website",
     locale: "pt_BR",
   },
-    generator: 'v0.dev'
+    generator: 'moitinho'
 }
 
 export default function RootLayout({

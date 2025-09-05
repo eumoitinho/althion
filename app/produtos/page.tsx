@@ -34,7 +34,7 @@ function ProductsContent() {
   const [showFilters, setShowFilters] = useState(false)
 
   // Obter marcas únicas
-  const brands = [...new Set(products.filter(p => p.brand).map(p => p.brand))].sort()
+  const brands = [...new Set(products.filter(p => p.manufacturer).map(p => p.manufacturer))].sort()
 
   // Aplicar filtros
   useEffect(() => {
@@ -54,13 +54,13 @@ function ProductsContent() {
         p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         p.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         p.technicalName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        p.brand?.toLowerCase().includes(searchTerm.toLowerCase())
+        p.manufacturer?.toLowerCase().includes(searchTerm.toLowerCase())
       )
     }
 
     // Filtro por marca
     if (selectedBrands.length > 0) {
-      filtered = filtered.filter(p => p.brand && selectedBrands.includes(p.brand))
+      filtered = filtered.filter(p => p.manufacturer && selectedBrands.includes(p.manufacturer))
     }
 
     // Filtro por preço

@@ -201,17 +201,10 @@ function ProductContent({ params }: ProductPageProps) {
                     onClick={handleAddToCart}
                     className="w-full bg-marsala-600 hover:bg-marsala-700 text-white h-12 text-lg"
                   >
-                    {product.price ? (
-                      <>
-                        <ShoppingCart className="h-5 w-5 mr-2" />
-                        Adicionar ao Carrinho
-                      </>
-                    ) : (
-                      <>
-                        <FileText className="h-5 w-5 mr-2" />
-                        Solicitar Orçamento
-                      </>
-                    )}
+                    <>
+                      <ShoppingCart className="h-5 w-5 mr-2" />
+                      Adicionar ao Carrinho
+                    </>
                   </Button>
                   
                   <div className="flex space-x-3">

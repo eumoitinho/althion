@@ -270,9 +270,21 @@ export function Header() {
                                   transition={{ duration: 0.3, delay: sectionIndex * 0.05 }}
                                   className="space-y-3"
                                 >
-                                  <h3 className="text-sm font-bold text-marsala-800 uppercase tracking-wider border-b border-marsala-100 pb-2">
-                                    {section.name}
-                                  </h3>
+                                  <Link 
+                                    href={`/produtos?categoria=${section.name.toLowerCase()
+                                      .replace('clp e automação', 'clp-automacao')
+                                      .replace('medidores de vazão', 'medidores-vazao') 
+                                      .replace('sensores de temperatura', 'sensores-temperatura')
+                                      .replace('sensores de pressão', 'sensores-pressao')
+                                      .replace('sensores de nível', 'sensores-nivel')
+                                      .replace('controle de acesso e telemática', 'controle-acesso')
+                                    }`}
+                                    className="block"
+                                  >
+                                    <h3 className="text-sm font-bold text-marsala-800 uppercase tracking-wider border-b border-marsala-100 pb-2 hover:text-marsala-600 transition-colors">
+                                      {section.name}
+                                    </h3>
+                                  </Link>
                                   <div className="space-y-1">
                                     {/* Mostrar apenas os primeiros 3 produtos */}
                                     {section.items?.slice(0, 3).map((subItem) => (
@@ -298,7 +310,14 @@ export function Header() {
                                         className="mt-2"
                                       >
                                         <Link
-                                          href={`/produtos?categoria=${section.name.toLowerCase().replace(/\s+/g, '-')}`}
+                                          href={`/produtos?categoria=${section.name.toLowerCase()
+                                            .replace('clp e automação', 'clp-automacao')
+                                            .replace('medidores de vazão', 'medidores-vazao') 
+                                            .replace('sensores de temperatura', 'sensores-temperatura')
+                                            .replace('sensores de pressão', 'sensores-pressao')
+                                            .replace('sensores de nível', 'sensores-nivel')
+                                            .replace('controle de acesso e telemática', 'controle-acesso')
+                                          }`}
                                           className="block text-xs font-medium text-marsala-600 hover:text-marsala-700 py-1 px-2 rounded-lg hover:bg-marsala-50 border border-marsala-200"
                                         >
                                           Ver todos ({section.items.length})

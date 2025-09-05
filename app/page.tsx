@@ -172,7 +172,7 @@ function AboutSection() {
           >
             <div className="bg-gradient-to-br from-marsala-100 to-warm-100 rounded-3xl p-8 shadow-xl">
               <Image
-                src="/factory-automation.jpg"
+                src="/dois-colegas-em-um-fabrica.jpg"
                 alt="Automação Industrial Althion"
                 width={600}
                 height={400}

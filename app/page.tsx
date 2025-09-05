@@ -438,11 +438,11 @@ function ProductsSection() {
                   <div className="mt-4 space-y-2">
                     <Button 
                       className="w-full bg-marsala-600 hover:bg-marsala-700 text-white rounded-full"
-                      onClick={() => addItem(product)}
+                      onClick={() => addItem(product, 1)}
                     >
                       {product.requiresQuote ? 'Adicionar ao Orçamento' : 'Adicionar ao Carrinho'}
                     </Button>
-                    <Link href={`/produtos/${product.name.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, '-')}`} className="block">
+                    <Link href={`/produtos/${product.id}`} className="block">
                       <Button variant="outline" className="w-full rounded-full border-marsala-300 text-marsala-700 hover:bg-marsala-50">
                         Ver Detalhes
                       </Button>

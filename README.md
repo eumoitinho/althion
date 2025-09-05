@@ -1,30 +1,57 @@
-# Image Analysis
+# Althion Lab - Catálogo Industrial
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+Site institucional e catálogo de produtos da Althion Lab, especializada em soluções de automação industrial para a indústria farmacêutica.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/catalisti-clientes-projects/v0-image-analysis-v4)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/cSQsh0B6gpD)
+## 🚀 Tecnologias
 
-## Overview
+- **Next.js 14** - Framework React
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS** - Framework de estilos
+- **Framer Motion** - Animações
+- **Lucide Icons** - Ícones
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## 📋 Funcionalidades
 
-## Deployment
+### Sistema Híbrido E-commerce
+- **Compra direta**: Produtos ≤ R$400 vão para o carrinho
+- **Solicitação de orçamento**: Produtos > R$400 geram pedidos de cotação
 
-Your project is live at:
+### Catálogo de Produtos
+- 16 produtos organizados em 6 categorias:
+  - CLP e Automação (Coolmay)
+  - Medidores de Vazão (Macsensor)
+  - Sensores de Temperatura (HJ Sensor) 
+  - Sensores de Pressão (Macsensor)
+  - Sensores de Nível (Macsensor)
+  - Controle de Acesso (Telemática)
 
-**[https://vercel.com/catalisti-clientes-projects/v0-image-analysis-v4](https://vercel.com/catalisti-clientes-projects/v0-image-analysis-v4)**
+### Interface Moderna
+- Design responsivo com tema marsala
+- Navegação com dropdown em 3 colunas
+- Hero section com carrossel de imagens
+- Páginas dinâmicas de produtos
+- Produtos relacionados
+- Formulários de contato e orçamento
 
-## Build your app
+## 🛠️ Instalação
 
-Continue building your app on:
+```bash
+npm install
+npm run dev
+```
 
-**[https://v0.dev/chat/projects/cSQsh0B6gpD](https://v0.dev/chat/projects/cSQsh0B6gpD)**
+Acesse [http://localhost:3000](http://localhost:3000)
 
-## How It Works
+## 📦 Deploy
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+Este projeto está configurado para deploy automático no Vercel.
+
+## 📞 Contato
+
+**Althion Lab**  
+📍 Suzano - SP  
+📞 (11) 3090-3687  
+📧 contato@althionlab.com
+
+---
+*Especialistas em automação industrial farmacêutica desde 2024*

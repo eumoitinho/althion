@@ -187,7 +187,7 @@ export const products: Product[] = [
     requiresQuote: false,
     featured: true,
     manufacturer: 'Coolmay',
-    images: processProductImage('Solicitar ao fabricante'),
+    images: getProductImage('clp-automacao', 0),
     pdfManual: 'https://www.coolmay.com.ar/descargas/manuales/Coolmay_QM3G_Series_HMI_PLC_All-in-one_Programming_Manual_V20.91.pdf',
     linkProduto: 'https://shopping.coolmayplchmi.com/store-25011-qm3g-hmi-plc.htm'
   },
@@ -217,7 +217,7 @@ export const products: Product[] = [
     requiresQuote: true,
     featured: true,
     manufacturer: 'Coolmay',
-    images: processProductImage('Ver diagrama no manual'),
+    images: getProductImage('clp-automacao', 1),
     pdfManual: 'https://manuals.plus/m/9f2b891107e045e33e27dfd2ff55cda6fcfe3c2db253082bba03c11755d196c5'
   },
   {
@@ -245,7 +245,7 @@ export const products: Product[] = [
     requiresQuote: true,
     featured: false,
     manufacturer: 'Coolmay',
-    images: processProductImage('Solicitar catálogo ilustrado'),
+    images: getProductImage('clp-automacao', 2),
     linkProduto: 'https://en.coolmay.com/Product-58.html'
   },
   {
@@ -272,7 +272,7 @@ export const products: Product[] = [
     requiresQuote: true,
     featured: false,
     manufacturer: 'Coolmay',
-    images: processProductImage('Ver na página do produto'),
+    images: getProductImage('clp-automacao', 3),
     linkProduto: 'https://coolmay.en.alibaba.com/'
   },
   {
@@ -297,7 +297,7 @@ export const products: Product[] = [
     requiresQuote: true,
     featured: true,
     manufacturer: 'Coolmay',
-    images: processProductImage('Solicitar ao fabricante'),
+    images: getProductImage('clp-automacao', 4),
     linkProduto: 'https://en.coolmay.com/'
   },
   {
@@ -324,7 +324,7 @@ export const products: Product[] = [
     requiresQuote: false,
     featured: false,
     manufacturer: 'Coolmay',
-    images: processProductImage('Solicitar catálogo')
+    images: getProductImage('clp-automacao', 0),
   },
   {
     id: 'coolmay-io-l02',
@@ -351,7 +351,7 @@ export const products: Product[] = [
     requiresQuote: false,
     featured: false,
     manufacturer: 'Coolmay',
-    images: processProductImage('Ver especificações no site')
+    images: getProductImage('clp-automacao', 1),
   },
 
   // Medidores de Vazão - Macsensor (IDs 8-19)
@@ -382,7 +382,7 @@ export const products: Product[] = [
     requiresQuote: true,
     featured: true,
     manufacturer: 'Macsensor',
-    images: processProductImage('Ver página do produto')
+    images: getProductImage('medidores-vazao', 0),
   },
   {
     id: 'macsensor-uf2000b',
@@ -412,7 +412,7 @@ export const products: Product[] = [
     requiresQuote: true,
     featured: true,
     manufacturer: 'Macsensor',
-    images: processProductImage('Ver manual PDF página 2-3'),
+    images: getProductImage('medidores-vazao', 1),
     pdfManual: 'https://www.macsensor.com/Content/upload/PDF/41304/Manual-MACSENSOR-UF2000B-Clamp-On-Ultrasonic-Flow-Meter.pdf'
   },
 
@@ -444,7 +444,7 @@ export const products: Product[] = [
     requiresQuote: false,
     featured: true,
     manufacturer: 'HJ Sensor',
-    images: processProductImage('Solicitar catálogo')
+    images: getProductImage('clp-automacao', 0),
   },
   {
     id: 'hjsensor-transmissor-temp',
@@ -473,7 +473,7 @@ export const products: Product[] = [
     requiresQuote: false,
     featured: false,
     manufacturer: 'HJ Sensor',
-    images: processProductImage('Ver especificações técnicas')
+    images: getProductImage('sensores-temperatura', 0),
   },
 
   // Sensores de Pressão - Macsensor (IDs 24-35)
@@ -505,7 +505,7 @@ export const products: Product[] = [
     requiresQuote: false,
     featured: true,
     manufacturer: 'Macsensor',
-    images: processProductImage('Ver página do produto')
+    images: getProductImage('medidores-vazao', 0),
   },
   {
     id: 'macsensor-pressao-compacto',
@@ -533,7 +533,7 @@ export const products: Product[] = [
     requiresQuote: false,
     featured: false,
     manufacturer: 'Macsensor',
-    images: processProductImage('Consultar catálogo')
+    images: getProductImage('sensores-pressao', 0),
   },
 
   // Sensores de Nível - Macsensor (IDs 42-55)
@@ -566,7 +566,7 @@ export const products: Product[] = [
     requiresQuote: false,
     featured: true,
     manufacturer: 'Macsensor',
-    images: processProductImage('Ver na página do produto')
+    images: getProductImage('sensores-pressao', 1),
   },
   {
     id: 'macsensor-nivel-hidrostatico',
@@ -592,7 +592,7 @@ export const products: Product[] = [
     requiresQuote: true,
     featured: false,
     manufacturer: 'Macsensor',
-    images: processProductImage('Ver no Alibaba')
+    images: getProductImage('sensores-nivel', 0),
   },
 
   // Controle de Acesso - Telemática (IDs 56-79)
@@ -623,7 +623,7 @@ export const products: Product[] = [
     requiresQuote: true,
     featured: true,
     manufacturer: 'Telemática',
-    images: processProductImage('Solicitar catálogo ilustrado')
+    images: getProductImage('controle-acesso', 0),
   },
   {
     id: 'telematica-codinrep4000',
@@ -651,7 +651,7 @@ export const products: Product[] = [
     requiresQuote: true,
     featured: false,
     manufacturer: 'Telemática',
-    images: processProductImage('Ver homologação')
+    images: getProductImage('controle-acesso', 1),
   }
 ]
 

@@ -190,8 +190,10 @@ function ProductsContent() {
                   <label key={brand} className="flex items-center cursor-pointer hover:bg-gray-50 p-2 rounded-lg">
                     <input
                       type="checkbox"
-                      checked={brand !== undefined && selectedBrands.includes(brand)}
-                      onChange={() => handleBrandToggle(brand)}
+                      checked={brand !== undefined && selectedBrands.includes(brand as string)}
+                      onChange={() => {
+                        if (typeof brand === "string") handleBrandToggle(brand)
+                      }}
                       className="mr-3 text-marsala-600 rounded focus:ring-marsala-500"
                     />
                     <span className="text-sm text-gray-700">{brand}</span>

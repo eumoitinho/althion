@@ -48,7 +48,7 @@ function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-6xl lg:text-7xl font-light mb-8 leading-tight text-white"
           >
-            Especialistas em <span className="font-semibold text-marsala-300">Indústria Farmacêutica</span>
+            Especialistas em <span className="font-semibold text-marsala-600">Indústria Farmacêutica</span>
           </motion.h1>
 
           <motion.p
@@ -126,7 +126,7 @@ function AboutSection() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-light text-marsala-800 mb-6">
-              Althion Lab - Especialistas na <span className="font-semibold">Indústria Farmacêutica</span>
+              Althion Lab - Especialistas na <span className="font-semibold text-marsala-600">Indústria Farmacêutica</span>
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
               A Althion é uma empresa especializada no setor industrial, com foco na indústria farmacêutica 

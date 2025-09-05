@@ -381,8 +381,24 @@ html {
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
   display: flex;
-  justify-content: center;
-  padding-top: 8px;
+}
+/* Scrollbar Marsala */
+::-webkit-scrollbar {
+  width: 12px;
+  background: #f4f4f4;
+}
+::-webkit-scrollbar-thumb {
+  background: #964F4C;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3a36;
+}
+
+/* Firefox */
+* {
+  scrollbar-color: #964F4C #f4f4f4;
+  scrollbar-width: thin;
 }
 
 .scroll-wheel {

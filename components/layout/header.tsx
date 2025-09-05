@@ -66,7 +66,37 @@ const navigation = [
     ]
   },
   { name: "Sobre", href: "/sobre", nameKey: "about" },
-  { name: "Soluções", href: "/solucoes", nameKey: "solutions" },
+  {
+    name: "Soluções",
+    href: "/solucoes", 
+    nameKey: "solutions",
+    submenu: [
+      {
+        name: "Automação Industrial",
+        items: [
+          { name: "Controle de Processos", href: "/solucoes/controle-processos" },
+          { name: "Sistemas SCADA", href: "/solucoes/sistemas-scada" },
+          { name: "Integração de Sistemas", href: "/solucoes/integracao-sistemas" }
+        ]
+      },
+      {
+        name: "Instrumentação",
+        items: [
+          { name: "Calibração de Instrumentos", href: "/solucoes/calibracao-instrumentos" },
+          { name: "Validação FDA/ANVISA", href: "/solucoes/validacao-fda-anvisa" },
+          { name: "Qualificação de Equipamentos", href: "/solucoes/qualificacao-equipamentos" }
+        ]
+      },
+      {
+        name: "Consultoria Técnica",
+        items: [
+          { name: "Análise de Processos", href: "/solucoes/analise-processos" },
+          { name: "Especificação Técnica", href: "/solucoes/especificacao-tecnica" },
+          { name: "Treinamento Técnico", href: "/solucoes/treinamento-tecnico" }
+        ]
+      }
+    ]
+  },
   { name: "Contato", href: "/contato", nameKey: "contact" },
 ]
 

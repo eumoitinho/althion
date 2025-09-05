@@ -6,59 +6,37 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { categories, getProductsByCategory, getFeaturedProducts } from "@/lib/data/products"
 import { useCart } from "@/lib/cart-context"
 
-// Hero Section com carrossel de imagens
+// Hero Section com vídeo de fundo
 function HeroSection() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  
-  const heroImages = [
-    {
-      src: "/images/hero/pharmaceutical-1.jpg",
-      alt: "Automação Farmacêutica - Linha de Produção"
-    },
-    {
-      src: "/images/hero/pharmaceutical-2.jpg", 
-      alt: "Controle de Qualidade Farmacêutica"
-    },
-    {
-      src: "/images/hero/pharmaceutical-3.jpg",
-      alt: "Instrumentação Industrial Farmacêutica"
-    }
-  ]
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [heroImages.length])
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image Carousel */}
+      {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
-        {heroImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className="object-cover"
-              priority={index === 0}
-            />
-          </div>
-        ))}
-        {/* Overlay marsala transparente para legibilidade */}
-        <div className="absolute inset-0 bg-gradient-to-b from-marsala-900/70 via-marsala-800/50 to-marsala-900/70"></div>
-        <div className="absolute inset-0 bg-marsala-600/30"></div>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/4751094_Pharmaceutical_Quality_1280x720.mp4" type="video/mp4" />
+          {/* Fallback para browsers que não suportam vídeo */}
+          <Image
+            src="/automation-hero.jpg"
+            alt="Automação Industrial Farmacêutica"
+            fill
+            className="object-cover"
+            priority
+          />
+        </video>
+        {/* Overlay preto transparente para legibilidade */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
 
       {/* Content */}
@@ -102,7 +80,7 @@ function HeroSection() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/80 text-white hover:bg-white/20 rounded-full px-12 py-6 text-xl font-medium transition-all duration-500"
+                className="border-2 border-marsala-300 text-marsala-600 bg-white/90 hover:bg-white hover:text-marsala-700 rounded-full px-12 py-6 text-xl font-medium transition-all duration-500"
               >
                 Solicitar Orçamento
               </Button>
@@ -111,20 +89,6 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* Carousel Indicators */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-        {heroImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide 
-                ? 'bg-white' 
-                : 'bg-white/50 hover:bg-white/80'
-            }`}
-          />
-        ))}
-      </div>
 
       {/* Scroll Indicator */}
       <motion.div
@@ -443,7 +407,7 @@ function ProductsSection() {
                       Adicionar ao Carrinho
                     </Button>
                     <Link href={`/produtos/${product.id}`} className="block">
-                      <Button variant="outline" className="w-full rounded-full border-marsala-300 text-marsala-700 hover:bg-marsala-50">
+                      <Button variant="outline" className="w-full rounded-full border-marsala-300 text-marsala-700 hover:bg-marsala-50 hover:text-marsala-800">
                         Ver Detalhes
                       </Button>
                     </Link>

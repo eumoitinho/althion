@@ -109,7 +109,7 @@ function ProductsContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20 pb-12">
+    <div className="min-h-screen bg-gray-50 pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -126,200 +126,210 @@ function ProductsContent() {
           </p>
         </motion.div>
 
-        {/* Controles */}
-        <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-          {/* Busca e Controles */}
-          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between mb-6">
-            <div className="flex-1 relative max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-              <Input
-                placeholder="Buscar produtos..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 rounded-full"
-              />
+        {/* Layout com Sidebar */}
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Sidebar - Filtros Avançados */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:w-80 space-y-6"
+          >
+            {/* Busca */}
+            <div className="bg-white rounded-xl shadow-lg p-6">
+              <h3 className="text-lg font-semibold text-marsala-800 mb-4">Buscar Produtos</h3>
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                <Input
+                  placeholder="Buscar produtos..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10 rounded-full"
+                />
+              </div>
             </div>
 
-            <div className="flex items-center gap-4">
+            {/* Categorias */}
+            <div className="bg-white rounded-xl shadow-lg p-6">
+              <h3 className="text-lg font-semibold text-marsala-800 mb-4">Categorias</h3>
+              <div className="space-y-2">
+                <button
+                  onClick={() => setSelectedCategory('all')}
+                  className={`w-full text-left px-3 py-2 rounded-lg transition-all ${
+                    selectedCategory === 'all'
+                      ? 'bg-marsala-600 text-white'
+                      : 'text-gray-700 hover:bg-marsala-50'
+                  }`}
+                >
+                  Todos ({products.length})
+                </button>
+                {categories.map((category) => {
+                  const categoryProducts = products.filter(p => p.category === category.id);
+                  return (
+                    <button
+                      key={category.id}
+                      onClick={() => setSelectedCategory(category.slug)}
+                      className={`w-full text-left px-3 py-2 rounded-lg transition-all ${
+                        selectedCategory === category.slug
+                          ? 'bg-marsala-600 text-white'
+                          : 'text-gray-700 hover:bg-marsala-50'
+                      }`}
+                    >
+                      {category.name} ({categoryProducts.length})
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Marcas */}
+            <div className="bg-white rounded-xl shadow-lg p-6">
+              <h3 className="text-lg font-semibold text-marsala-800 mb-4">Marcas</h3>
+              <div className="space-y-2 max-h-48 overflow-y-auto">
+                {brands.map((brand) => (
+                  <label key={brand} className="flex items-center cursor-pointer hover:bg-gray-50 p-2 rounded-lg">
+                    <input
+                      type="checkbox"
+                      checked={brand !== undefined && selectedBrands.includes(brand)}
+                      onChange={() => handleBrandToggle(brand)}
+                      className="mr-3 text-marsala-600 rounded focus:ring-marsala-500"
+                    />
+                    <span className="text-sm text-gray-700">{brand}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Faixa de Preço */}
+            <div className="bg-white rounded-xl shadow-lg p-6">
+              <h3 className="text-lg font-semibold text-marsala-800 mb-4">Disponibilidade</h3>
+              <div className="space-y-3">
+                <label className="flex items-center cursor-pointer hover:bg-gray-50 p-2 rounded-lg">
+                  <input
+                    type="radio"
+                    name="price"
+                    checked={priceFilter === 'all'}
+                    onChange={() => setPriceFilter('all')}
+                    className="mr-3 text-marsala-600 focus:ring-marsala-500"
+                  />
+                  <span className="text-sm text-gray-700">Todos os produtos</span>
+                </label>
+                <label className="flex items-center cursor-pointer hover:bg-gray-50 p-2 rounded-lg">
+                  <input
+                    type="radio"
+                    name="price"
+                    checked={priceFilter === 'with-price'}
+                    onChange={() => setPriceFilter('with-price')}
+                    className="mr-3 text-marsala-600 focus:ring-marsala-500"
+                  />
+                  <span className="text-sm text-gray-700">Com preço definido</span>
+                </label>
+                <label className="flex items-center cursor-pointer hover:bg-gray-50 p-2 rounded-lg">
+                  <input
+                    type="radio"
+                    name="price"
+                    checked={priceFilter === 'quote-only'}
+                    onChange={() => setPriceFilter('quote-only')}
+                    className="mr-3 text-marsala-600 focus:ring-marsala-500"
+                  />
+                  <span className="text-sm text-gray-700">Apenas orçamento</span>
+                </label>
+              </div>
+            </div>
+
+            {/* Limpar Filtros */}
+            {(selectedBrands.length > 0 || priceFilter !== 'all' || selectedCategory !== 'all') && (
               <Button
                 variant="outline"
-                onClick={() => setShowFilters(!showFilters)}
-                className="rounded-full"
+                onClick={clearFilters}
+                className="w-full rounded-full border-marsala-300 text-marsala-700 hover:bg-marsala-50"
               >
-                <Filter className="h-4 w-4 mr-2" />
-                Filtros {(selectedBrands.length > 0 || priceFilter !== 'all') && `(${selectedBrands.length + (priceFilter !== 'all' ? 1 : 0)})`}
+                <X className="h-4 w-4 mr-2" />
+                Limpar Filtros
               </Button>
+            )}
+          </motion.div>
 
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as any)}
-                className="px-4 py-2 border rounded-full bg-white"
-              >
-                <option value="featured">Destaques</option>
-                <option value="name">Nome A-Z</option>
-                <option value="price">Menor Preço</option>
-              </select>
+          {/* Conteúdo Principal */}
+          <div className="flex-1">
+            {/* Controles do Topo */}
+            <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
+                <div className="text-gray-600">
+                  {filteredProducts.length} produto{filteredProducts.length !== 1 ? 's' : ''} encontrado{filteredProducts.length !== 1 ? 's' : ''}
+                </div>
 
-              <div className="flex border rounded-full p-1 bg-gray-100">
-                <button
-                  onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-full transition-colors ${
-                    viewMode === 'grid' ? 'bg-white shadow-sm' : ''
-                  }`}
-                >
-                  <Grid className="h-4 w-4" />
-                </button>
-                <button
-                  onClick={() => setViewMode('list')}
-                  className={`p-2 rounded-full transition-colors ${
-                    viewMode === 'list' ? 'bg-white shadow-sm' : ''
-                  }`}
-                >
-                  <List className="h-4 w-4" />
-                </button>
+                <div className="flex items-center gap-4">
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value as any)}
+                    className="px-4 py-2 border rounded-full bg-white focus:ring-2 focus:ring-marsala-500 focus:border-marsala-500"
+                  >
+                    <option value="featured">Destaques</option>
+                    <option value="name">Nome A-Z</option>
+                    <option value="price">Menor Preço</option>
+                  </select>
+
+                  <div className="flex border rounded-full p-1 bg-gray-100">
+                    <button
+                      onClick={() => setViewMode('grid')}
+                      className={`p-2 rounded-full transition-colors ${
+                        viewMode === 'grid' ? 'bg-white shadow-sm text-marsala-600' : 'text-gray-600'
+                      }`}
+                    >
+                      <Grid className="h-4 w-4" />
+                    </button>
+                    <button
+                      onClick={() => setViewMode('list')}
+                      className={`p-2 rounded-full transition-colors ${
+                        viewMode === 'list' ? 'bg-white shadow-sm text-marsala-600' : 'text-gray-600'
+                      }`}
+                    >
+                      <List className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Categorias */}
-          <div className="flex flex-wrap gap-3 mb-4">
-            <button
-              onClick={() => setSelectedCategory('all')}
-              className={`px-4 py-2 rounded-full font-medium transition-all ${
-                selectedCategory === 'all'
-                  ? 'bg-marsala-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-marsala-50'
+            {/* Lista de Produtos */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className={`grid gap-6 ${
+                viewMode === 'grid' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'
               }`}
             >
-              Todos
-            </button>
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.slug)}
-                className={`px-4 py-2 rounded-full font-medium transition-all ${
-                  selectedCategory === category.slug
-                    ? 'bg-marsala-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-marsala-50'
-                }`}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
-
-          {/* Filtros Expandidos */}
-          {showFilters && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="border-t pt-4 mt-4"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Marcas */}
-                <div>
-                  <h3 className="font-semibold text-gray-700 mb-3">Marcas</h3>
-                  <div className="space-y-2 max-h-40 overflow-y-auto">
-                    {brands.map((brand) => (
-                      <label key={brand} className="flex items-center">
-                        <input
-                          type="checkbox"
-                          checked={selectedBrands.includes(brand)}
-                          onChange={() => handleBrandToggle(brand)}
-                          className="mr-2"
-                        />
-                        <span className="text-sm">{brand}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Preço */}
-                <div>
-                  <h3 className="font-semibold text-gray-700 mb-3">Disponibilidade de Preço</h3>
-                  <div className="space-y-2">
-                    <label className="flex items-center">
-                      <input
-                        type="radio"
-                        name="price"
-                        checked={priceFilter === 'all'}
-                        onChange={() => setPriceFilter('all')}
-                        className="mr-2"
-                      />
-                      <span className="text-sm">Todos</span>
-                    </label>
-                    <label className="flex items-center">
-                      <input
-                        type="radio"
-                        name="price"
-                        checked={priceFilter === 'with-price'}
-                        onChange={() => setPriceFilter('with-price')}
-                        className="mr-2"
-                      />
-                      <span className="text-sm">Com preço</span>
-                    </label>
-                    <label className="flex items-center">
-                      <input
-                        type="radio"
-                        name="price"
-                        checked={priceFilter === 'quote-only'}
-                        onChange={() => setPriceFilter('quote-only')}
-                        className="mr-2"
-                      />
-                      <span className="text-sm">Apenas orçamento</span>
-                    </label>
-                  </div>
-                </div>
-
-                {/* Ações */}
-                <div className="flex flex-col justify-end">
-                  <Button
-                    variant="outline"
-                    onClick={clearFilters}
-                    className="w-full rounded-full"
-                  >
-                    Limpar Filtros
-                  </Button>
-                </div>
-              </div>
+              {filteredProducts.map((product, index) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  viewMode={viewMode}
+                  onAddToCart={() => addItem(product, 1)}
+                  index={index}
+                />
+              ))}
             </motion.div>
-          )}
-        </div>
 
-        {/* Resultados */}
-        <div className="mb-6">
-          <p className="text-gray-600">
-            {filteredProducts.length} produto{filteredProducts.length !== 1 ? 's' : ''} encontrado{filteredProducts.length !== 1 ? 's' : ''}
-          </p>
-        </div>
-
-        {/* Lista de Produtos */}
-        <div className={`grid gap-6 ${
-          viewMode === 'grid' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'
-        }`}>
-          {filteredProducts.map((product, index) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              viewMode={viewMode}
-              onAddToCart={() => addItem(product)}
-              index={index}
-            />
-          ))}
-        </div>
-
-        {/* Sem resultados */}
-        {filteredProducts.length === 0 && (
-          <div className="text-center py-16">
-            <Search className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-600 mb-2">Nenhum produto encontrado</h3>
-            <p className="text-gray-500 mb-6">Tente ajustar os filtros ou termo de busca</p>
-            <Button onClick={clearFilters} className="bg-marsala-600 hover:bg-marsala-700 text-white rounded-full">
-              Limpar Filtros
-            </Button>
+            {/* Sem resultados */}
+            {filteredProducts.length === 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-center py-16"
+              >
+                <Search className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-gray-600 mb-2">Nenhum produto encontrado</h3>
+                <p className="text-gray-500 mb-6">Tente ajustar os filtros ou termo de busca</p>
+                <Button onClick={clearFilters} className="bg-marsala-600 hover:bg-marsala-700 text-white rounded-full">
+                  Limpar Filtros
+                </Button>
+              </motion.div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   )
@@ -428,8 +438,8 @@ function ProductCard({
                   >
                     {product.requiresQuote ? 'Adicionar ao Orçamento' : 'Adicionar ao Carrinho'}
                   </Button>
-                  <Link href={`/produtos/${createSlug(product.name)}`} className="block">
-                    <Button variant="outline" className="w-full rounded-full border-marsala-300 text-marsala-700 hover:bg-marsala-50">
+                  <Link href={`/produtos/${product.id}`} className="block">
+                    <Button variant="outline" className="w-full rounded-full border-marsala-300 text-marsala-700 hover:bg-marsala-50 hover:text-marsala-800">
                       Ver Detalhes
                     </Button>
                   </Link>

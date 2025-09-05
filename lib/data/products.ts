@@ -61,22 +61,49 @@ function requiresQuote(maxPriceUsd: number): boolean {
   return convertUsdToBrl(maxPriceUsd) > 400;
 }
 
-// Função para processar imagem do produto
-function processProductImage(imageInfo: string): string[] {
-  const defaultImages = ['/images/products/placeholder.jpg'];
-  
-  if (!imageInfo || 
-      imageInfo === 'Solicitar ao fabricante' || 
-      imageInfo === 'Ver na página do produto' ||
-      imageInfo === 'Solicitar catálogo' ||
-      imageInfo === 'Consultar catálogo' ||
-      imageInfo.startsWith('Ver ') ||
-      imageInfo.startsWith('Consultar ') ||
-      imageInfo.startsWith('Solicitar ')) {
-    return defaultImages;
-  }
-  
-  return defaultImages;
+// Imagens organizadas por categoria
+const categoryImages = {
+  'clp-automacao': [
+    '/CLP.jpg',
+    '/prog_clp_a01_f10_a.png', 
+    '/6ED10521MD080BA1_2.png',
+    '/MD400_img.png',
+    '/Microdin_Armis_img.webp'
+  ],
+  'medidores-vazao': [
+    '/medidor-de-vazao-eletromagnetico-optiflux-1050-remoto-02-c74694ac.webp',
+    '/medidor-de-vazao-ultrassonico-optisonic-3400-remoto-02-d0810219.webp',
+    '/WVMF.webp',
+    '/turbina_blaster.jpeg'
+  ],
+  'sensores-temperatura': [
+    '/145148-sensor-de-temperatura-agua-1741895244978.webp',
+    '/sens39-i.jpg',
+    '/SENSOR_1_8de52ea8-ae09-4cc4-a3df-e305bc12459c_1024x1024.webp'
+  ],
+  'sensores-pressao': [
+    '/1027417_sensor-de-pressao-do-oleo-para-volkswagen-constellation-19-320e_z2_637509802865849982.webp',
+    '/sensor-de-pressao-de-combustivel-citroen-jumper-fiat-ducato-iveco-dayli-peugeot-boxerL2-min.jpg',
+    '/pressuresensors_a_10_en_co_rs_w738_h415_image.png',
+    '/P25-frente.webp'
+  ],
+  'sensores-nivel': [
+    '/sensor-de-nivel-para-liquidos-horizontal-zpc5.jpg',
+    '/nonintrusive_laser_levelsensor_tl400i_image_01.webp',
+    '/SENSOR_1_8de52ea8-ae09-4cc4-a3df-e305bc12459c_1024x1024.webp'
+  ],
+  'controle-acesso': [
+    '/a0bfd660e0.webp',
+    '/SENSOR_1_8de52ea8-ae09-4cc4-a3df-e305bc12459c_1024x1024.webp',
+    '/Microdin_Armis_img.webp'
+  ]
+};
+
+// Função para obter imagem do produto baseada na categoria
+function getProductImage(category: string, index: number): string[] {
+  const images = categoryImages[category as keyof typeof categoryImages] || ['/placeholder.jpg'];
+  const selectedImage = images[index % images.length];
+  return [selectedImage];
 }
 
 export const categories: Category[] = [

@@ -1,0 +1,1 @@
+// Este arquivo contém scripts JavaScript que podem ser utilizados para interatividade na landing page, como validação de formulários ou animações. Ele pode ser utilizado para melhorar a experiência do usuário.

@@ -222,152 +222,45 @@ export function Header() {
               </motion.div>
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation: render anchors only on landing page */}
             <nav className="hidden lg:flex items-center space-x-1">
-              {navigation.map((item) => (
-                <div
-                  key={item.name}
-                  className="relative group"
-                  onMouseEnter={() => item.submenu && handleMouseEnter(item.name)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <Link
-                    href={item.href}
-                    className={`flex items-center text-sm font-semibold transition-all duration-300 px-4 py-3 rounded-xl relative overflow-hidden ${
-                      pathname === item.href ||
-                      (
-                        item.submenu &&
-                          item.submenu.some((section) => section.items.some((subItem) => pathname === subItem.href))
-                      )
-                        ? isHomePage && !scrolled
-                          ? "text-marsala-300 bg-white/10 backdrop-blur-sm"
-                          : "text-marsala-600 bg-marsala-50"
-                        : isHomePage && !scrolled
-                          ? "text-white hover:text-marsala-200 hover:bg-white/10"
-                          : "text-gray-700 hover:text-marsala-600 hover:bg-marsala-50"
-                    }`}
+              {pathname?.startsWith("/landing") ? (
+                [
+                  { name: 'Serviços', href: '#servicos' },
+                  { name: 'Orçamento', href: '#formulario' },
+                  { name: 'Contato', href: '#contato' },
+                ].map((item) => (
+                  <a key={item.name} href={item.href} className="text-sm font-semibold px-4 py-3 rounded-xl text-gray-700 hover:text-marsala-600">{item.name}</a>
+                ))
+              ) : (
+                navigation.map((item) => (
+                  <div
+                    key={item.name}
+                    className="relative group"
+                    onMouseEnter={() => item.submenu && handleMouseEnter(item.name)}
+                    onMouseLeave={handleMouseLeave}
                   >
-                    <span className="relative z-10">{item.name}</span>
-                    {item.submenu && (
-                      <motion.div
-                        animate={{ rotate: activeSubmenu === item.name ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <ChevronDown
-                          className={`ml-2 h-4 w-4 transition-all duration-300 ${
-                            activeSubmenu === item.name ? "text-marsala-600" : ""
-                          }`}
-                        />
-                      </motion.div>
-                    )}
-
-                    {/* Hover Effect */}
-                    <motion.div
-                      className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl ${
-                        isHomePage && !scrolled
-                          ? "bg-white/10 backdrop-blur-sm"
-                          : "bg-gradient-to-r from-marsala-50 to-marsala-100"
+                    <Link
+                      href={item.href}
+                      className={`flex items-center text-sm font-semibold transition-all duration-300 px-4 py-3 rounded-xl relative overflow-hidden ${
+                        pathname === item.href ||
+                        (
+                          item.submenu &&
+                            item.submenu.some((section) => section.items.some((subItem) => pathname === subItem.href))
+                        )
+                          ? isHomePage && !scrolled
+                            ? "text-marsala-300 bg-white/10 backdrop-blur-sm"
+                            : "text-marsala-600 bg-marsala-50"
+                          : isHomePage && !scrolled
+                            ? "text-white hover:text-marsala-200 hover:bg-white/10"
+                            : "text-gray-700 hover:text-marsala-600 hover:bg-marsala-50"
                       }`}
-                      initial={{ scale: 0.8 }}
-                      whileHover={{ scale: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </Link>
-
-                  {/* Dropdown Menu - Lateral à direita */}
-                  {item.submenu && (
-                    <AnimatePresence>
-                      {activeSubmenu === item.name && (
-                        <motion.div
-                          initial={{ opacity: 0, x: 10, scale: 0.95 }}
-                          animate={{ opacity: 1, x: 0, scale: 1 }}
-                          exit={{ opacity: 0, x: 10, scale: 0.95 }}
-                          transition={{ duration: 0.2, ease: "easeOut" }}
-                          className="absolute top-0 left-full ml-2 bg-white rounded-xl shadow-2xl border border-gray-100 py-4 z-50 w-[700px] max-h-[70vh] overflow-y-auto"
-                          style={{
-                            background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
-                            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05)",
-                          }}
-                        >
-                          {/* Grid 3 colunas com categorias */}
-                          <div className="px-4">
-                            <div className="grid grid-cols-3 gap-6">
-                              {item.submenu.slice(0, 6).map((section, sectionIndex) => (
-                                <motion.div
-                                  key={section.name}
-                                  initial={{ opacity: 0, x: -20 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  transition={{ duration: 0.3, delay: sectionIndex * 0.05 }}
-                                  className="space-y-3"
-                                >
-                                  <Link 
-                                    href={`/produtos?categoria=${section.name.toLowerCase()
-                                      .replace('clp e automação', 'clp-automacao')
-                                      .replace('medidores de vazão', 'medidores-vazao') 
-                                      .replace('sensores de temperatura', 'sensores-temperatura')
-                                      .replace('sensores de pressão', 'sensores-pressao')
-                                      .replace('sensores de nível', 'sensores-nivel')
-                                      .replace('controle de acesso e telemática', 'controle-acesso')
-                                    }`}
-                                    className="block"
-                                  >
-                                    <h3 className="text-sm font-bold text-marsala-800 uppercase tracking-wider border-b border-marsala-100 pb-2 hover:text-marsala-600 transition-colors">
-                                      {section.name}
-                                    </h3>
-                                  </Link>
-                                  <div className="space-y-1">
-                                    {/* Mostrar apenas os primeiros 3 produtos */}
-                                    {section.items?.slice(0, 3).map((subItem) => (
-                                      <motion.div key={subItem.name} whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
-                                        <Link
-                                          href={subItem.href}
-                                          className={`block text-xs transition-all duration-200 hover:text-marsala-600 py-1 px-2 rounded-lg hover:bg-marsala-50 ${
-                                            pathname === subItem.href
-                                              ? "text-marsala-600 bg-marsala-50 font-medium"
-                                              : "text-gray-700"
-                                          }`}
-                                        >
-                                          {subItem.name}
-                                        </Link>
-                                      </motion.div>
-                                    ))}
-                                    
-                                    {/* Botão "Ver todos" se houver mais de 3 produtos */}
-                                    {section.items && section.items.length > 3 && (
-                                      <motion.div 
-                                        whileHover={{ x: 4 }} 
-                                        transition={{ duration: 0.2 }}
-                                        className="mt-2"
-                                      >
-                                        <Link
-                                          href={`/produtos?categoria=${section.name.toLowerCase()
-                                            .replace('clp e automação', 'clp-automacao')
-                                            .replace('medidores de vazão', 'medidores-vazao') 
-                                            .replace('sensores de temperatura', 'sensores-temperatura')
-                                            .replace('sensores de pressão', 'sensores-pressao')
-                                            .replace('sensores de nível', 'sensores-nivel')
-                                            .replace('controle de acesso e telemática', 'controle-acesso')
-                                          }`}
-                                          className="block text-xs font-medium text-marsala-600 hover:text-marsala-700 py-1 px-2 rounded-lg hover:bg-marsala-50 border border-marsala-200"
-                                        >
-                                          Ver todos ({section.items.length})
-                                        </Link>
-                                      </motion.div>
-                                    )}
-                                  </div>
-                                </motion.div>
-                              ))}
-                            </div>
-                          </div>
-
-                          {/* Seta indicativa */}
-                          <div className="absolute top-4 -left-2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-transparent border-r-white" />
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  )}
-                </div>
-              ))}
+                    >
+                      <span className="relative z-10">{item.name}</span>
+                    </Link>
+                  </div>
+                ))
+              )}
             </nav>
 
             {/* Search & Actions */}

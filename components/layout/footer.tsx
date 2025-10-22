@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 
 const footerLinks = {
   produtos: [
@@ -34,6 +35,8 @@ const socialLinks = [
 ]
 
 export function Footer() {
+  const pathname = usePathname()
+  const isLanding = pathname?.startsWith("/landing")
 
   return (
     <footer className="bg-white border-t border-gray-200">
@@ -83,33 +86,44 @@ export function Footer() {
             </motion.div>
           </div>
 
-          {/* Links Sections */}
-          {Object.entries(footerLinks).map(([category, links], index) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-lg font-semibold mb-4 text-marsala-800 capitalize">
-                {category === "produtos" ? "Produtos" : category === "empresa" ? "Empresa" : "Suporte"}
-              </h3>
+          {/* Links Sections (or anchor-only on landing) */}
+          {isLanding ? (
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+              <h3 className="text-lg font-semibold mb-4 text-marsala-800">Navegação</h3>
               <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-600 hover:text-marsala-600 transition-colors duration-200 text-sm flex items-center group"
-                    >
-                      <span>{link.name}</span>
-                      <ExternalLink className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                    </Link>
-                  </li>
-                ))}
+                <li><a href="#servicos" className="text-gray-600 hover:text-marsala-600 transition-colors">Serviços</a></li>
+                <li><a href="#formulario" className="text-gray-600 hover:text-marsala-600 transition-colors">Orçamento</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-marsala-600 transition-colors">Treinamentos</a></li>
               </ul>
             </motion.div>
-          ))}
+          ) : (
+            Object.entries(footerLinks).map(([category, links], index) => (
+              <motion.div
+                key={category}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-lg font-semibold mb-4 text-marsala-800 capitalize">
+                  {category === "produtos" ? "Produtos" : category === "empresa" ? "Empresa" : "Suporte"}
+                </h3>
+                <ul className="space-y-2">
+                  {links.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        href={link.href}
+                        className="text-gray-600 hover:text-marsala-600 transition-colors duration-200 text-sm flex items-center group"
+                      >
+                        <span>{link.name}</span>
+                        <ExternalLink className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))
+          )}
         </div>
 
         {/* Catálogo e Orçamento Section */}

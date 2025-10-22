@@ -1,0 +1,22 @@
+{
+  "name": "althion-landing",
+  "version": "1.0.0",
+  "description": "Landing page for Althion showcasing services, clients, solutions, and contact information.",
+  "main": "src/js/althion.js",
+  "scripts": {
+    "start": "live-server public",
+    "build": "echo 'Build step not defined'",
+    "test": "echo 'No tests defined'"
+  },
+  "keywords": [
+    "landing",
+    "page",
+    "Althion"
+  ],
+  "author": "Althion Team",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

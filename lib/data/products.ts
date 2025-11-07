@@ -64,40 +64,94 @@ function requiresQuote(maxPriceUsd: number): boolean {
 // Imagens organizadas por categoria
 const categoryImages = {
   'clp-automacao': [
-    '/CLP.jpg',
-    '/prog_clp_a01_f10_a.png', 
-    '/6ED10521MD080BA1_2.png',
-    '/MD400_img.png',
-    '/Microdin_Armis_img.webp'
+    '/produtos/Automação (CLPs, IHMs e Módulos)/CLP e IHM 1.png',
+    '/produtos/Automação (CLPs, IHMs e Módulos)/CLP e IHM 2.png',
+    '/produtos/Automação (CLPs, IHMs e Módulos)/CLP e IHM 3.png',
+    '/produtos/Automação (CLPs, IHMs e Módulos)/Controlador de CLP 1.png',
+    '/produtos/Automação (CLPs, IHMs e Módulos)/IHM.png',
+    '/produtos/Automação (CLPs, IHMs e Módulos)/Módulo amplificador.png',
+    '/produtos/Automação (CLPs, IHMs e Módulos)/Módulo de IoT Industrial.png'
   ],
   'medidores-vazao': [
-    '/medidor-de-vazao-eletromagnetico-optiflux-1050-remoto-02-c74694ac.webp',
-    '/medidor-de-vazao-ultrassonico-optisonic-3400-remoto-02-d0810219.webp',
-    '/WVMF.webp',
-    '/turbina_blaster.jpeg'
+    '/produtos/Medidores de vazão/Medidor de vazão eletromagnético.png',
+    '/produtos/Medidores de vazão/Medidor de vazão eletromagnético 2.png',
+    '/produtos/Medidores de vazão/Medidor de vazão ultrassônico.png',
+    '/produtos/Medidores de vazão/Medidor de vazão ultrassônico portátil.png',
+    '/produtos/Medidores de vazão/Medidor de vazão de água.png',
+    '/produtos/Medidores de vazão/Medidor de vazão de líquidos.png',
+    '/produtos/Medidores de vazão/Medidor de vazão eletrônico.png',
+    '/produtos/Medidores de vazão/Medidor de gás líquido e vapor.png',
+    '/produtos/Medidores de vazão/Chave de vazão térmica.png'
   ],
   'sensores-temperatura': [
-    '/145148-sensor-de-temperatura-agua-1741895244978.webp',
-    '/sens39-i.jpg',
-    '/SENSOR_1_8de52ea8-ae09-4cc4-a3df-e305bc12459c_1024x1024.webp'
+    '/produtos/Sensores de temperatura e climáticos/Medidor de temperatura digital.png',
+    '/produtos/Sensores de temperatura e climáticos/Sensor de temperatura e umidade.png',
+    '/produtos/Sensores de temperatura e climáticos/Sensor de temperatura wireless.png',
+    '/produtos/Sensores de temperatura e climáticos/Sensores de temperatura.png',
+    '/produtos/Sensores de temperatura e climáticos/Transmissor de temperatura.png',
+    '/produtos/Sensores de temperatura e climáticos/Anemômetro com sensor de vento.png',
+    '/produtos/Sensores de temperatura e climáticos/Sensor de direção do vento.png',
+    '/produtos/Sensores de temperatura e climáticos/Sensor de velocidade do vento.png'
   ],
   'sensores-pressao': [
-    '/1027417_sensor-de-pressao-do-oleo-para-volkswagen-constellation-19-320e_z2_637509802865849982.webp',
-    '/sensor-de-pressao-de-combustivel-citroen-jumper-fiat-ducato-iveco-dayli-peugeot-boxerL2-min.jpg',
-    '/pressuresensors_a_10_en_co_rs_w738_h415_image.png',
-    '/P25-frente.webp'
+    '/produtos/Medidores de pressão/Manômetro de aço.png',
+    '/produtos/Medidores de pressão/Manômetro de pressão digital.png',
+    '/produtos/Medidores de pressão/Manômetro digital com display.png',
+    '/produtos/Medidores de pressão/Pressostato eletrônico.png',
+    '/produtos/Medidores de pressão/Pressostato eletrônico 2.png',
+    '/produtos/Medidores de pressão/Sensor de pressão.png',
+    '/produtos/Medidores de pressão/Sensor de pressão digital.png',
+    '/produtos/Medidores de pressão/Sensor de pressão wireless.png',
+    '/produtos/Medidores de pressão/Transdutor de pressão digital.png'
   ],
   'sensores-nivel': [
-    '/sensor-de-nivel-para-liquidos-horizontal-zpc5.jpg',
-    '/nonintrusive_laser_levelsensor_tl400i_image_01.webp',
-    '/SENSOR_1_8de52ea8-ae09-4cc4-a3df-e305bc12459c_1024x1024.webp'
+    '/produtos/Sensores de nível/Transmissor de nível submersível.png',
+    '/produtos/Sensores de nível/Transmissor ultrassônico de nível de água.png',
+    '/produtos/Sensores de nível/Sensor de nível ultrassônico.png',
+    '/produtos/Sensores de nível/Sensor de nível ultrassônico 2.png',
+    '/produtos/Sensores de nível/Sensor de nível ultrassônico 3.png',
+    '/produtos/Sensores de nível/Sensor de nível com display.png',
+    '/produtos/Sensores de nível/Medidor de nível por radar.png',
+    '/produtos/Sensores de nível/Medidor de nível por radar 2.png'
   ],
   'controle-acesso': [
-    '/a0bfd660e0.webp',
-    '/SENSOR_1_8de52ea8-ae09-4cc4-a3df-e305bc12459c_1024x1024.webp',
-    '/Microdin_Armis_img.webp'
+    '/produtos/Controladores de acesso/Controlador de acesso de pessoas.png',
+    '/produtos/Controladores de acesso/Controlador de acesso de pessoas (torniquete).png',
+    '/produtos/Controladores de acesso/Controlador facial.PNG',
+    '/produtos/Controladores de acesso/Controle de acesso de pessoas 2.png',
+    '/produtos/Controladores de acesso/Gestor de ponto.png',
+    '/produtos/Controladores de acesso/Gestão de ponto.png',
+    '/produtos/Controladores de acesso/Gestão de ponto 2.png',
+    '/produtos/Controladores de acesso/Gestão de ponto mobile.png',
+    '/produtos/Controladores de acesso/Detector de metais.png',
+    '/produtos/Controladores de acesso/Detector de metais portátil.png'
   ]
 };
+
+// Gera produtos automáticos a partir das imagens novas quando não houver uma entrada explícita
+function generateAutoProducts(): Product[] {
+  const auto: Product[] = []
+  Object.keys(categoryImages).forEach((categoryKey) => {
+    const images = (categoryImages as any)[categoryKey] as string[]
+    images.forEach((img, idx) => {
+      const baseName = img.split('/').pop() || `image-${idx}`
+      const name = baseName.replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ')
+      const id = `${categoryKey}-auto-${idx + 1}`
+
+      auto.push({
+        id,
+        name: name.charAt(0).toUpperCase() + name.slice(1),
+        category: categoryKey,
+        description: `Produto adicionado automaticamente a partir da imagem ${baseName}`,
+        images: [img],
+        hasPrice: false,
+        requiresQuote: true,
+        featured: false
+      })
+    })
+  })
+  return auto
+}
 
 // Função para obter imagem do produto baseada na categoria
 function getProductImage(category: string, index: number): string[] {
@@ -155,7 +209,7 @@ export const productsWithoutImages: number[] = Array.from({length: 79}, (_, i) =
 // - Todos os produtos usarão a imagem placeholder padrão
 
 // Produtos processados do JSON real
-export const products: Product[] = [
+const explicitProducts: Product[] = [
   // CLP e Automação - Coolmay (IDs 1-7)
   {
     id: 'coolmay-qm3g-43fh',
@@ -653,6 +707,12 @@ export const products: Product[] = [
     manufacturer: 'Telemática',
     images: getProductImage('controle-acesso', 1),
   }
+]
+
+// Combina os produtos explícitos com produtos gerados automaticamente a partir das imagens
+export const products: Product[] = [
+  ...explicitProducts,
+  ...generateAutoProducts()
 ]
 
 // Função para buscar produtos por categoria

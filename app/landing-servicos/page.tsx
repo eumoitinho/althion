@@ -42,7 +42,7 @@ export default function LandingServicos() {
 
             <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-xl">
-                <Image src="/placeholder.jpg" alt="Automação" width={720} height={480} className="w-full h-auto object-cover" priority />
+                <Image src="/produtos/Automação (CLPs, IHMs e Módulos)/Módulo de IoT Industrial.png" alt="Automação" width={720} height={480} className="w-full h-auto object-cover" priority />
               </div>
             </div>
           </div>

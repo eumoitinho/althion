@@ -161,7 +161,7 @@ function ProductContent({ params }: ProductPageProps) {
                     </div>
                   ) : (
                     <div className="text-2xl font-bold text-marsala-700">
-                      Consulte o preço
+                      Sob consulta
                     </div>
                   )}
                   <p className="text-sm text-gray-500 mt-1">

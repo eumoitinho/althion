@@ -24,7 +24,7 @@ export default function LandingCLPs() {
             </div>
             <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-xl">
-                <Image src="/placeholder.jpg" alt="CLP" width={720} height={480} className="w-full h-auto object-cover" priority />
+                <Image src="/produtos/Automação (CLPs, IHMs e Módulos)/IHM.png" alt="CLP" width={720} height={480} className="w-full h-auto object-cover" priority />
               </div>
             </div>
           </div>
@@ -53,8 +53,8 @@ export default function LandingCLPs() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="rounded-lg overflow-hidden shadow-lg">
-              <div className="h-40 bg-gray-200 relative">
-                <Image src="/placeholder.jpg" alt="CLP" fill className="object-cover" />
+                <div className="h-40 bg-gray-200 relative">
+                <Image src="/produtos/Automação (CLPs, IHMs e Módulos)/CLP e IHM 2.png" alt="CLP" fill className="object-cover" />
               </div>
               <div className="p-6">
                 <h4 className="font-semibold mb-2">Aumento da produtividade</h4>
@@ -62,8 +62,8 @@ export default function LandingCLPs() {
               </div>
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg">
-              <div className="h-40 bg-gray-200 relative">
-                <Image src="/placeholder.jpg" alt="CLP" fill className="object-cover" />
+                <div className="h-40 bg-gray-200 relative">
+                <Image src="/produtos/Automação (CLPs, IHMs e Módulos)/CLP e IHM 3.png" alt="CLP" fill className="object-cover" />
               </div>
               <div className="p-6">
                 <h4 className="font-semibold mb-2">Redução de custos</h4>

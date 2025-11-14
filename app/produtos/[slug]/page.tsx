@@ -8,36 +8,50 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
-import { products, type Product } from "@/lib/data/products"
+import { type Product } from "@/lib/data/products"
 import { useCart } from "@/lib/cart-context"
-import { useSearchParams } from "next/navigation"
+import { useProduct } from "@/lib/hooks/use-products"
+import { medusaProductToProduct } from "@/lib/utils/medusa-to-product"
 
 interface ProductPageProps {
-  params: {
-    slug: string
-  }
+  slug: string
 }
 
-function ProductContent({ params }: ProductPageProps) {
+function ProductContent({ slug }: ProductPageProps) {
   const { addItem } = useCart()
   const [quantity, setQuantity] = useState(1)
   const [activeTab, setActiveTab] = useState("especificacoes")
   
-  // Find product by slug (using product ID)
-  const product = products.find(p => p.id === params.slug)
+  // Buscar produto da API Medusa pelo handle ou ID
+  const { product: medusaProduct, loading, error } = useProduct(slug)
+
+  // Converter produto do Medusa para o formato usado no frontend
+  const product = medusaProduct ? medusaProductToProduct(medusaProduct) : null
 
   // Get related products from same category (excluding current product)
-  const relatedProducts = product ? 
-    products.filter(p => 
-      p.category === product.category && 
-      p.id !== product.id
-    ).slice(0, 3) : []
+  // Por enquanto, vamos buscar produtos relacionados usando a API
+  const relatedProducts: (Product & { handle?: string })[] = []
 
-  if (!product) {
+  // Estado de carregamento
+  if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">Produto não encontrado</h1>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-marsala-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Carregando produto...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Estado de erro ou produto não encontrado
+  if (error || !product) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-800 mb-4">
+            {error ? `Erro ao carregar produto: ${error.message}` : 'Produto não encontrado'}
+          </h1>
           <Link href="/produtos">
             <Button variant="outline" className="border-marsala-300 text-marsala-700 hover:bg-marsala-50">
               <ArrowLeft className="h-4 w-4 mr-2" />
@@ -447,7 +461,7 @@ function ProductContent({ params }: ProductPageProps) {
                           </div>
                         )}
                         
-                        <Link href={`/produtos/${relatedProduct.id}`}>
+                        <Link href={`/produtos/${relatedProduct.handle || relatedProduct.id}`}>
                           <Button 
                             size="sm" 
                             variant="outline"
@@ -469,10 +483,18 @@ function ProductContent({ params }: ProductPageProps) {
   )
 }
 
-export default function ProductPage({ params }: ProductPageProps) {
+interface ProductPageProps {
+  params: Promise<{
+    slug: string
+  }>
+}
+
+export default async function ProductPage({ params }: ProductPageProps) {
+  const { slug } = await params
+  
   return (
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Carregando produto...</div>}>
-      <ProductContent params={params} />
+      <ProductContent slug={slug} />
     </Suspense>
   )
 }

@@ -44,3 +44,4 @@ export class Product extends MedusaProduct {
   @Column({ type: "int", nullable: true })
   installation_complexity?: number;
 }
+

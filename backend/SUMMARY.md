@@ -150,7 +150,7 @@ cd backend
 npm install
 docker-compose up -d
 npm run build
-npx medusa db:migrate
+npx medusa migrations run
 npm run seed
 npm run dev
 ```

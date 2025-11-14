@@ -1,0 +1,77 @@
+diff --git a/node_modules/@medusajs/medusa/dist/services/fulfillment-provider.js b/node_modules/@medusajs/medusa/dist/services/fulfillment-provider.js
+index 669d91b..24bb40b 100644
+--- a/node_modules/@medusajs/medusa/dist/services/fulfillment-provider.js
++++ b/node_modules/@medusajs/medusa/dist/services/fulfillment-provider.js
+@@ -89,7 +89,13 @@ var FulfillmentProviderService = /** @class */ (function (_super) {
+                                 switch (_b.label) {
+                                     case 0:
+                                         fulfillmentProviderRepo = manager.withRepository(this.fulfillmentProviderRepository_);
+-                                        return [4 /*yield*/, fulfillmentProviderRepo.update({}, { is_installed: false })];
++                                        // Fix: TypeORM doesn't allow update({}, ...) without criteria
++                                        return [4 /*yield*/, fulfillmentProviderRepo.count().then(function (count) {
++                                                if (count > 0) {
++                                                    return fulfillmentProviderRepo.update({ is_installed: true }, { is_installed: false });
++                                                }
++                                                return Promise.resolve();
++                                            })];
+                                     case 1:
+                                         _b.sent();
+                                         _b.label = 2;
+diff --git a/node_modules/@medusajs/medusa/dist/services/notification.js b/node_modules/@medusajs/medusa/dist/services/notification.js
+index 8b3bfdc..cb3f5ef 100644
+--- a/node_modules/@medusajs/medusa/dist/services/notification.js
++++ b/node_modules/@medusajs/medusa/dist/services/notification.js
+@@ -127,7 +127,13 @@ var NotificationService = /** @class */ (function (_super) {
+                     case 0:
+                         notificationProviderRepository = this.container_.notificationProviderRepository;
+                         model = this.activeManager_.withRepository(notificationProviderRepository);
+-                        return [4 /*yield*/, model.update({}, { is_installed: false })];
++                        // Fix: TypeORM doesn't allow update({}, ...) without criteria
++                        return [4 /*yield*/, model.count().then(function (count) {
++                                if (count > 0) {
++                                    return model.update({ is_installed: true }, { is_installed: false });
++                                }
++                                return Promise.resolve();
++                            })];
+                     case 1:
+                         _b.sent();
+                         _b.label = 2;
+diff --git a/node_modules/@medusajs/medusa/dist/services/payment-provider.js b/node_modules/@medusajs/medusa/dist/services/payment-provider.js
+index 47fe0e0..b22d120 100644
+--- a/node_modules/@medusajs/medusa/dist/services/payment-provider.js
++++ b/node_modules/@medusajs/medusa/dist/services/payment-provider.js
+@@ -110,7 +110,14 @@ var PaymentProviderService = /** @class */ (function (_super) {
+                                 switch (_a.label) {
+                                     case 0:
+                                         model = transactionManager.withRepository(this.paymentProviderRepository_);
+-                                        return [4 /*yield*/, model.update({}, { is_installed: false })];
++                                        // Fix: Check if there are any providers before updating
++                                        // TypeORM doesn't allow update({}, ...) without criteria
++                                        return [4 /*yield*/, model.count().then(function (count) {
++                                                if (count > 0) {
++                                                    return model.update({ is_installed: true }, { is_installed: false });
++                                                }
++                                                return Promise.resolve();
++                                            })];
+                                     case 1:
+                                         _a.sent();
+                                         return [4 /*yield*/, (0, utils_1.promiseAll)(providerIds.map(function (providerId) { return __awaiter(_this, void 0, void 0, function () {
+diff --git a/node_modules/@medusajs/medusa/dist/services/tax-provider.js b/node_modules/@medusajs/medusa/dist/services/tax-provider.js
+index 1f4768b..98f12e0 100644
+--- a/node_modules/@medusajs/medusa/dist/services/tax-provider.js
++++ b/node_modules/@medusajs/medusa/dist/services/tax-provider.js
+@@ -594,7 +594,13 @@ var TaxProviderService = /** @class */ (function (_super) {
+                 switch (_b.label) {
+                     case 0:
+                         model = this.activeManager_.withRepository(this.taxProviderRepo_);
+-                        return [4 /*yield*/, model.update({}, { is_installed: false })];
++                        // Fix: TypeORM doesn't allow update({}, ...) without criteria
++                        return [4 /*yield*/, model.count().then(function (count) {
++                                if (count > 0) {
++                                    return model.update({ is_installed: true }, { is_installed: false });
++                                }
++                                return Promise.resolve();
++                            })];
+                     case 1:
+                         _b.sent();
+                         _b.label = 2;

@@ -54,6 +54,10 @@
       "handle": "sistema-automacao-industrial",
       "is_giftcard": false,
       "weight": 5000,
+      "industrial_category": "clp-automacao",
+      "metadata": {
+        "category": "clp-automacao"
+      },
       "images": [
         "https://via.placeholder.com/600x600/4A90E2/FFFFFF?text=Sistema+Automacao"
       ],
@@ -118,6 +122,10 @@
       "handle": "controlador-plc",
       "is_giftcard": false,
       "weight": 800,
+      "industrial_category": "clp-automacao",
+      "metadata": {
+        "category": "clp-automacao"
+      },
       "images": [
         "https://via.placeholder.com/600x600/50C878/FFFFFF?text=PLC"
       ],
@@ -167,6 +175,10 @@
       "handle": "sensor-pressao",
       "is_giftcard": false,
       "weight": 200,
+      "industrial_category": "sensores-pressao",
+      "metadata": {
+        "category": "sensores-pressao"
+      },
       "images": [
         "https://via.placeholder.com/600x600/FF6347/FFFFFF?text=Sensor"
       ],
@@ -295,6 +307,10 @@
       "handle": "inversor-frequencia",
       "is_giftcard": false,
       "weight": 1500,
+      "industrial_category": "clp-automacao",
+      "metadata": {
+        "category": "clp-automacao"
+      },
       "images": [
         "https://via.placeholder.com/600x600/FFD700/000000?text=Inversor"
       ],

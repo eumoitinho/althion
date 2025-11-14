@@ -8,13 +8,21 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
-import { categories, products, type Product } from "@/lib/data/products"
+import { type Product } from "@/lib/data/products"
 import { useCart } from "@/lib/cart-context"
 import { useSearchParams } from "next/navigation"
+import { useProducts } from "@/lib/hooks/use-products"
+import { useCategories } from "@/lib/hooks/use-categories"
+import { medusaProductsToProducts } from "@/lib/utils/medusa-to-product"
 
-// Função para converter nome em slug
-const createSlug = (name: string) => {
-  return name.toLowerCase()
+// Função para converter nome em slug ou usar handle do Medusa
+const createSlug = (product: Product & { handle?: string }) => {
+  // Se o produto tem handle do Medusa, usar ele
+  if (product.handle) {
+    return product.handle
+  }
+  // Caso contrário, gerar slug do nome
+  return product.name.toLowerCase()
     .replace(/[^\w\s]/gi, '')
     .replace(/\s+/g, '-')
 }
@@ -24,7 +32,26 @@ function ProductsContent() {
   const searchParams = useSearchParams()
   const initialCategory = searchParams?.get('categoria') || 'all'
 
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products)
+  // Buscar produtos da API Medusa
+  const { products: medusaProducts, loading, error, count } = useProducts({
+    limit: 100,
+  })
+
+  // Buscar categorias da API
+  const { categories: apiCategories, loading: categoriesLoading } = useCategories()
+
+  // Converter produtos do Medusa para o formato usado no frontend
+  const products = medusaProducts ? medusaProductsToProducts(medusaProducts) : []
+
+  // Mapear categorias da API para o formato usado no frontend
+  const categories = apiCategories.map(cat => ({
+    id: cat.slug,
+    slug: cat.slug,
+    name: cat.name,
+    description: cat.description,
+  }))
+
+  const [filteredProducts, setFilteredProducts] = useState<(Product & { handle?: string })[]>([])
   const [selectedCategory, setSelectedCategory] = useState(initialCategory)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedBrands, setSelectedBrands] = useState<string[]>([])
@@ -34,17 +61,20 @@ function ProductsContent() {
   const [showFilters, setShowFilters] = useState(false)
 
   // Obter marcas únicas
-  const brands = [...new Set(products.filter(p => p.manufacturer).map(p => p.manufacturer))].sort()
+  const brands = [...new Set(products.filter(p => p.manufacturer).map(p => p.manufacturer))].sort() as string[]
 
   // Aplicar filtros
   useEffect(() => {
+    if (loading) return
+    
     let filtered = [...products]
 
     // Filtro por categoria
     if (selectedCategory !== 'all') {
       const category = categories.find(c => c.slug === selectedCategory)
       if (category) {
-        filtered = filtered.filter(p => p.category === category.id)
+        // Filtrar por slug da categoria (que é o que está no produto)
+        filtered = filtered.filter(p => p.category === category.slug)
       }
     }
 
@@ -90,7 +120,7 @@ function ProductsContent() {
     })
 
     setFilteredProducts(filtered)
-  }, [selectedCategory, searchTerm, selectedBrands, priceFilter, sortBy])
+  }, [products, selectedCategory, searchTerm, selectedBrands, priceFilter, sortBy, loading])
 
   const handleBrandToggle = (brand: string) => {
     setSelectedBrands(prev =>
@@ -106,6 +136,30 @@ function ProductsContent() {
     setSelectedBrands([])
     setPriceFilter('all')
     setSortBy('featured')
+  }
+
+  // Estado de carregamento
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 pt-24 pb-12 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-marsala-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Carregando produtos...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Estado de erro
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 pt-24 pb-12 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-600 mb-4">Erro ao carregar produtos: {error.message}</p>
+          <Button onClick={() => window.location.reload()}>Tentar novamente</Button>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -163,22 +217,28 @@ function ProductsContent() {
                 >
                   Todos ({products.length})
                 </button>
-                {categories.map((category) => {
-                  const categoryProducts = products.filter(p => p.category === category.id);
-                  return (
-                    <button
-                      key={category.id}
-                      onClick={() => setSelectedCategory(category.slug)}
-                      className={`w-full text-left px-3 py-2 rounded-lg transition-all ${
-                        selectedCategory === category.slug
-                          ? 'bg-marsala-600 text-white'
-                          : 'text-gray-700 hover:bg-marsala-50'
-                      }`}
-                    >
-                      {category.name} ({categoryProducts.length})
-                    </button>
-                  );
-                })}
+                {categoriesLoading ? (
+                  <div className="text-center py-4">
+                    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-marsala-600 mx-auto"></div>
+                  </div>
+                ) : (
+                  categories.map((category) => {
+                    const categoryProducts = products.filter(p => p.category === category.slug);
+                    return (
+                      <button
+                        key={category.id}
+                        onClick={() => setSelectedCategory(category.slug)}
+                        className={`w-full text-left px-3 py-2 rounded-lg transition-all ${
+                          selectedCategory === category.slug
+                            ? 'bg-marsala-600 text-white'
+                            : 'text-gray-700 hover:bg-marsala-50'
+                        }`}
+                      >
+                        {category.name} ({categoryProducts.length})
+                      </button>
+                    );
+                  })
+                )}
               </div>
             </div>
 
@@ -344,7 +404,7 @@ function ProductCard({
   onAddToCart,
   index
 }: {
-  product: Product
+  product: Product & { handle?: string }
   viewMode: 'grid' | 'list'
   onAddToCart: () => void
   index: number
@@ -360,7 +420,7 @@ function ProductCard({
       }`}>
         <CardContent className={`p-6 ${viewMode === 'list' ? 'flex items-center gap-6' : ''}`}>
           {/* Imagem */}
-          <Link href={`/produtos/${createSlug(product.name)}`}>
+          <Link href={`/produtos/${createSlug(product)}`}>
             <div className={`relative bg-gray-100 rounded-lg overflow-hidden group cursor-pointer ${
               viewMode === 'list' ? 'w-32 h-32 flex-shrink-0' : 'h-48 mb-4'
             }`}>
@@ -382,7 +442,7 @@ function ProductCard({
           <div className={`${viewMode === 'list' ? 'flex-1' : ''}`}>
             <div className={`${viewMode === 'list' ? 'flex justify-between items-start' : ''}`}>
               <div className={`${viewMode === 'list' ? 'flex-1 pr-4' : ''}`}>
-                <Link href={`/produtos/${createSlug(product.name)}`}>
+                <Link href={`/produtos/${createSlug(product)}`}>
                   <h3 className="text-lg font-semibold text-gray-800 mb-1 hover:text-marsala-600 cursor-pointer transition-colors">
                     {product.name}
                   </h3>

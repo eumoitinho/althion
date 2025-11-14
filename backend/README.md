@@ -115,7 +115,7 @@ GRANT ALL PRIVILEGES ON DATABASE medusa_db TO medusa_user;
 
 ```bash
 npm run build
-npx medusa db:migrate
+npx medusa migrations run
 ```
 
 ---
@@ -360,11 +360,11 @@ O modelo de produto foi estendido com os seguintes campos:
 1. Edite `src/models/product.ts`
 2. Crie uma migração:
 ```bash
-npx medusa db:generate AddCustomFields
+npx medusa migrations create AddCustomFields
 ```
 3. Execute a migração:
 ```bash
-npx medusa db:migrate
+npx medusa migrations run
 ```
 
 ### Criar Endpoints Customizados
@@ -428,7 +428,7 @@ kill -9 <PID>
 ```bash
 # Limpar banco e recriar
 npm run build
-npx medusa db:migrate
+npx medusa migrations run
 ```
 
 ---

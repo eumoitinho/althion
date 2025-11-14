@@ -1,0 +1,190 @@
+{
+  "categories": [
+    {
+      "slug": "clp-automacao",
+      "name": "CLP e Automação",
+      "description": "Controladores Lógicos Programáveis, IHMs, inversores e sistemas de automação industrial",
+      "icon": "Cpu",
+      "order": 1,
+      "image_paths": [
+        "/produtos/Automação (CLPs, IHMs e Módulos)/CLP e IHM 1.png",
+        "/produtos/Automação (CLPs, IHMs e Módulos)/CLP e IHM 2.png",
+        "/produtos/Automação (CLPs, IHMs e Módulos)/CLP e IHM 3.png",
+        "/produtos/Automação (CLPs, IHMs e Módulos)/Controlador de CLP 1.png",
+        "/produtos/Automação (CLPs, IHMs e Módulos)/IHM.png",
+        "/produtos/Automação (CLPs, IHMs e Módulos)/Módulo amplificador.png",
+        "/produtos/Automação (CLPs, IHMs e Módulos)/Módulo de IoT Industrial.png"
+      ]
+    },
+    {
+      "slug": "medidores-vazao",
+      "name": "Medidores de Vazão",
+      "description": "Medidores eletromagnéticos, ultrassônicos, radar e diversos tipos de medição de vazão",
+      "icon": "Gauge",
+      "order": 2,
+      "image_paths": [
+        "/produtos/Medidores de vazão/Medidor de vazão eletromagnético.png",
+        "/produtos/Medidores de vazão/Medidor de vazão eletromagnético 2.png",
+        "/produtos/Medidores de vazão/Medidor de vazão ultrassônico.png",
+        "/produtos/Medidores de vazão/Medidor de vazão ultrassônico portátil.png",
+        "/produtos/Medidores de vazão/Medidor de vazão de água.png",
+        "/produtos/Medidores de vazão/Medidor de vazão de líquidos.png",
+        "/produtos/Medidores de vazão/Medidor de vazão eletrônico.png",
+        "/produtos/Medidores de vazão/Medidor de gás líquido e vapor.png",
+        "/produtos/Medidores de vazão/Chave de vazão térmica.png"
+      ]
+    },
+    {
+      "slug": "sensores-temperatura",
+      "name": "Sensores de Temperatura",
+      "description": "Sensores PT100, termopares, transmissores e controladores de temperatura industrial",
+      "icon": "Thermometer",
+      "order": 3,
+      "image_paths": [
+        "/produtos/Sensores de temperatura e climáticos/Medidor de temperatura digital.png",
+        "/produtos/Sensores de temperatura e climáticos/Sensor de temperatura e umidade.png",
+        "/produtos/Sensores de temperatura e climáticos/Sensor de temperatura wireless.png",
+        "/produtos/Sensores de temperatura e climáticos/Sensores de temperatura.png",
+        "/produtos/Sensores de temperatura e climáticos/Transmissor de temperatura.png",
+        "/produtos/Sensores de temperatura e climáticos/Anemômetro com sensor de vento.png",
+        "/produtos/Sensores de temperatura e climáticos/Sensor de direção do vento.png",
+        "/produtos/Sensores de temperatura e climáticos/Sensor de velocidade do vento.png"
+      ]
+    },
+    {
+      "slug": "sensores-pressao",
+      "name": "Sensores de Pressão",
+      "description": "Sensores e transmissores de pressão para diversas aplicações industriais",
+      "icon": "Activity",
+      "order": 4,
+      "image_paths": [
+        "/produtos/Medidores de pressão/Manômetro de aço.png",
+        "/produtos/Medidores de pressão/Manômetro de pressão digital.png",
+        "/produtos/Medidores de pressão/Manômetro digital com display.png",
+        "/produtos/Medidores de pressão/Pressostato eletrônico.png"
+      ]
+    },
+    {
+      "slug": "sensores-nivel",
+      "name": "Sensores de Nível",
+      "description": "Sensores submersíveis, ultrassônicos, radar e capacitivos para medição de nível",
+      "icon": "Gauge",
+      "order": 5,
+      "image_paths": [
+        "/produtos/Sensores de nível/Sensor de nível ultrassônico.png",
+        "/produtos/Sensores de nível/Sensor de nível radar.png",
+        "/produtos/Sensores de nível/Sensor de nível capacitivo.png",
+        "/produtos/Sensores de nível/Sensor de nível submersível.png"
+      ]
+    },
+    {
+      "slug": "controle-acesso",
+      "name": "Controle de Acesso e Telemática",
+      "description": "Catracas, torniquetes, controladores de acesso e sistemas de gestão de ponto",
+      "icon": "Shield",
+      "order": 6,
+      "image_paths": []
+    }
+  ],
+  "content": [
+    {
+      "slug": "home-hero",
+      "type": "hero",
+      "title": "Especialistas em Indústria Farmacêutica",
+      "subtitle": "Soluções em automação, instrumentação e controle para ciências da vida",
+      "description": "Soluções em automação, instrumentação e controle para ciências da vida",
+      "content": {
+        "video": "/4751094_Pharmaceutical_Quality_1280x720.mp4",
+        "image": "/automation-hero.jpg",
+        "primaryButton": {
+          "text": "Ver Catálogo",
+          "link": "/produtos"
+        },
+        "secondaryButton": {
+          "text": "Solicitar Orçamento",
+          "link": "/orcamento"
+        }
+      },
+      "order": 1
+    },
+    {
+      "slug": "home-about",
+      "type": "about",
+      "title": "Althion Lab - Especialistas na Indústria Farmacêutica",
+      "subtitle": "Soluções inovadoras e multidisciplinares",
+      "description": "A Althion é uma empresa especializada no setor industrial, com foco na indústria farmacêutica e nas ciências da vida. Destacamo-nos pela criação de soluções inovadoras e multidisciplinares, que aliam alta tecnologia, qualidade e custo-benefício.",
+      "content": {
+        "image": "/dois-colegas-em-um-fabrica.jpg",
+        "features": [
+          {
+            "title": "Conformidade RDC",
+            "description": "CFR 21 Part 11, NBR 17025",
+            "icon": "Shield"
+          },
+          {
+            "title": "Multidisciplinar",
+            "description": "Automação, Instrumentação, Elétrica",
+            "icon": "Settings"
+          }
+        ],
+        "stats": [
+          {
+            "value": "500+",
+            "label": "Clientes Ativos"
+          },
+          {
+            "value": "15k+",
+            "label": "Produtos Vendidos"
+          },
+          {
+            "value": "98%",
+            "label": "Satisfação"
+          }
+        ]
+      },
+      "order": 2
+    },
+    {
+      "slug": "home-solutions",
+      "type": "solution",
+      "title": "Soluções Completas em Automação",
+      "subtitle": "Oferecemos soluções integradas que transformam sua operação industrial",
+      "content": {
+        "solutions": [
+          {
+            "title": "Retrofit de Máquinas",
+            "description": "Modernização de equipamentos industriais com tecnologia de última geração",
+            "icon": "Cpu",
+            "benefits": [
+              "Aumento de produtividade",
+              "Redução de paradas",
+              "Economia de energia"
+            ]
+          },
+          {
+            "title": "Integração de Sistemas",
+            "description": "Conectividade total entre CLPs, IHMs e sistemas supervisórios",
+            "icon": "Gauge",
+            "benefits": [
+              "Gestão centralizada",
+              "Monitoramento em tempo real",
+              "Relatórios automáticos"
+            ]
+          },
+          {
+            "title": "Manutenção Preditiva",
+            "description": "Sensores inteligentes para prevenção de falhas e otimização de manutenção",
+            "icon": "Activity",
+            "benefits": [
+              "Prevenção de falhas",
+              "Redução de custos",
+              "Maior disponibilidade"
+            ]
+          }
+        ]
+      },
+      "order": 3
+    }
+  ]
+}
+

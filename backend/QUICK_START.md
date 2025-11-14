@@ -1,96 +1,106 @@
-# 🚀 Quick Start Guide
+# 🚀 Guia Rápido de Setup
 
-Guia rápido para iniciar o backend Medusa em 5 minutos.
+## Situação Atual
 
-## 📋 Pré-requisitos
+✅ **Concluído:**
+- Todos os arquivos de configuração criados
+- Dependências instaladas (`npm install`)
+- TypeScript compilado (`npm run build`)
 
-- Node.js 18+
-- Docker (recomendado) ou PostgreSQL instalado
+⚠️ **Docker não encontrado** - Mas você tem PostgreSQL instalado localmente!
 
-## ⚡ Passos Rápidos
+## Opções para Continuar
 
-### 1. Instalar Dependências
+### Opção 1: Instalar Docker (Recomendado para produção)
+
+1. Instale Docker Desktop: https://www.docker.com/products/docker-desktop
+2. Execute:
+   ```bash
+   cd backend
+   docker compose up -d
+   npx medusa migrations run
+   npm run seed
+   npm run dev
+   ```
+
+### Opção 2: Usar PostgreSQL Local (Mais rápido agora)
+
+Execute o script automatizado:
 ```bash
 cd backend
-npm install
+./setup-local.sh
 ```
 
-### 2. Iniciar Banco de Dados
-```bash
-# Com Docker (recomendado)
-docker-compose up -d
+Ou manualmente:
 
-# OU se PostgreSQL já instalado, pule este passo
+1. **Iniciar PostgreSQL** (se não estiver rodando):
+   ```bash
+   brew services start postgresql
+   ```
+
+2. **Criar banco de dados**:
+   ```bash
+   psql -U $USER -d postgres
+   ```
+   Depois execute:
+   ```sql
+   CREATE DATABASE medusa_db;
+   CREATE USER medusa_user WITH PASSWORD 'medusa_password';
+   GRANT ALL PRIVILEGES ON DATABASE medusa_db TO medusa_user;
+   ALTER DATABASE medusa_db OWNER TO medusa_user;
+   \q
+   ```
+
+3. **Atualizar .env** (se necessário):
+   O arquivo `.env` já está configurado para:
+   ```
+   DATABASE_URL=postgres://medusa_user:medusa_password@localhost:5432/medusa_db
+   ```
+
+4. **Executar setup**:
+   ```bash
+   cd backend
+   npx medusa migrations run
+   npm run seed
+   npm run dev
+   ```
+
+### Opção 3: Script Automatizado Completo
+
+O script `setup.sh` detecta automaticamente se Docker está disponível:
+```bash
+cd backend
+./setup.sh
 ```
 
-### 3. Executar Migrações
-```bash
-npm run build
-npx medusa db:migrate
-```
+## Próximas Vezes (Setup Rápido)
 
-### 4. Popular com Dados de Exemplo
+**Com Docker:**
 ```bash
-npm run seed
-```
-
-### 5. Iniciar Servidor
-```bash
+cd backend
+docker compose up -d
 npm run dev
 ```
 
-## ✅ Pronto!
-
-- **API**: http://localhost:9000
-- **Admin**: http://localhost:9000/app
-  - Email: admin@althion.com
-  - Senha: admin123
-
-## 🔗 Testar API
-
+**Com PostgreSQL Local:**
 ```bash
-# Listar produtos
-curl http://localhost:9000/store/products
-
-# Ou no navegador
-open http://localhost:9000/store/products
-```
-
-## 📚 Próximos Passos
-
-1. Ler [README.md](./README.md) completo
-2. Consultar [API_DOCUMENTATION.md](./API_DOCUMENTATION.md)
-3. Seguir [INTEGRATION_GUIDE.md](./INTEGRATION_GUIDE.md) para integrar com frontend
-
-## ❓ Problemas?
-
-### Erro de conexão com banco
-```bash
-# Verificar se Docker está rodando
-docker ps
-
-# Reiniciar containers
-docker-compose restart
-```
-
-### Porta 9000 em uso
-```bash
-# Mudar porta no .env
-echo "PORT=9001" >> .env
-```
-
-### Limpar e recomeçar
-```bash
-docker-compose down -v
-rm -rf node_modules dist
-npm install
-docker-compose up -d
-npm run build
-npx medusa db:migrate
-npm run seed
+cd backend
 npm run dev
 ```
 
----
+## 📝 URLs após iniciar
 
-**Tempo estimado**: 5-10 minutos ⏱️
+- **Admin Dashboard:** http://localhost:9000/app
+- **Store API:** http://localhost:9000/store  
+- **Admin API:** http://localhost:9000/admin
+
+**Credenciais admin:**
+- Email: `admin@althion.com`
+- Senha: `admin123`
+
+## 🆘 Precisa de ajuda?
+
+- Veja `SETUP.md` para instruções detalhadas
+- Veja `DOCKER_SETUP.md` para opções de Docker
+- Execute `./setup-local.sh` para usar PostgreSQL local automaticamente
+

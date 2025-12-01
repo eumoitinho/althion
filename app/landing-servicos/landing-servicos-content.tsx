@@ -31,590 +31,478 @@ import {
   Linkedin,
   Instagram,
   FileText,
-  PlayCircle,
-  Download,
-  ArrowDown
+  ArrowDown,
+  Headphones,
+  Package
 } from "lucide-react"
 
 export default function LandingServicosContent() {
   return (
-    <main className="bg-gradient-to-br from-gray-50 to-warm-50 text-gray-900">
-      {/* Hero / Bloco 1 */}
-      <section className="relative min-h-[70vh] flex items-center pt-24 pb-16 overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-marsala-50/30 to-orange-50/30"></div>
-        <div className="absolute top-20 right-10 w-72 h-72 bg-marsala-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl"></div>
+    <main className="bg-white text-gray-900 font-poppins selection:bg-marsala-100 selection:text-marsala-900">
+      {/* Bloco 1 - Hero */}
+      <section className="relative min-h-[85vh] flex items-center pt-48 pb-20 overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100">
+        {/* Background decorative elements - More subtle and premium */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-marsala-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gray-100/50 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
         
-        <div className="max-w-7xl mx-auto px-8 w-full relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <Badge className="mb-4 bg-marsala-100 text-marsala-700 border-marsala-200 hover:bg-marsala-200">
-                <Award className="w-3 h-3 mr-2" />
-                Especialistas em Indústria 4.0
-              </Badge>
-              <h1 className="text-5xl md:text-6xl font-light mb-6 leading-tight">
-                Engenharia de <span className="font-semibold text-marsala-700">ponta a ponta</span> para sua indústria
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-marsala-50 border border-marsala-100 rounded-full mb-6">
+                <span className="flex h-2 w-2 rounded-full bg-marsala-600"></span>
+                <span className="text-xs font-semibold text-marsala-800 tracking-wide uppercase">Engenharia Industrial</span>
+              </div>
+              
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 leading-[1.1] tracking-tight">
+                Engenharia de <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-marsala-700 to-marsala-500">ponta a ponta</span> <br/>
+                para sua indústria
               </h1>
-              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                Soluções personalizadas de automação, instrumentação, elétrica e manutenção com a garantia de qualidade <span className="font-semibold text-marsala-700">Althion Tech</span>.
+              
+              <p className="text-lg lg:text-xl text-gray-600 mb-10 leading-relaxed max-w-xl font-medium">
+                Soluções personalizadas de automação, instrumentação, elétrica e manutenção com a garantia de qualidade <span className="font-bold text-marsala-700">Althion Tech</span>.
               </p>
               
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-6 mb-8">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-gray-100"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 bg-marsala-100 rounded-lg">
-                      <TrendingUp className="w-6 h-6 text-marsala-700" />
-                    </div>
-            <div>
-                      <div className="text-3xl font-bold text-marsala-700">+1.000</div>
-                  <div className="text-sm text-gray-600">projetos entregues</div>
+              {/* Stats - Refined */}
+              <div className="grid grid-cols-2 gap-6 mb-10 max-w-md">
+                <div className="border-l-4 border-marsala-200 pl-4">
+                  <div className="text-3xl font-bold text-marsala-700">+1.000</div>
+                  <div className="text-sm font-medium text-gray-500 uppercase tracking-wide mt-1">projetos entregues</div>
                 </div>
-                  </div>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-gray-100"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 bg-marsala-100 rounded-lg">
-                      <Users className="w-6 h-6 text-marsala-700" />
+                <div className="border-l-4 border-marsala-200 pl-4">
+                  <div className="text-3xl font-bold text-marsala-700">+120</div>
+                  <div className="text-sm font-medium text-gray-500 uppercase tracking-wide mt-1">engenheiros e técnicos</div>
                 </div>
-                <div>
-                      <div className="text-3xl font-bold text-marsala-700">+120</div>
-                  <div className="text-sm text-gray-600">engenheiros e técnicos</div>
-                </div>
-                  </div>
-                </motion.div>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="#formulario">
-                  <Button className="bg-marsala-600 hover:bg-marsala-700 text-white rounded-full px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all">
-                    SOLICITE UM ORÇAMENTO!
+                  <Button className="bg-marsala-700 hover:bg-marsala-800 text-white rounded-lg px-8 py-7 text-lg font-semibold shadow-lg shadow-marsala-900/10 hover:shadow-xl hover:shadow-marsala-900/20 transition-all w-full sm:w-auto">
+                    SOLICITE UM ORÇAMENTO
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </a>
-                <Link href="/produtos">
-                  <Button variant="outline" className="rounded-full px-6 py-6 text-lg border-2 hover:bg-marsala-50 hover:border-marsala-300 transition-all">
-                    Ver Produtos
-                  </Button>
-                </Link>
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="hidden lg:block relative"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                <div className="absolute inset-0 bg-gradient-to-t from-marsala-900/20 to-transparent z-10"></div>
-                <Image 
-                  src="/produtos/Automação (CLPs, IHMs e Módulos)/Módulo de IoT Industrial.png" 
-                  alt="Automação Industrial" 
-                  width={720} 
-                  height={480} 
-                  className="w-full h-auto object-cover" 
-                  priority 
-                />
+              {/* Premium Image Placeholder */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-200/50 border border-gray-100 bg-gray-50 aspect-[4/3] group">
+                 <div className="absolute inset-0 bg-gradient-to-tr from-gray-100 to-white opacity-50"></div>
+                 <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                        <div className="w-16 h-16 bg-marsala-50 rounded-full flex items-center justify-center mx-auto mb-4 text-marsala-300">
+                            <div className="w-8 h-8 bg-marsala-200 rounded-full" />
+                        </div>
+                        <span className="text-gray-400 font-medium text-sm uppercase tracking-widest">Imagem Hero</span>
+                    </div>
+                 </div>
+                 {/* 
+                 <Image 
+                   src="/path/to/hero-image.jpg" 
+                   alt="Engenharia Industrial" 
+                   fill
+                   className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                   priority 
+                 /> 
+                 */}
               </div>
-              {/* Floating badges */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl border border-gray-100"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-green-100 rounded-lg">
-                    <CheckCircle className="w-5 h-5 text-green-600" />
-            </div>
-                  <div>
-                    <div className="font-semibold text-gray-800">ISO 9001</div>
-                    <div className="text-xs text-gray-600">Certificado</div>
+              
+              {/* Floating Badge */}
+              <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-xl shadow-xl border border-gray-50 max-w-xs z-20">
+                <div className="flex items-start gap-4">
+                    <div className="p-3 bg-green-50 rounded-lg text-green-600">
+                        <CheckCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                        <h4 className="font-bold text-gray-900">Certificação ISO</h4>
+                        <p className="text-sm text-gray-500 mt-1">Garantia de processos e qualidade internacional.</p>
+                    </div>
+                </div>
               </div>
-            </div>
-              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Bloco 2 */}
-      <section className="py-20 bg-white relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-50/50 to-transparent"></div>
-        <div className="max-w-4xl mx-auto px-8 text-center relative z-10">
+      {/* Bloco 2 - Sobre */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-marsala-100 rounded-full mb-6">
-              <Target className="w-5 h-5 text-marsala-700" />
-              <span className="text-sm font-semibold text-marsala-700">Nossa Missão</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-semibold mb-6 leading-tight">
+            <span className="text-marsala-600 font-bold tracking-wider uppercase text-sm mb-4 block">Nossa Missão</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-gray-900 leading-tight">
               Althion Tech: projetando a <span className="text-marsala-700">Indústria 4.0</span> com inovação e excelência
             </h2>
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              A <span className="font-semibold">Indústria 4.0</span> chegou para transformar de forma definitiva a produtividade e a competitividade no chão de fábrica. Atenta a essa revolução, a <span className="font-semibold text-marsala-700">Althion Tech</span> nasceu com a missão de ser a ponte entre a sua empresa e uma automação realmente inteligente. Com especialistas que somam mais de <span className="font-semibold">15 anos de experiência</span>, oferecemos soluções de alto desempenho que aumentam a produtividade, reforçam a proteção operacional e garantem a conformidade da sua indústria.
+            <div className="w-20 h-1 bg-marsala-600 mx-auto mb-8 rounded-full"></div>
+            <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed font-light">
+              A <span className="font-semibold text-gray-900">Indústria 4.0</span> chegou para transformar de forma definitiva a produtividade e a competitividade no chão de fábrica. Atenta a essa revolução, a <span className="font-bold text-marsala-700">Althion Tech</span> nasceu com a missão de ser a ponte entre a sua empresa e uma automação realmente inteligente. Com especialistas que somam mais de <span className="font-semibold text-gray-900">15 anos de experiência</span>, oferecemos soluções de alto desempenho que aumentam a produtividade, reforçam a proteção operacional e garantem a conformidade da sua indústria.
             </p>
-          <a href="#servicos">
-              <Button className="bg-marsala-600 hover:bg-marsala-700 text-white rounded-full px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all">
-                CONHEÇA NOSSOS SERVIÇOS!
+            <a href="#servicos">
+              <Button variant="outline" className="border-2 border-marsala-600 text-marsala-700 hover:bg-marsala-50 rounded-full px-10 py-6 text-lg font-semibold transition-all">
+                CONHEÇA NOSSOS SERVIÇOS
                 <ArrowDown className="ml-2 h-5 w-5" />
               </Button>
-          </a>
+            </a>
           </motion.div>
         </div>
       </section>
 
       {/* Bloco 3 - Clientes */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-warm-50 border-y">
-        <div className="max-w-7xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-4 shadow-sm">
-              <Building2 className="w-4 h-4 text-marsala-700" />
-              <span className="text-sm font-semibold text-gray-700">Empresas que confiam</span>
-            </div>
-            <h3 className="text-2xl md:text-3xl font-semibold mb-4">NOSSOS CLIENTES</h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              A Althion é reconhecida por <span className="font-semibold">gigantes do mercado</span> que confiam em nossa expertise e compromisso com a excelência
+      <section className="py-20 bg-gray-50 border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Nossos Clientes</h3>
+            <p className="text-2xl font-semibold text-gray-900">
+              A Althion é reconhecida por <span className="text-marsala-700">gigantes do mercado</span>
             </p>
-          </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
-            {['Eurofarma','Sanofi','FarmaUSA','Flukka','União Química','Hospital Israelita Albert Einstein','Medley','Ache'].map((c, index) => (
-              <motion.div
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 items-center opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
+            {[
+              'Eurofarma',
+              'Sanofi',
+              'FarmaUSA',
+              'Flukka',
+              'União Química',
+              'Hospital Israelita Albert Einstein',
+              'Medley',
+              'Ache'
+            ].map((c, index) => (
+              <div
                 key={c}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-center justify-center bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-100 hover:border-marsala-200"
+                className="flex items-center justify-center h-20 bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-all hover:-translate-y-1"
               >
-                <Image src="/placeholder-logo.svg" alt={c} width={120} height={40} className="opacity-60 hover:opacity-100 transition-opacity" />
-              </motion.div>
+                {/* Placeholder for Logos - Replace with actual SVGs */}
+                <span className="text-gray-400 font-bold text-lg">{c}</span>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Bloco 4 - Desafios */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-100 rounded-full mb-4">
-              <Zap className="w-5 h-5 text-red-600" />
-              <span className="text-sm font-semibold text-red-700">Desafios Comuns</span>
-            </div>
-            <h3 className="text-3xl md:text-4xl font-semibold mb-4">
-              A solução definitiva para seus <span className="text-marsala-700">desafios operacionais</span>
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              A solução definitiva para seus <br/><span className="text-marsala-700">desafios operacionais</span>
             </h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Identificamos e resolvemos os problemas que mais impactam a produtividade da sua indústria
-            </p>
-          </motion.div>
-          <div className="grid md:grid-cols-2 gap-6">
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg">Identificamos e resolvemos os gargalos que impedem seu crescimento.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: Clock,
                 title: "Paradas constantes?",
                 description: "Aumentamos a confiabilidade dos seus ativos com manutenção preditiva e corretiva de precisão.",
-                iconBg: "bg-red-100",
-                iconColor: "text-red-600"
+                color: "red"
               },
               {
                 icon: TrendingUp,
                 title: "Produção lenta?",
                 description: "Otimizamos seus processos com automação inteligente e retrofit de máquinas, elevando sua capacidade produtiva.",
-                iconBg: "bg-orange-100",
-                iconColor: "text-orange-600"
+                color: "orange"
               },
               {
                 icon: Shield,
                 title: "Risco de não conformidade?",
                 description: "Garantimos a adequação às normas regulatórias com engenharia e qualificação documental rigorosa.",
-                iconBg: "bg-yellow-100",
-                iconColor: "text-yellow-600"
+                color: "yellow"
               },
               {
                 icon: BarChart3,
                 title: "Custos elevados?",
                 description: "Implementamos sistemas de eficiência energética e otimização de processos que reduzem seus custos operacionais.",
-                iconBg: "bg-green-100",
-                iconColor: "text-green-600"
+                color: "green"
               },
               {
                 icon: FileText,
                 title: "Falta de dados?",
                 description: "Integramos sistemas SCADA e de rastreabilidade que fornecem visibilidade total e controle da sua produção.",
-                iconBg: "bg-blue-100",
-                iconColor: "text-blue-600"
+                color: "blue"
               },
               {
                 icon: GraduationCap,
                 title: "Equipe desqualificada?",
                 description: "Capacitamos seu time com treinamentos técnicos e consultoria especializada, do básico ao avançado.",
-                iconBg: "bg-purple-100",
-                iconColor: "text-purple-600"
+                color: "purple"
               }
             ].map((challenge, index) => (
               <motion.div
                 key={challenge.title}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group"
               >
-                <Card className="h-full hover:shadow-xl transition-all border-2 hover:border-marsala-200">
-                  <CardContent className="p-6">
-                    <div className={`inline-flex p-3 rounded-xl mb-4 ${challenge.iconBg}`}>
-                      <challenge.icon className={`w-6 h-6 ${challenge.iconColor}`} />
-            </div>
-                    <h4 className="font-semibold text-lg mb-3 text-gray-800">{challenge.title}</h4>
-                    <p className="text-gray-600 leading-relaxed">{challenge.description}</p>
-                  </CardContent>
-                </Card>
+                <div className="h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-marsala-100 transition-all duration-300 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gray-50 rounded-bl-full -mr-4 -mt-4 transition-colors group-hover:bg-marsala-50"></div>
+                  
+                  <div className={`relative w-12 h-12 rounded-xl flex items-center justify-center mb-6 bg-${challenge.color}-50 text-${challenge.color}-600 group-hover:scale-110 transition-transform`}>
+                    <challenge.icon className="w-6 h-6" />
+                  </div>
+                  
+                  <h4 className="relative font-bold text-xl mb-3 text-gray-900 group-hover:text-marsala-700 transition-colors">{challenge.title}</h4>
+                  <p className="relative text-gray-600 leading-relaxed">{challenge.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Bloco 5 - Serviços (cards) */}
-      <section id="servicos" className="py-20 bg-gradient-to-br from-gray-50 to-warm-50 border-y">
-        <div className="max-w-6xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-marsala-100 rounded-full mb-4">
-              <Wrench className="w-5 h-5 text-marsala-700" />
-              <span className="text-sm font-semibold text-marsala-700">Nossos Serviços</span>
-            </div>
-            <h3 className="text-3xl md:text-4xl font-semibold mb-4">NOSSOS SERVIÇOS</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              <span className="font-semibold">Expertise a serviço da alta performance</span> - Soluções completas para sua indústria
+      {/* Bloco 5 - Serviços */}
+      <section id="servicos" className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <span className="text-marsala-600 font-bold tracking-wider uppercase text-sm mb-3 block">Expertise Técnica</span>
+            <h3 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">NOSSOS SERVIÇOS</h3>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
+              Soluções completas para elevar sua indústria ao próximo nível
             </p>
-          </motion.div>
-          <div className="grid md:grid-cols-2 gap-8">
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-10">
             {[
               {
-                title: 'AUTOMAÇÃO',
-                desc: 'Integração ISA-95/88, SCADA/MES/MOM e modernização de sistemas.',
-                img: '/service-automation.jpg',
-                icon: Settings,
-                iconBg: 'bg-blue-500',
-                iconColor: 'text-white'
+                number: "01",
+                title: "AUTOMAÇÃO",
+                items: [
+                  { title: "Integração de sistemas (ISA-95/88)", desc: "Conectamos o chão de fábrica ao sistema corporativo, garantindo rastreabilidade e eficiência." },
+                  { title: "Desenvolvimento SCADA/MES/MOM", desc: "Criamos sistemas supervisórios personalizados para controle e tomada de decisão em tempo real." },
+                  { title: "Modernização de sistemas", desc: "Atualizamos sistemas de automação com o mínimo impacto na produção." }
+                ],
+                icon: Settings
               },
               {
-                title: 'INSTRUMENTAÇÃO',
-                desc: 'Padrões RBC, gestão metrológica e suporte em campo.',
-                img: '/service-instrumentation.jpg',
-                icon: Gauge,
-                iconBg: 'bg-green-500',
-                iconColor: 'text-white'
+                number: "02",
+                title: "INSTRUMENTAÇÃO",
+                items: [
+                  { title: "Padrões RBC rastreáveis", desc: "Utilizamos padrões de calibração com certificação internacional para garantir máxima precisão." },
+                  { title: "Gestão metrológica avançada", desc: "Desenvolvemos planos de calibração baseados em análise de risco para otimizar custos." },
+                  { title: "Suporte completo em campo", desc: "Gerenciamos todo o ciclo de vida dos instrumentos, da especificação à qualificação." }
+                ],
+                icon: Gauge
               },
               {
-                title: 'ELÉTRICA',
-                desc: 'Infraestrutura, adequação NR-10/12 e manutenção preditiva.',
-                img: '/service-electrical.jpg',
-                icon: Zap,
-                iconBg: 'bg-yellow-500',
-                iconColor: 'text-white'
+                number: "03",
+                title: "ELÉTRICA",
+                items: [
+                  { title: "Infraestrutura de alta performance", desc: "Projetamos e montamos infraestruturas elétricas eficientes, seguras e prontas para a Indústria 4.0." },
+                  { title: "Adequação às normas (NR-10/12)", desc: "Modernizamos painéis e sistemas para garantir total segurança e conformidade regulatória." },
+                  { title: "Manutenção preditiva", desc: "Utilizamos termografia e diagnósticos avançados para assegurar a confiabilidade." }
+                ],
+                icon: Zap
               },
               {
-                title: 'MANUTENÇÃO',
-                desc: 'Manutenção preventiva/corretiva, gerenciamento integrado e PMOC.',
-                img: '/service-maintenance.jpg',
-                icon: Hammer,
-                iconBg: 'bg-orange-500',
-                iconColor: 'text-white'
-              },
-            ].map((s, index) => (
+                number: "04",
+                title: "MANUTENÇÃO",
+                items: [
+                  { title: "Especialização em ativos críticos", desc: "Executamos manutenções preventivas e corretivas em válvulas, autoclaves e instrumentação." },
+                  { title: "Gerenciamento integrado", desc: "Coordenamos equipes, cronogramas e fornecedores para garantir a máxima eficiência." },
+                  { title: "Conformidade PMOC", desc: "Implementamos Planos de Manutenção, Operação e Controle para garantir a qualidade do ar." }
+                ],
+                icon: Hammer
+              }
+            ].map((service, index) => (
               <motion.div
-                key={s.title}
+                key={service.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group"
+                className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 group"
               >
-                <Card className="overflow-hidden shadow-lg hover:shadow-2xl transition-all border-2 hover:border-marsala-300 h-full">
-                  <div className="relative h-48 bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden">
-                    <Image 
-                      src="/placeholder.jpg" 
-                      alt={s.title} 
-                      fill 
-                      className="object-cover group-hover:scale-110 transition-transform duration-500" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className={`absolute top-4 left-4 p-3 ${s.iconBg} rounded-lg shadow-lg`}>
-                      <s.icon className={`w-6 h-6 ${s.iconColor}`} />
+                <div className="p-8 lg:p-10">
+                  <div className="flex justify-between items-start mb-8">
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 bg-marsala-50 rounded-2xl flex items-center justify-center text-marsala-700 group-hover:bg-marsala-600 group-hover:text-white transition-colors duration-300">
+                        <service.icon className="w-7 h-7" />
+                      </div>
+                      <h4 className="text-2xl font-bold text-gray-900">{service.title}</h4>
                     </div>
-                    <Badge className="absolute top-4 right-4 bg-white/90 text-gray-800 border-0">
-                      {s.title}
-                    </Badge>
+                    <span className="text-4xl font-bold text-gray-100 select-none">{service.number}</span>
                   </div>
-                  <CardContent className="p-6">
-                    <h4 className="font-bold text-xl mb-3 text-gray-800">{s.title}</h4>
-                    <p className="text-gray-600 leading-relaxed mb-4">{s.desc}</p>
-                    <Button variant="ghost" className="p-0 text-marsala-600 hover:text-marsala-700 font-semibold group-hover:translate-x-2 transition-transform">
-                      Saiba mais
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </CardContent>
-                </Card>
+                  
+                  {/* Image Placeholder */}
+                  <div className="w-full h-56 bg-gray-100 rounded-2xl mb-8 flex items-center justify-center text-gray-400 text-sm border border-gray-200 overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
+                    <span className="relative z-10 font-medium">Imagem {service.title}</span>
+                  </div>
+
+                  <div className="space-y-6">
+                    {service.items.map((item, i) => (
+                      <div key={i} className="flex gap-4">
+                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-marsala-500 flex-shrink-0"></div>
+                        <div>
+                          <h5 className="font-bold text-gray-900 text-sm mb-1">{item.title}</h5>
+                          <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center mt-12"
-          >
+
+          <div className="text-center mt-16">
             <a href="#formulario">
-              <Button className="bg-marsala-600 hover:bg-marsala-700 text-white rounded-full px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all">
-                SOLICITE UM ORÇAMENTO PERSONALIZADO!
+              <Button className="bg-marsala-700 hover:bg-marsala-800 text-white rounded-full px-10 py-7 text-lg font-semibold shadow-xl shadow-marsala-900/10 hover:shadow-marsala-900/20 transition-all">
+                SOLICITE UM ORÇAMENTO PERSONALIZADO
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </a>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Bloco 6 - Turn Key */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-100 rounded-full mb-4">
-              <Award className="w-5 h-5 text-orange-700" />
-              <span className="text-sm font-semibold text-orange-700">Soluções Completas</span>
-            </div>
-            <h3 className="text-3xl md:text-4xl font-semibold mb-4">SOLUÇÕES TURN KEY</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Projetos completos do <span className="font-semibold">início ao fim</span>, com qualidade garantida e conformidade total
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <span className="text-marsala-600 font-bold tracking-wider uppercase text-sm mb-3 block">Soluções Completas</span>
+            <h3 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">SOLUÇÕES TURN KEY</h3>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
+              Do projeto à entrega: cuidamos de tudo para você
             </p>
-          </motion.div>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                number: "1",
                 title: "CALDEIRARIA E USINAGEM",
                 items: [
-                  "Expertise em aço inoxidável 316L, alumínio e ligas especiais, com certificação metalúrgica.",
-                  "Soldagem TIG/MIG, corte a laser CNC e conformação de precisão.",
-                  "Mobiliário técnico, reatores, tanques e sistemas SKID com certificação GMP."
+                  "Expertise em aço inoxidável 316L, alumínio e ligas especiais.",
+                  "Soldagem TIG/MIG, corte a laser CNC e conformação.",
+                  "Mobiliário técnico, reatores, tanques e sistemas SKID."
                 ],
-                icon: Wrench,
-                numberBg: "bg-blue-600",
-                iconBg: "bg-blue-100",
-                iconColor: "text-blue-600",
-                checkColor: "text-blue-600",
-                accentBg: "bg-blue-100"
+                icon: Wrench
               },
               {
-                number: "2",
-                title: "CONSTRUÇÃO CIVIL E REFORMAS",
+                title: "CONSTRUÇÃO CIVIL",
                 items: [
-                  "Foco em salas limpas, laboratórios e áreas estéreis, com conformidade GMP, ISO e ANVISA.",
-                  "Projetos com planejamento BIM e documentação completa para total rastreabilidade.",
-                  "Redes de gases especiais, utilidades farmacêuticas e sistemas de controle ambiental."
+                  "Foco em salas limpas, laboratórios e áreas estéreis (GMP).",
+                  "Projetos com planejamento BIM e documentação completa.",
+                  "Redes de gases especiais e utilidades farmacêuticas."
                 ],
-                icon: Building2,
-                numberBg: "bg-green-600",
-                iconBg: "bg-green-100",
-                iconColor: "text-green-600",
-                checkColor: "text-green-600",
-                accentBg: "bg-green-100"
+                icon: Building2
               },
               {
-                number: "3",
-                title: "QUALIFICAÇÃO DE EQUIPAMENTOS",
+                title: "QUALIFICAÇÃO",
                 items: [
-                  "Sistemas de água (PW/WFI), HVAC, ar comprimido e mapeamento térmico.",
+                  "Sistemas de água (PW/WFI), HVAC e ar comprimido.",
                   "Validação GAMP 5 em sistemas computadorizados.",
-                  "Protocolos (QP, QI, QO, QD) e relatórios de validação prontos para auditoria."
+                  "Protocolos (QP, QI, QO, QD) e relatórios de validação."
                 ],
-                icon: CheckCircle,
-                numberBg: "bg-purple-600",
-                iconBg: "bg-purple-100",
-                iconColor: "text-purple-600",
-                checkColor: "text-purple-600",
-                accentBg: "bg-purple-100"
+                icon: CheckCircle
               }
-            ].map((solution, index) => (
+            ].map((sol, index) => (
               <motion.div
-                key={solution.number}
+                key={sol.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                <Card className="h-full hover:shadow-xl transition-all border-2 hover:border-marsala-200 relative overflow-hidden">
-                  <div className={`absolute top-0 right-0 w-32 h-32 ${solution.accentBg} rounded-bl-full opacity-50`}></div>
-                  <CardContent className="p-6 relative z-10">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className={`w-12 h-12 ${solution.numberBg} text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg`}>
-                        {solution.number}
-                      </div>
-                      <div className={`p-2 ${solution.iconBg} rounded-lg`}>
-                        <solution.icon className={`w-6 h-6 ${solution.iconColor}`} />
-                      </div>
-            </div>
-                    <h4 className="font-bold text-lg mb-4 text-gray-800">{solution.title}</h4>
-                    <ul className="space-y-3 text-gray-600">
-                      {solution.items.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <CheckCircle className={`w-5 h-5 ${solution.checkColor} mt-0.5 flex-shrink-0`} />
-                          <span className="leading-relaxed">{item}</span>
-                        </li>
-                      ))}
-              </ul>
-                  </CardContent>
-                </Card>
+                <div className="w-12 h-12 bg-marsala-50 rounded-xl flex items-center justify-center text-marsala-700 mb-6">
+                  <sol.icon className="w-6 h-6" />
+                </div>
+                
+                <h4 className="font-bold text-xl text-gray-900 mb-6">{sol.title}</h4>
+                
+                {/* Image Placeholder */}
+                <div className="w-full h-40 bg-gray-50 rounded-xl mb-6 flex items-center justify-center text-gray-400 text-xs border border-gray-100">
+                  Foto {sol.title}
+                </div>
+
+                <ul className="space-y-4">
+                  {sol.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-gray-600 text-sm">
+                      <CheckCircle className="w-4 h-4 text-marsala-500 mt-0.5 flex-shrink-0" />
+                      <span className="leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center mt-12"
-          >
-            <a href="#formulario">
-              <Button className="bg-marsala-600 hover:bg-marsala-700 text-white rounded-full px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all">
-                SOLICITE UM ORÇAMENTO PERSONALIZADO!
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </a>
-          </motion.div>
         </div>
       </section>
 
       {/* Bloco 7 - Diferenciais */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-warm-50 border-y">
-        <div className="max-w-6xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 rounded-full mb-4">
-              <Star className="w-5 h-5 text-green-700" />
-              <span className="text-sm font-semibold text-green-700">Nossos Diferenciais</span>
-            </div>
-            <h3 className="text-3xl md:text-4xl font-semibold mb-4">Por que escolher a <span className="text-marsala-700">Althion</span>?</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Mais de <span className="font-semibold">15 anos de experiência</span> transformando indústrias com soluções inovadoras
+      <section className="py-24 bg-marsala-900 text-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-20">
+            <h3 className="text-4xl md:text-5xl font-bold mb-6">Por que escolher a Althion?</h3>
+            <p className="text-xl text-marsala-100 max-w-2xl mx-auto font-light">
+              Excelência técnica e compromisso com o seu resultado
             </p>
-          </motion.div>
-          <div className="grid md:grid-cols-2 gap-6">
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: Clock,
                 title: "+15 anos de experiência",
-                description: "Profundo conhecimento em automação para os mais diversos segmentos industriais.",
-                iconBg: "bg-blue-100",
-                iconColor: "text-blue-600"
+                desc: "Profundo conhecimento em automação para os mais diversos segmentos industriais.",
+                icon: Clock
               },
               {
-                icon: Shield,
                 title: "Foco na indústria regulada",
-                description: "Expertise comprovada em projetos para os setores farmacêutico, alimentício e de saneamento.",
-                iconBg: "bg-green-100",
-                iconColor: "text-green-600"
+                desc: "Expertise comprovada em projetos para os setores farmacêutico, alimentício e de saneamento.",
+                icon: Shield
               },
               {
-                icon: Settings,
                 title: "Engenharia consultiva",
-                description: "Mais do que executar, entendemos seu desafio e projetamos a solução mais eficiente e segura.",
-                iconBg: "bg-purple-100",
-                iconColor: "text-purple-600"
+                desc: "Mais do que executar, entendemos seu desafio e projetamos a solução mais eficiente e segura.",
+                icon: Settings
               },
               {
-                icon: Clock,
                 title: "Suporte técnico 24/7",
-                description: "Garantimos a continuidade da sua operação com uma equipe de especialistas sempre a postos.",
-                iconBg: "bg-orange-100",
-                iconColor: "text-orange-600"
+                desc: "Garantimos a continuidade da sua operação com uma equipe de especialistas sempre a postos.",
+                icon: Headphones
               },
               {
-                icon: Award,
                 title: "Portfólio de produtos",
-                description: "Além de serviços especializados, fornecemos CLPs, manômetros, sensores e inversores de alta confiabilidade.",
-                iconBg: "bg-yellow-100",
-                iconColor: "text-yellow-600"
+                desc: "Além de serviços especializados, fornecemos CLPs, manômetros, sensores e inversores.",
+                icon: Package
               },
               {
-                icon: CheckCircle,
                 title: "Segurança e conformidade",
-                description: "Combinamos engenharia especializada e documentação detalhada para assegurar o atendimento às exigências regulatórias.",
-                iconBg: "bg-red-100",
-                iconColor: "text-red-600"
+                desc: "Combinamos engenharia especializada e documentação detalhada para assegurar o atendimento às normas.",
+                icon: CheckCircle
               }
-            ].map((feature, index) => (
+            ].map((diff, index) => (
               <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                key={diff.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-all group"
               >
-                <Card className="h-full hover:shadow-lg transition-all border border-gray-200 hover:border-marsala-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className={`p-3 ${feature.iconBg} rounded-lg flex-shrink-0`}>
-                        <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
-            </div>
-            <div>
-                        <h4 className="font-semibold text-lg mb-2 text-gray-800">{feature.title}</h4>
-                        <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-                      </div>
-            </div>
-                  </CardContent>
-                </Card>
+                <diff.icon className="w-10 h-10 text-marsala-300 mb-6 group-hover:text-white transition-colors" />
+                <h4 className="font-bold text-xl mb-3">{diff.title}</h4>
+                <p className="text-marsala-100 text-sm leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">{diff.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -622,249 +510,157 @@ export default function LandingServicosContent() {
       </section>
 
       {/* Bloco 8 - Treinamento */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 rounded-full mb-4">
-              <GraduationCap className="w-5 h-5 text-purple-700" />
-              <span className="text-sm font-semibold text-purple-700">Capacitação</span>
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-marsala-600 font-bold tracking-wider uppercase text-sm mb-3 block">Capacitação</span>
+              <h3 className="text-4xl font-bold mb-6 text-gray-900">PROGRAMA DE TREINAMENTO</h3>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Nosso programa de desenvolvimento profissional é desenhado para elevar o nível de conhecimento técnico e de segurança da sua equipe. Consultoria técnica para uma operação autônoma, segura e eficiente.
+              </p>
+              
+              <div className="space-y-6">
+                {[
+                  {
+                    title: "Diagnóstico e mapeamento",
+                    desc: "Análise de lacunas de competência e riscos operacionais.",
+                  },
+                  {
+                    title: "Treinamentos de segurança",
+                    desc: "Certificações essenciais em NR-10 e NR-12.",
+                  },
+                  {
+                    title: "Riscos específicos",
+                    desc: "NR-33 (Espaços Confinados) e NR-35 (Trabalho em Altura).",
+                  },
+                  {
+                    title: "Acompanhamento contínuo",
+                    desc: "Consultoria para aplicação prática do conhecimento.",
+                  }
+                ].map((train, index) => (
+                  <div key={index} className="flex gap-4">
+                    <div className="w-10 h-10 rounded-full bg-marsala-50 flex items-center justify-center flex-shrink-0 text-marsala-600 font-bold">
+                      {index + 1}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">{train.title}</h4>
+                      <p className="text-gray-600 text-sm">{train.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <h3 className="text-3xl md:text-4xl font-semibold mb-4">PROGRAMA DE TREINAMENTO</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              <span className="font-semibold">Consultoria técnica</span> para uma operação autônoma, segura e eficiente
-            </p>
-          </motion.div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                icon: FileText,
-                title: "Diagnóstico e mapeamento",
-                description: "Realizamos uma análise inicial para entender as lacunas de competência e os riscos operacionais, criando um plano de treinamento 100% personalizado.",
-                iconBg: "bg-blue-100",
-                iconColor: "text-blue-600"
-              },
-              {
-                icon: Shield,
-                title: "Treinamentos de segurança",
-                description: "Iniciamos com a base da segurança industrial, oferecendo certificações essenciais em NR-10 e NR-12.",
-                iconBg: "bg-red-100",
-                iconColor: "text-red-600"
-              },
-              {
-                icon: Target,
-                title: "Treinamentos para riscos específicos",
-                description: "Aprofundamos a capacitação com treinamentos para operações de alto risco, como NR-33 e NR-35, com simulações práticas.",
-                iconBg: "bg-orange-100",
-                iconColor: "text-orange-600"
-              },
-              {
-                icon: Clock,
-                title: "Acompanhamento contínuo",
-                description: "Oferecemos consultoria contínua para garantir que o conhecimento seja aplicado na prática.",
-                iconBg: "bg-green-100",
-                iconColor: "text-green-600"
-              }
-            ].map((training, index) => (
-              <motion.div
-                key={training.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="h-full hover:shadow-lg transition-all border-2 hover:border-purple-300">
-                  <CardContent className="p-6">
-                    <div className={`inline-flex p-3 ${training.iconBg} rounded-lg mb-4`}>
-                      <training.icon className={`w-6 h-6 ${training.iconColor}`} />
+            
+            <div className="relative">
+                <div className="absolute inset-0 bg-marsala-600 rounded-3xl rotate-3 opacity-10"></div>
+                <div className="relative bg-gray-100 rounded-3xl p-8 aspect-square flex items-center justify-center border border-gray-200">
+                    <div className="text-center">
+                        <GraduationCap className="w-20 h-20 text-marsala-300 mx-auto mb-4" />
+                        <span className="text-gray-400 font-medium">Foto Treinamento</span>
+                    </div>
+                </div>
             </div>
-                    <h4 className="font-semibold text-lg mb-3 text-gray-800">{training.title}</h4>
-                    <p className="text-gray-600 leading-relaxed">{training.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
 
       {/* Bloco 9 - Depoimento */}
-      <section className="py-20 bg-gradient-to-br from-marsala-50 to-orange-50 border-y">
-        <div className="max-w-4xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 shadow-sm">
-              <Quote className="w-5 h-5 text-marsala-700" />
-              <span className="text-sm font-semibold text-marsala-700">Depoimento</span>
-            </div>
-            <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-gray-800">A voz de quem confia na Althion</h3>
-            <Card className="bg-white shadow-xl border-2 border-marsala-200">
-              <CardContent className="p-8 md:p-12">
-                <div className="flex gap-1 mb-6 justify-center">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  ))}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="bg-white rounded-3xl shadow-xl p-10 md:p-16 relative border border-gray-100">
+            <Quote className="absolute top-10 left-10 w-16 h-16 text-marsala-100" />
+            
+            <div className="relative z-10 text-center">
+              <div className="flex justify-center gap-1 mb-8">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              
+              <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 leading-relaxed mb-10 font-poppins">
+                “Nossa experiência com a Althion tem sido <span className="text-marsala-700 font-bold">excepcional</span>. A equipe não apenas propõe soluções inovadoras, mas tem a capacidade de explicá-las de forma clara e objetiva.”
+              </blockquote>
+              
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-14 h-14 bg-gray-200 rounded-full overflow-hidden">
+                    {/* Avatar Placeholder */}
                 </div>
-                <blockquote className="text-xl md:text-2xl italic text-gray-700 leading-relaxed mb-6 text-center">
-                  "Nossa experiência com a Althion tem sido <span className="font-semibold text-marsala-700">excepcional</span>. O que realmente se destaca é como eles combinam conhecimento técnico com clareza na comunicação. A equipe não apenas propõe soluções inovadoras, mas tem a capacidade de explicá-las de forma clara e objetiva, facilitando nossas tomadas de decisão."
-                </blockquote>
-                <div className="flex items-center justify-center gap-4 pt-6 border-t border-gray-200">
-                  <div className="w-12 h-12 bg-marsala-100 rounded-full flex items-center justify-center">
-                    <Users className="w-6 h-6 text-marsala-700" />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-semibold text-gray-800">Marcel Costa</div>
-                    <div className="text-sm text-gray-600">Gerente de manutenção FarmaUsa</div>
-                  </div>
+                <div className="text-left">
+                  <div className="font-bold text-gray-900 text-lg">Marcel Costa</div>
+                  <div className="text-marsala-600 font-medium">Gerente de manutenção FarmaUsa</div>
                 </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Bloco 10 - Formulário */}
-      <section id="formulario" className="py-20 bg-white">
-        <div className="max-w-2xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-marsala-100 rounded-full mb-6">
-              <Mail className="w-5 h-5 text-marsala-700" />
-              <span className="text-sm font-semibold text-marsala-700">Entre em Contato</span>
-            </div>
-            <h3 className="text-3xl md:text-4xl font-semibold mb-4">
-              Comece sua jornada na <span className="text-marsala-700">Indústria 4.0</span> com o parceiro certo
-            </h3>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Preencha o formulário e nossa equipe de <span className="font-semibold">especialistas</span> entrará em contato para entender seu desafio e discutir a melhor solução de engenharia para sua indústria.
-            </p>
-          </motion.div>
-          <Card className="shadow-xl border-2 border-gray-100">
-            <CardContent className="p-8">
-              <form className="space-y-6">
-                <div>
-                  <label htmlFor="nome" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Nome completo *
-                  </label>
-                  <input
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    placeholder="Seu nome"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                    E-mail *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="seu@email.com"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="telefone" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Telefone *
-                  </label>
-                  <input
-                    type="tel"
-                    id="telefone"
-                    name="telefone"
-                    placeholder="(11) 99999-9999"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="mensagem" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Descreva seu desafio ou necessidade *
-                  </label>
-                  <textarea
-                    id="mensagem"
-                    name="mensagem"
-                    placeholder="Conte-nos sobre seu projeto, desafios ou necessidades..."
-                    rows={5}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all resize-none"
-                    required
-                  />
-                </div>
-                <div className="text-center pt-4">
-                  <Button
-                    type="submit"
-                    className="bg-marsala-600 hover:bg-marsala-700 text-white px-10 py-6 rounded-full text-lg shadow-lg hover:shadow-xl transition-all w-full sm:w-auto"
-                  >
-                    Enviar Solicitação
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-            </div>
-          </form>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Footer compacto */}
-      <footer className="py-12 bg-gradient-to-br from-marsala-700 to-marsala-800 text-white">
-        <div className="max-w-6xl mx-auto px-8">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <div>
-              <h4 className="font-semibold mb-4 flex items-center gap-2">
-                <MapPin className="w-5 h-5" />
-                Endereço
-              </h4>
-              <p className="text-marsala-100">Avenida Brasília, 397B<br />Vila Amorim, Suzano - SP<br />08610-100</p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 flex items-center gap-2">
-                <Phone className="w-5 h-5" />
-                Contato
-              </h4>
-              <p className="text-marsala-100 mb-2">Telefone: (11) 3090-3687</p>
-              <p className="text-marsala-100">
-                E-mail: <a href="mailto:comercial@althion.com.br" className="underline hover:text-white">comercial@althion.com.br</a>
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 flex items-center gap-2">
-                <Mail className="w-5 h-5" />
-                Redes Sociais
-              </h4>
-              <div className="flex gap-4">
-                <a href="https://www.instagram.com/althion.lab/" target="_blank" rel="noreferrer" className="p-2 bg-marsala-600 rounded-lg hover:bg-marsala-500 transition-all">
-                  <Instagram className="w-5 h-5" />
-                </a>
-                <a href="https://www.linkedin.com/company/althionlab" target="_blank" rel="noreferrer" className="p-2 bg-marsala-600 rounded-lg hover:bg-marsala-500 transition-all">
-                  <Linkedin className="w-5 h-5" />
-                </a>
               </div>
             </div>
           </div>
-          <div className="border-t border-marsala-600 pt-8 text-center text-marsala-200 text-sm">
-            <p>© {new Date().getFullYear()} Althion Tech. Todos os direitos reservados.</p>
+        </div>
+      </section>
+
+      {/* Bloco 10 - Formulário e Footer */}
+      <section id="formulario" className="py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-4xl font-bold mb-4 text-gray-900">
+              Vamos conversar?
+            </h3>
+            <p className="text-lg text-gray-600">
+              Preencha o formulário e nossa equipe de especialistas entrará em contato.
+            </p>
+          </div>
+          
+          <div className="bg-white rounded-2xl shadow-2xl shadow-gray-200/50 border border-gray-100 p-8 md:p-10">
+            <form className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="nome" className="block text-sm font-bold text-gray-700 mb-2">Nome completo</label>
+                  <input type="text" id="nome" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all outline-none" placeholder="Seu nome" />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">E-mail corporativo</label>
+                  <input type="email" id="email" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all outline-none" placeholder="seu@email.com" />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="telefone" className="block text-sm font-bold text-gray-700 mb-2">Telefone</label>
+                <input type="tel" id="telefone" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all outline-none" placeholder="(11) 99999-9999" />
+              </div>
+              <div>
+                <label htmlFor="mensagem" className="block text-sm font-bold text-gray-700 mb-2">Como podemos ajudar?</label>
+                <textarea id="mensagem" rows={4} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all outline-none resize-none" placeholder="Descreva seu desafio..."></textarea>
+              </div>
+              <Button className="w-full bg-marsala-700 hover:bg-marsala-800 text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all text-lg">
+                ENVIAR SOLICITAÇÃO
+              </Button>
+            </form>
+          </div>
+
+          {/* Footer Info */}
+          <div className="mt-20 pt-10 border-t border-gray-100 text-center">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8 text-gray-600">
+              <div className="flex items-center gap-3">
+                <MapPin className="w-5 h-5 text-marsala-600" />
+                <span>Suzano - SP</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-marsala-600" />
+                <span>(11) 3090-3687</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-marsala-600" />
+                <span>comercial@althion.com.br</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-center gap-4">
+              <a href="#" className="p-3 bg-gray-50 rounded-full hover:bg-marsala-50 hover:text-marsala-700 transition-all text-gray-400">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="#" className="p-3 bg-gray-50 rounded-full hover:bg-marsala-50 hover:text-marsala-700 transition-all text-gray-400">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
-      </footer>
+      </section>
     </main>
   )
 }

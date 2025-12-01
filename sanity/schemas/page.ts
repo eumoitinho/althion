@@ -109,6 +109,12 @@ export default defineType({
                       options: { hotspot: true }
                     },
                     { name: 'link', title: 'Link', type: 'url' },
+                    {
+                      name: 'items',
+                      title: 'Itens (Lista)',
+                      type: 'array',
+                      of: [{ type: 'string' }]
+                    },
                   ],
                 },
               ],

@@ -1,0 +1,7 @@
+# Variáveis de Ambiente para Vercel
+# Copie e cole estas variáveis no painel da Vercel: Settings → Environment Variables
+
+NEXT_PUBLIC_SANITY_PROJECT_ID=towmhciw
+NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_API_TOKEN=skZekUpKdhU1uPRH4eQrEIJMd74MH5JBYfhQ9eDlhlpF3aERFJ43R1R0189DN97Oa2txUTIXhRTu54klW8NDkmtRkaD1iJm6eExvTkSFdO3qGcZo06NZrr7OSbb6ZHOJvf135yEfBfm0BLmmgQfk1HXKQjIJhxTz5DjiZeEzsv2Ad29DLul4
+

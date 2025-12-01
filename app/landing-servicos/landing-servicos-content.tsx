@@ -95,27 +95,16 @@ export default function LandingServicosContent() {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="hidden lg:block relative"
             >
-              {/* Premium Image Placeholder */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-200/50 border border-gray-100 bg-gray-50 aspect-[4/3] group">
-                 <div className="absolute inset-0 bg-gradient-to-tr from-gray-100 to-white opacity-50"></div>
-                 <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                        <div className="w-16 h-16 bg-marsala-50 rounded-full flex items-center justify-center mx-auto mb-4 text-marsala-300">
-                            <div className="w-8 h-8 bg-marsala-200 rounded-full" />
-                        </div>
-                        <span className="text-gray-400 font-medium text-sm uppercase tracking-widest">Imagem Hero</span>
-                    </div>
-                 </div>
-                 {/* 
+                 <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-200/50 border border-gray-100 bg-gray-50 aspect-[4/3] group">
                  <Image 
-                   src="/path/to/hero-image.jpg" 
-                   alt="Engenharia Industrial" 
+                   src="/dois-colegas-em-um-fabrica.jpg" 
+                   alt="Engenharia Industrial Althion" 
                    fill
                    className="object-cover transition-transform duration-700 group-hover:scale-105" 
                    priority 
                  /> 
-                 */}
-              </div>
+                 <div className="absolute inset-0 bg-gradient-to-tr from-marsala-900/20 to-transparent"></div>
+                 </div>
               
               {/* Floating Badge */}
               <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-xl shadow-xl border border-gray-50 max-w-xs z-20">
@@ -287,7 +276,8 @@ export default function LandingServicosContent() {
                   { title: "Desenvolvimento SCADA/MES/MOM", desc: "Criamos sistemas supervisórios personalizados para controle e tomada de decisão em tempo real." },
                   { title: "Modernização de sistemas", desc: "Atualizamos sistemas de automação com o mínimo impacto na produção." }
                 ],
-                icon: Settings
+                icon: Settings,
+                image: "/images/automation.png"
               },
               {
                 number: "02",
@@ -297,7 +287,8 @@ export default function LandingServicosContent() {
                   { title: "Gestão metrológica avançada", desc: "Desenvolvemos planos de calibração baseados em análise de risco para otimizar custos." },
                   { title: "Suporte completo em campo", desc: "Gerenciamos todo o ciclo de vida dos instrumentos, da especificação à qualificação." }
                 ],
-                icon: Gauge
+                icon: Gauge,
+                image: "/images/instrumentation.png"
               },
               {
                 number: "03",
@@ -307,7 +298,8 @@ export default function LandingServicosContent() {
                   { title: "Adequação às normas (NR-10/12)", desc: "Modernizamos painéis e sistemas para garantir total segurança e conformidade regulatória." },
                   { title: "Manutenção preditiva", desc: "Utilizamos termografia e diagnósticos avançados para assegurar a confiabilidade." }
                 ],
-                icon: Zap
+                icon: Zap,
+                image: "/CLP.jpg"
               },
               {
                 number: "04",
@@ -317,7 +309,8 @@ export default function LandingServicosContent() {
                   { title: "Gerenciamento integrado", desc: "Coordenamos equipes, cronogramas e fornecedores para garantir a máxima eficiência." },
                   { title: "Conformidade PMOC", desc: "Implementamos Planos de Manutenção, Operação e Controle para garantir a qualidade do ar." }
                 ],
-                icon: Hammer
+                icon: Hammer,
+                image: "/turbina_blaster.jpeg"
               }
             ].map((service, index) => (
               <motion.div
@@ -340,9 +333,14 @@ export default function LandingServicosContent() {
                   </div>
                   
                   {/* Image Placeholder */}
-                  <div className="w-full h-56 bg-gray-100 rounded-2xl mb-8 flex items-center justify-center text-gray-400 text-sm border border-gray-200 overflow-hidden relative">
-                    <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    <span className="relative z-10 font-medium">Imagem {service.title}</span>
+                  <div className="w-full h-56 bg-gray-100 rounded-2xl mb-8 flex items-center justify-center text-gray-400 text-sm border border-gray-200 overflow-hidden relative group-hover:shadow-md transition-all">
+                    <Image 
+                      src={service.image} 
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   </div>
 
                   <div className="space-y-6">
@@ -554,11 +552,13 @@ export default function LandingServicosContent() {
             
             <div className="relative">
                 <div className="absolute inset-0 bg-marsala-600 rounded-3xl rotate-3 opacity-10"></div>
-                <div className="relative bg-gray-100 rounded-3xl p-8 aspect-square flex items-center justify-center border border-gray-200">
-                    <div className="text-center">
-                        <GraduationCap className="w-20 h-20 text-marsala-300 mx-auto mb-4" />
-                        <span className="text-gray-400 font-medium">Foto Treinamento</span>
-                    </div>
+                <div className="relative bg-gray-100 rounded-3xl overflow-hidden aspect-square flex items-center justify-center border border-gray-200 shadow-xl">
+                    <Image 
+                      src="/dois-colegas-em-um-fabrica.jpg" 
+                      alt="Treinamento Althion"
+                      fill
+                      className="object-cover"
+                    />
                 </div>
             </div>
           </div>

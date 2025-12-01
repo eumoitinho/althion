@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'Althion CMS',
 
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'towmhciw',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
 
   basePath: '/studio',

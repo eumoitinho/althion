@@ -1,0 +1,380 @@
+{
+  "store": {
+    "currencies": ["usd", "brl"],
+    "default_currency_code": "brl",
+    "default_sales_channel": {
+      "name": "Default Sales Channel"
+    }
+  },
+  "regions": [
+    {
+      "name": "Brasil",
+      "currency_code": "brl",
+      "tax_rate": 0,
+      "payment_providers": ["manual"],
+      "fulfillment_providers": ["manual"],
+      "countries": ["br"]
+    },
+    {
+      "name": "United States",
+      "currency_code": "usd",
+      "tax_rate": 0,
+      "payment_providers": ["manual"],
+      "fulfillment_providers": ["manual"],
+      "countries": ["us"]
+    }
+  ],
+  "shipping_options": [
+    {
+      "name": "Entrega Padrão",
+      "region_name": "Brasil",
+      "provider_id": "manual",
+      "data": {
+        "id": "manual-fulfillment"
+      },
+      "price_type": "flat_rate",
+      "amount": 1000
+    },
+    {
+      "name": "Standard Shipping",
+      "region_name": "United States",
+      "provider_id": "manual",
+      "data": {
+        "id": "manual-fulfillment"
+      },
+      "price_type": "flat_rate",
+      "amount": 1000
+    }
+  ],
+  "products": [
+    {
+      "title": "Sistema de Automação Industrial Completo",
+      "subtitle": "Solução completa para automação de processos industriais",
+      "description": "Sistema integrado de automação industrial com controladores programáveis, sensores inteligentes e interface de monitoramento em tempo real. Ideal para indústrias farmacêuticas e de manufatura.",
+      "handle": "sistema-automacao-industrial",
+      "is_giftcard": false,
+      "weight": 5000,
+      "images": [
+        "https://via.placeholder.com/600x600/4A90E2/FFFFFF?text=Sistema+Automacao"
+      ],
+      "options": [
+        {
+          "title": "Configuração",
+          "values": ["Básica", "Intermediária", "Avançada"]
+        }
+      ],
+      "variants": [
+        {
+          "title": "Básica",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 25000000
+            }
+          ],
+          "options": [
+            {
+              "value": "Básica"
+            }
+          ],
+          "inventory_quantity": 10
+        },
+        {
+          "title": "Intermediária",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 45000000
+            }
+          ],
+          "options": [
+            {
+              "value": "Intermediária"
+            }
+          ],
+          "inventory_quantity": 5
+        },
+        {
+          "title": "Avançada",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 75000000
+            }
+          ],
+          "options": [
+            {
+              "value": "Avançada"
+            }
+          ],
+          "inventory_quantity": 3
+        }
+      ]
+    },
+    {
+      "title": "Controlador Lógico Programável (PLC)",
+      "subtitle": "PLC de alta performance para automação",
+      "description": "Controlador lógico programável de última geração com capacidade de processamento avançada, múltiplas entradas/saídas digitais e analógicas. Compatível com protocolos industriais padrão.",
+      "handle": "controlador-plc",
+      "is_giftcard": false,
+      "weight": 800,
+      "images": [
+        "https://via.placeholder.com/600x600/50C878/FFFFFF?text=PLC"
+      ],
+      "options": [
+        {
+          "title": "Modelo",
+          "values": ["Compacto", "Modular"]
+        }
+      ],
+      "variants": [
+        {
+          "title": "Compacto",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 850000
+            }
+          ],
+          "options": [
+            {
+              "value": "Compacto"
+            }
+          ],
+          "inventory_quantity": 20
+        },
+        {
+          "title": "Modular",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 1500000
+            }
+          ],
+          "options": [
+            {
+              "value": "Modular"
+            }
+          ],
+          "inventory_quantity": 15
+        }
+      ]
+    },
+    {
+      "title": "Sensor de Pressão Industrial",
+      "subtitle": "Sensor de alta precisão para monitoramento",
+      "description": "Sensor de pressão industrial com alta precisão e durabilidade. Resistente a ambientes agressivos, ideal para aplicações farmacêuticas e químicas.",
+      "handle": "sensor-pressao",
+      "is_giftcard": false,
+      "weight": 200,
+      "images": [
+        "https://via.placeholder.com/600x600/FF6347/FFFFFF?text=Sensor"
+      ],
+      "options": [
+        {
+          "title": "Faixa",
+          "values": ["0-10 bar", "0-100 bar", "0-400 bar"]
+        }
+      ],
+      "variants": [
+        {
+          "title": "0-10 bar",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 35000
+            }
+          ],
+          "options": [
+            {
+              "value": "0-10 bar"
+            }
+          ],
+          "inventory_quantity": 50
+        },
+        {
+          "title": "0-100 bar",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 55000
+            }
+          ],
+          "options": [
+            {
+              "value": "0-100 bar"
+            }
+          ],
+          "inventory_quantity": 30
+        },
+        {
+          "title": "0-400 bar",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 85000
+            }
+          ],
+          "options": [
+            {
+              "value": "0-400 bar"
+            }
+          ],
+          "inventory_quantity": 20
+        }
+      ]
+    },
+    {
+      "title": "Interface HMI Touch Screen",
+      "subtitle": "Interface gráfica para monitoramento industrial",
+      "description": "Interface homem-máquina com tela touch screen de 10 polegadas, conectividade Ethernet e serial, software de configuração incluído.",
+      "handle": "interface-hmi",
+      "is_giftcard": false,
+      "weight": 1200,
+      "images": [
+        "https://via.placeholder.com/600x600/9370DB/FFFFFF?text=HMI"
+      ],
+      "options": [
+        {
+          "title": "Tamanho",
+          "values": ["7 polegadas", "10 polegadas", "15 polegadas"]
+        }
+      ],
+      "variants": [
+        {
+          "title": "7 polegadas",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 280000
+            }
+          ],
+          "options": [
+            {
+              "value": "7 polegadas"
+            }
+          ],
+          "inventory_quantity": 25
+        },
+        {
+          "title": "10 polegadas",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 450000
+            }
+          ],
+          "options": [
+            {
+              "value": "10 polegadas"
+            }
+          ],
+          "inventory_quantity": 15
+        },
+        {
+          "title": "15 polegadas",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 680000
+            }
+          ],
+          "options": [
+            {
+              "value": "15 polegadas"
+            }
+          ],
+          "inventory_quantity": 10
+        }
+      ]
+    },
+    {
+      "title": "Inversor de Frequência",
+      "subtitle": "Controle de velocidade para motores elétricos",
+      "description": "Inversor de frequência para controle preciso de velocidade de motores elétricos trifásicos. Proteções integradas e interface de programação intuitiva.",
+      "handle": "inversor-frequencia",
+      "is_giftcard": false,
+      "weight": 1500,
+      "images": [
+        "https://via.placeholder.com/600x600/FFD700/000000?text=Inversor"
+      ],
+      "options": [
+        {
+          "title": "Potência",
+          "values": ["2 CV", "5 CV", "10 CV", "20 CV"]
+        }
+      ],
+      "variants": [
+        {
+          "title": "2 CV",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 120000
+            }
+          ],
+          "options": [
+            {
+              "value": "2 CV"
+            }
+          ],
+          "inventory_quantity": 30
+        },
+        {
+          "title": "5 CV",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 220000
+            }
+          ],
+          "options": [
+            {
+              "value": "5 CV"
+            }
+          ],
+          "inventory_quantity": 20
+        },
+        {
+          "title": "10 CV",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 380000
+            }
+          ],
+          "options": [
+            {
+              "value": "10 CV"
+            }
+          ],
+          "inventory_quantity": 15
+        },
+        {
+          "title": "20 CV",
+          "prices": [
+            {
+              "currency_code": "brl",
+              "amount": 650000
+            }
+          ],
+          "options": [
+            {
+              "value": "20 CV"
+            }
+          ],
+          "inventory_quantity": 10
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@althion.com",
+      "password": "admin123",
+      "role": "admin"
+    }
+  ]
+}
+
+

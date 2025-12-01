@@ -1,0 +1,40 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Medusa Backend API",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "watch": "tsc --watch",
+    "test": "jest",
+    "seed": "npx -p @medusajs/medusa-cli medusa seed -f ./data/seed.json",
+    "start": "npx -p @medusajs/medusa-cli medusa start",
+    "start:custom": "npm run build && node --preserve-symlinks --trace-warnings index.js",
+    "dev": "npm run build && npx -p @medusajs/medusa-cli medusa develop",
+    "build:admin": "npx @medusajs/admin build",
+    "migrate": "npx -p @medusajs/medusa-cli medusa migrations run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@medusajs/admin": "^7.1.18",
+    "@medusajs/medusa": "^1.20.11",
+    "@types/better-sqlite3": "^7.6.13",
+    "better-sqlite3": "^12.4.1",
+    "express": "^4.21.2",
+    "medusa-fulfillment-manual": "^1.1.41",
+    "medusa-interfaces": "^1.3.10",
+    "medusa-payment-manual": "^1.0.25",
+    "reflect-metadata": "^0.1.13",
+    "pg": "^8.16.3",
+    "typeorm": "^0.3.27"
+  },
+  "devDependencies": {
+    "@medusajs/medusa-cli": "^1.3.23",
+    "@types/node": "^24.10.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

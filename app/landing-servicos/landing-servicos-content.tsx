@@ -97,7 +97,7 @@ export default function LandingServicosContent() {
             >
                  <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-200/50 border border-gray-100 bg-gray-50 aspect-[4/3] group">
                  <Image 
-                   src="/dois-colegas-em-um-fabrica.jpg" 
+                   src="/images/hero-new.png" 
                    alt="Engenharia Industrial Althion" 
                    fill
                    className="object-cover transition-transform duration-700 group-hover:scale-105" 
@@ -390,7 +390,8 @@ export default function LandingServicosContent() {
                   "Soldagem TIG/MIG, corte a laser CNC e conformação.",
                   "Mobiliário técnico, reatores, tanques e sistemas SKID."
                 ],
-                icon: Wrench
+                icon: Wrench,
+                image: "/turbina_blaster.jpeg"
               },
               {
                 title: "CONSTRUÇÃO CIVIL",
@@ -399,7 +400,8 @@ export default function LandingServicosContent() {
                   "Projetos com planejamento BIM e documentação completa.",
                   "Redes de gases especiais e utilidades farmacêuticas."
                 ],
-                icon: Building2
+                icon: Building2,
+                image: "/images/civil.png"
               },
               {
                 title: "QUALIFICAÇÃO",
@@ -408,7 +410,8 @@ export default function LandingServicosContent() {
                   "Validação GAMP 5 em sistemas computadorizados.",
                   "Protocolos (QP, QI, QO, QD) e relatórios de validação."
                 ],
-                icon: CheckCircle
+                icon: CheckCircle,
+                image: "/images/instrumentation.png"
               }
             ].map((sol, index) => (
               <motion.div
@@ -426,8 +429,14 @@ export default function LandingServicosContent() {
                 <h4 className="font-bold text-xl text-gray-900 mb-6">{sol.title}</h4>
                 
                 {/* Image Placeholder */}
-                <div className="w-full h-40 bg-gray-50 rounded-xl mb-6 flex items-center justify-center text-gray-400 text-xs border border-gray-100">
-                  Foto {sol.title}
+                <div className="w-full h-40 bg-gray-50 rounded-xl mb-6 flex items-center justify-center text-gray-400 text-xs border border-gray-100 overflow-hidden relative group-hover:shadow-md transition-all">
+                    <Image 
+                      src={sol.image} 
+                      alt={sol.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
                 </div>
 
                 <ul className="space-y-4">

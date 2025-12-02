@@ -265,8 +265,8 @@ export function Header() {
 
             {/* Search & Actions */}
             <div className="hidden lg:flex items-center space-x-4">
-              {/* Carrinho */}
-              <CartButton />
+              {/* Carrinho - esconder nas landing pages */}
+              {!pathname?.startsWith("/landing") && <CartButton />}
 
               {/* Language Selector - apenas quando não scrolled na home */}
 
@@ -315,19 +315,35 @@ export function Header() {
               </div>
 
               {/* Botão Solicitar Orçamento */}
-              <Link href="/orcamento">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button
-                    className={`rounded-full px-6 py-2 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ${
-                      isHomePage && !scrolled
-                        ? "bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
-                        : "bg-gradient-to-r from-marsala-600 to-marsala-700 hover:from-marsala-700 hover:to-marsala-800 text-white"
-                    }`}
-                  >
-                    Solicitar Orçamento
-                  </Button>
-                </motion.div>
-              </Link>
+              {pathname?.startsWith("/landing") ? (
+                <a href="#formulario">
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Button
+                      className={`rounded-full px-6 py-2 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ${
+                        isHomePage && !scrolled
+                          ? "bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
+                          : "bg-gradient-to-r from-marsala-600 to-marsala-700 hover:from-marsala-700 hover:to-marsala-800 text-white"
+                      }`}
+                    >
+                      Solicitar Orçamento
+                    </Button>
+                  </motion.div>
+                </a>
+              ) : (
+                <Link href="/orcamento">
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Button
+                      className={`rounded-full px-6 py-2 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ${
+                        isHomePage && !scrolled
+                          ? "bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
+                          : "bg-gradient-to-r from-marsala-600 to-marsala-700 hover:from-marsala-700 hover:to-marsala-800 text-white"
+                      }`}
+                    >
+                      Solicitar Orçamento
+                    </Button>
+                  </motion.div>
+                </Link>
+              )}
             </div>
 
             {/* Mobile Menu Button */}

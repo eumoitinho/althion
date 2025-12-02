@@ -126,39 +126,7 @@ export function Footer() {
           )}
         </div>
 
-        {/* Catálogo e Orçamento Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-12 pt-8 border-t border-gray-200"
-        >
-          <div className="bg-gradient-to-r from-marsala-50 to-orange-50 rounded-2xl p-8 border border-marsala-200">
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="mb-6 md:mb-0">
-                <h3 className="text-xl font-bold text-marsala-800 mb-2">Catálogo Digital</h3>
-                <p className="text-gray-600 mb-4">
-                  Explore nosso catálogo completo de produtos e solicite orçamentos personalizados.
-                </p>
-                <div className="flex items-center text-sm text-gray-500">
-                  <span className="w-2 h-2 bg-marsala-500 rounded-full mr-2"></span>
-                  <span>Suporte especializado</span>
-                </div>
-              </div>
-              <Link href="/produtos">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-marsala-600 hover:bg-marsala-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center"
-                >
-                  Ver Produtos
-                  <ExternalLink className="ml-2 h-4 w-4" />
-                </motion.button>
-              </Link>
-            </div>
-          </div>
-        </motion.div>
+    
 
         {/* Bottom Section */}
         <motion.div

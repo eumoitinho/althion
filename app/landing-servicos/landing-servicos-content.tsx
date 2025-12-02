@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -33,10 +34,56 @@ import {
   FileText,
   ArrowDown,
   Headphones,
-  Package
+  Package,
+  Loader2
 } from "lucide-react"
 
 export default function LandingServicosContent() {
+  const [formData, setFormData] = useState({
+    nome: '',
+    email: '',
+    telefone: '',
+    mensagem: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target
+    setFormData(prev => ({ ...prev, [id]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          origem: 'landing-servicos'
+        }),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({ nome: '', email: '', telefone: '', mensagem: '' })
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <main className="bg-white text-gray-900 font-poppins selection:bg-marsala-100 selection:text-marsala-900">
       {/* Bloco 1 - Hero */}
@@ -97,7 +144,7 @@ export default function LandingServicosContent() {
             >
                  <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-200/50 border border-gray-100 bg-gray-50 aspect-[4/3] group">
                  <Image 
-                   src="/images/hero-new.png" 
+                   src="/lp-servicos/foto-da-linha-de-producao-de-automoveis-soldagem-de-carroceria-de-carro-moderna-fabrica-de-montagem-de-automoveis-industria-automobilistica-interior-de-uma-fabrica-de-alta-tecnologia-producao-moderna.jpg" 
                    alt="Engenharia Industrial Althion" 
                    fill
                    className="object-cover transition-transform duration-700 group-hover:scale-105" 
@@ -151,7 +198,7 @@ export default function LandingServicosContent() {
       </section>
 
       {/* Bloco 3 - Clientes */}
-      <section className="py-20 bg-gray-50 border-y border-gray-100">
+      <section className="py-20 bg-gray-50 border-y border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
             <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Nossos Clientes</h3>
@@ -159,27 +206,86 @@ export default function LandingServicosContent() {
               A Althion é reconhecida por <span className="text-marsala-700">gigantes do mercado</span>
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 items-center opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
-            {[
-              'Eurofarma',
-              'Sanofi',
-              'FarmaUSA',
-              'Flukka',
-              'União Química',
-              'Hospital Israelita Albert Einstein',
-              'Medley',
-              'Ache'
-            ].map((c, index) => (
-              <div
-                key={c}
-                className="flex items-center justify-center h-20 bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-all hover:-translate-y-1"
-              >
-                {/* Placeholder for Logos - Replace with actual SVGs */}
-                <span className="text-gray-400 font-bold text-lg">{c}</span>
+          
+          {/* Carrossel infinito com gradiente nas bordas */}
+          <div className="relative">
+            {/* Gradiente esquerdo */}
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none"></div>
+            {/* Gradiente direito */}
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
+            
+            <div className="flex overflow-hidden">
+              <div className="flex animate-scroll gap-8">
+                {/* Primeiro conjunto de logos */}
+                {[
+                  { name: 'Eurofarma', logo: '/lp-servicos/eurofarma-logo-2.png' },
+                  { name: 'Sanofi', logo: '/lp-servicos/Sanofi_logo.svg.png' },
+                  { name: 'FarmaUSA', logo: '/lp-servicos/Logo-Farmausa.png' },
+                  { name: 'Flukka', logo: '/lp-servicos/flukka-logo-v2-1.png' },
+                  { name: 'União Química', logo: '/lp-servicos/Uniao-quimica_logo.png' },
+                  { name: 'Hospital Albert Einstein', logo: '/lp-servicos/Logo-Hospital-Albert-Einstein.png' },
+                  { name: 'Medley', logo: '/lp-servicos/medley-600x315.png' },
+                  { name: 'Aché', logo: '/lp-servicos/Logotipo_do_Aché.svg.png' }
+                ].map((client, index) => (
+                  <div
+                    key={`first-${client.name}`}
+                    className="flex-shrink-0 flex items-center justify-center h-20 w-40 bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-all group"
+                  >
+                    <Image 
+                      src={client.logo} 
+                      alt={client.name} 
+                      width={120} 
+                      height={50} 
+                      className="object-contain max-h-12 grayscale group-hover:grayscale-0 transition-all duration-300"
+                    />
+                  </div>
+                ))}
+                {/* Duplicado para loop infinito */}
+                {[
+                  { name: 'Eurofarma', logo: '/lp-servicos/eurofarma-logo-2.png' },
+                  { name: 'Sanofi', logo: '/lp-servicos/Sanofi_logo.svg.png' },
+                  { name: 'FarmaUSA', logo: '/lp-servicos/Logo-Farmausa.png' },
+                  { name: 'Flukka', logo: '/lp-servicos/flukka-logo-v2-1.png' },
+                  { name: 'União Química', logo: '/lp-servicos/Uniao-quimica_logo.png' },
+                  { name: 'Hospital Albert Einstein', logo: '/lp-servicos/Logo-Hospital-Albert-Einstein.png' },
+                  { name: 'Medley', logo: '/lp-servicos/medley-600x315.png' },
+                  { name: 'Aché', logo: '/lp-servicos/Logotipo_do_Aché.svg.png' }
+                ].map((client, index) => (
+                  <div
+                    key={`second-${client.name}`}
+                    className="flex-shrink-0 flex items-center justify-center h-20 w-40 bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-all group"
+                  >
+                    <Image 
+                      src={client.logo} 
+                      alt={client.name} 
+                      width={120} 
+                      height={50} 
+                      className="object-contain max-h-12 grayscale group-hover:grayscale-0 transition-all duration-300"
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
+        
+        {/* CSS para animação do carrossel */}
+        <style jsx>{`
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+          .animate-scroll {
+            animation: scroll 25s linear infinite;
+          }
+          .animate-scroll:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
       </section>
 
       {/* Bloco 4 - Desafios */}
@@ -277,7 +383,7 @@ export default function LandingServicosContent() {
                   { title: "Modernização de sistemas", desc: "Atualizamos sistemas de automação com o mínimo impacto na produção." }
                 ],
                 icon: Settings,
-                image: "/images/automation.png"
+                image: "/lp-servicos/trabalhador-usa-painel-de-controle-na-fabrica.jpg"
               },
               {
                 number: "02",
@@ -288,7 +394,7 @@ export default function LandingServicosContent() {
                   { title: "Suporte completo em campo", desc: "Gerenciamos todo o ciclo de vida dos instrumentos, da especificação à qualificação." }
                 ],
                 icon: Gauge,
-                image: "/images/instrumentation.png"
+                image: "/lp-servicos/close-up-motor-de-espaco.jpg"
               },
               {
                 number: "03",
@@ -299,7 +405,7 @@ export default function LandingServicosContent() {
                   { title: "Manutenção preditiva", desc: "Utilizamos termografia e diagnósticos avançados para assegurar a confiabilidade." }
                 ],
                 icon: Zap,
-                image: "/CLP.jpg"
+                image: "/lp-servicos/equipe-um-tecnico-eletrico-trabalhando-em-um-quadro-de-distribuicao-com-fusiveis.jpg"
               },
               {
                 number: "04",
@@ -310,7 +416,7 @@ export default function LandingServicosContent() {
                   { title: "Conformidade PMOC", desc: "Implementamos Planos de Manutenção, Operação e Controle para garantir a qualidade do ar." }
                 ],
                 icon: Hammer,
-                image: "/turbina_blaster.jpeg"
+                image: "/lp-servicos/eletricista-de-macacao-focado-no-trabalho-em-central-eletrica-com-fusiveis-usando-tablet.jpg"
               }
             ].map((service, index) => (
               <motion.div
@@ -391,7 +497,7 @@ export default function LandingServicosContent() {
                   "Mobiliário técnico, reatores, tanques e sistemas SKID."
                 ],
                 icon: Wrench,
-                image: "/turbina_blaster.jpeg"
+                image: "/lp-servicos/close-up-motor-de-espaco.jpg"
               },
               {
                 title: "CONSTRUÇÃO CIVIL",
@@ -401,7 +507,7 @@ export default function LandingServicosContent() {
                   "Redes de gases especiais e utilidades farmacêuticas."
                 ],
                 icon: Building2,
-                image: "/images/civil.png"
+                image: "/lp-servicos/local-de-construcao.jpg"
               },
               {
                 title: "QUALIFICAÇÃO",
@@ -411,7 +517,7 @@ export default function LandingServicosContent() {
                   "Protocolos (QP, QI, QO, QD) e relatórios de validação."
                 ],
                 icon: CheckCircle,
-                image: "/images/instrumentation.png"
+                image: "/lp-servicos/uma-fabrica-farmaceutica-limpa-e-organizada-onde-tubulacoes-e-valvulas-de-aco-fazem-parte-de-um-ambiente-esteril.jpg"
               }
             ].map((sol, index) => (
               <motion.div
@@ -563,7 +669,7 @@ export default function LandingServicosContent() {
                 <div className="absolute inset-0 bg-marsala-600 rounded-3xl rotate-3 opacity-10"></div>
                 <div className="relative bg-gray-100 rounded-3xl overflow-hidden aspect-square flex items-center justify-center border border-gray-200 shadow-xl">
                     <Image 
-                      src="/dois-colegas-em-um-fabrica.jpg" 
+                      src="/lp-servicos/empregado-da-fabrica-de-paineis-solares-apresentando-o-processo-de-fabricacao-lider-da-equipa.jpg" 
                       alt="Treinamento Althion"
                       fill
                       className="object-cover"
@@ -618,56 +724,87 @@ export default function LandingServicosContent() {
           </div>
           
           <div className="bg-white rounded-2xl shadow-2xl shadow-gray-200/50 border border-gray-100 p-8 md:p-10">
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="nome" className="block text-sm font-bold text-gray-700 mb-2">Nome completo</label>
-                  <input type="text" id="nome" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all outline-none" placeholder="Seu nome" />
+                  <input 
+                    type="text" 
+                    id="nome" 
+                    value={formData.nome}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all outline-none" 
+                    placeholder="Seu nome" 
+                    required
+                  />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">E-mail corporativo</label>
-                  <input type="email" id="email" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all outline-none" placeholder="seu@email.com" />
+                  <input 
+                    type="email" 
+                    id="email" 
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all outline-none" 
+                    placeholder="seu@email.com" 
+                    required
+                  />
                 </div>
               </div>
               <div>
                 <label htmlFor="telefone" className="block text-sm font-bold text-gray-700 mb-2">Telefone</label>
-                <input type="tel" id="telefone" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all outline-none" placeholder="(11) 99999-9999" />
+                <input 
+                  type="tel" 
+                  id="telefone" 
+                  value={formData.telefone}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all outline-none" 
+                  placeholder="(11) 99999-9999" 
+                />
               </div>
               <div>
                 <label htmlFor="mensagem" className="block text-sm font-bold text-gray-700 mb-2">Como podemos ajudar?</label>
-                <textarea id="mensagem" rows={4} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all outline-none resize-none" placeholder="Descreva seu desafio..."></textarea>
+                <textarea 
+                  id="mensagem" 
+                  rows={4} 
+                  value={formData.mensagem}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-marsala-500 focus:ring-2 focus:ring-marsala-200 transition-all outline-none resize-none" 
+                  placeholder="Descreva seu desafio..."
+                ></textarea>
               </div>
-              <Button className="w-full bg-marsala-700 hover:bg-marsala-800 text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all text-lg">
-                ENVIAR SOLICITAÇÃO
+              
+              {submitStatus === 'success' && (
+                <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-center">
+                  <CheckCircle className="w-5 h-5 inline-block mr-2" />
+                  Obrigado! Recebemos sua solicitação e entraremos em contato em breve.
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-center">
+                  Ocorreu um erro. Por favor, tente novamente ou entre em contato pelo telefone.
+                </div>
+              )}
+              
+              <Button 
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-marsala-700 hover:bg-marsala-800 text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    ENVIANDO...
+                  </>
+                ) : (
+                  'ENVIAR SOLICITAÇÃO'
+                )}
               </Button>
             </form>
           </div>
 
-          {/* Footer Info */}
-          <div className="mt-20 pt-10 border-t border-gray-100 text-center">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8 text-gray-600">
-              <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-marsala-600" />
-                <span>Suzano - SP</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-marsala-600" />
-                <span>(11) 3090-3687</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-marsala-600" />
-                <span>comercial@althion.com.br</span>
-              </div>
-            </div>
-            <div className="flex items-center justify-center gap-4">
-              <a href="#" className="p-3 bg-gray-50 rounded-full hover:bg-marsala-50 hover:text-marsala-700 transition-all text-gray-400">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="p-3 bg-gray-50 rounded-full hover:bg-marsala-50 hover:text-marsala-700 transition-all text-gray-400">
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
+        
         </div>
       </section>
     </main>

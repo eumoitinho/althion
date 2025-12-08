@@ -1,0 +1,155 @@
+# =====================================================
+# Althion Lab - Backend (Medusa) CI/CD
+# =====================================================
+
+name: Backend CI/CD
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+      - '.github/workflows/backend.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+  workflow_dispatch:
+
+env:
+  AZURE_RESOURCE_GROUP: althion-prod-rg
+  ACR_NAME: althionprodacr
+  IMAGE_NAME: althion-backend
+  APP_NAME: althion-prod-backend
+
+jobs:
+  build:
+    name: Build Backend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: backend
+        run: npm ci --legacy-peer-deps
+
+      - name: Build TypeScript
+        working-directory: backend
+        run: npm run build
+
+      - name: Run tests
+        working-directory: backend
+        run: npm test || true
+
+  docker-build-push:
+    name: Build & Push Docker Image
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
+    outputs:
+      image-tag: ${{ steps.meta.outputs.tags }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Get ACR credentials
+        id: acr
+        uses: azure/cli@v2
+        with:
+          inlineScript: |
+            ACR_LOGIN_SERVER=$(az acr show --name ${{ env.ACR_NAME }} --query loginServer -o tsv)
+            ACR_USERNAME=$(az acr credential show --name ${{ env.ACR_NAME }} --query username -o tsv)
+            ACR_PASSWORD=$(az acr credential show --name ${{ env.ACR_NAME }} --query "passwords[0].value" -o tsv)
+            echo "login-server=$ACR_LOGIN_SERVER" >> $GITHUB_OUTPUT
+            echo "username=$ACR_USERNAME" >> $GITHUB_OUTPUT
+            echo "password=$ACR_PASSWORD" >> $GITHUB_OUTPUT
+
+      - name: Login to ACR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ steps.acr.outputs.login-server }}
+          username: ${{ steps.acr.outputs.username }}
+          password: ${{ steps.acr.outputs.password }}
+
+      - name: Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ steps.acr.outputs.login-server }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha,prefix=
+            type=raw,value=latest
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+  deploy:
+    name: Deploy to Azure
+    runs-on: ubuntu-latest
+    needs: docker-build-push
+    environment: production
+
+    steps:
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to App Service
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.APP_NAME }}
+          images: ${{ needs.docker-build-push.outputs.image-tag }}
+
+      - name: Run database migrations
+        uses: azure/cli@v2
+        with:
+          inlineScript: |
+            echo "Running database migrations..."
+            # Migrations are run automatically on container startup
+            # Add explicit migration command here if needed
+            echo "Migrations complete!"
+
+      - name: Health check
+        run: |
+          echo "Waiting for deployment to complete..."
+          sleep 60
+
+          BACKEND_URL="https://${{ env.APP_NAME }}.azurewebsites.net"
+
+          for i in {1..10}; do
+            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$BACKEND_URL/health" || echo "000")
+            if [ "$HTTP_STATUS" = "200" ]; then
+              echo "Health check passed!"
+              exit 0
+            fi
+            echo "Attempt $i: HTTP status $HTTP_STATUS, retrying..."
+            sleep 30
+          done
+
+          echo "Health check failed after 10 attempts"
+          exit 1

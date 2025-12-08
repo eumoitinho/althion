@@ -1,0 +1,77 @@
+# =====================================================
+# Althion Lab - Azure Infrastructure Deployment
+# =====================================================
+
+name: Deploy Infrastructure
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy'
+        required: true
+        default: 'prod'
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+
+env:
+  AZURE_RESOURCE_GROUP: althion-${{ github.event.inputs.environment }}-rg
+
+jobs:
+  deploy-infrastructure:
+    name: Deploy Azure Infrastructure
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Create Resource Group
+        uses: azure/cli@v2
+        with:
+          inlineScript: |
+            az group create \
+              --name ${{ env.AZURE_RESOURCE_GROUP }} \
+              --location brazilsouth
+
+      - name: Deploy Bicep template
+        uses: azure/arm-deploy@v2
+        with:
+          resourceGroupName: ${{ env.AZURE_RESOURCE_GROUP }}
+          template: ./infra/azure/main.bicep
+          parameters: >
+            environment=${{ github.event.inputs.environment }}
+            projectName=althion
+            postgresAdminLogin=medusa_admin
+            postgresAdminPassword=${{ secrets.POSTGRES_ADMIN_PASSWORD }}
+            jwtSecret=${{ secrets.JWT_SECRET }}
+            cookieSecret=${{ secrets.COOKIE_SECRET }}
+            sanityProjectId=${{ secrets.SANITY_PROJECT_ID }}
+            sanityDataset=${{ secrets.SANITY_DATASET }}
+            sanityApiToken=${{ secrets.SANITY_API_TOKEN }}
+          failOnStdErr: false
+
+      - name: Get deployment outputs
+        uses: azure/cli@v2
+        with:
+          inlineScript: |
+            echo "## Deployment Outputs" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+
+            OUTPUTS=$(az deployment group show \
+              --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+              --name main \
+              --query properties.outputs)
+
+            echo "### Resources Created:" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`json" >> $GITHUB_STEP_SUMMARY
+            echo "$OUTPUTS" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY

@@ -38,7 +38,7 @@ on:
 
 env:
   AZURE_RESOURCE_GROUP: althion-prod-rg
-  ACR_NAME: althionprodacr
+  ACR_NAME: althionprodacrhytx3c25d7d4g
   IMAGE_NAME: althion-frontend
   APP_NAME: althion-prod-frontend
 

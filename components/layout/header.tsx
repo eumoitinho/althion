@@ -6,6 +6,7 @@ import { Menu, X, ChevronDown, Search, Phone, Mail, MapPin, Linkedin, Instagram 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { CartButton } from "@/components/cart-button"
 
@@ -205,20 +206,20 @@ export function Header() {
 
         <div className="max-w-7xl mx-auto px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Logo/Brand Text */}
+            {/* Logo */}
             <Link href="/" className="flex items-center group">
               <motion.div
-                className="transition-transform group-hover:scale-105"
+                className="transition-transform group-hover:scale-105 relative w-32 h-10"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <h1 className={`text-2xl font-bold transition-all duration-500 ${
-                  isHomePage && !scrolled 
-                    ? "text-white" 
-                    : "text-marsala-700"
-                }`}>
-                  Althion Lab
-                </h1>
+                <Image
+                  src={isHomePage && !scrolled ? "/logo-branco.png" : "/logo-cor.png"}
+                  alt="Althion Lab"
+                  fill
+                  className="object-contain object-left"
+                  priority
+                />
               </motion.div>
             </Link>
 

@@ -51,17 +51,13 @@ export function Footer() {
               viewport={{ once: true }}
             >
               <Link href="/" className="flex items-center space-x-3 mb-6">
-                <div className="relative w-12 h-12">
+                <div className="relative w-40 h-12">
                   <Image
-                    src="/logo-grande-1.png"
+                    src="/logo-cor.png"
                     alt="Althion Lab"
                     fill
-                    className="object-contain"
+                    className="object-contain object-left"
                   />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xl font-bold text-marsala-800">ALTHION LAB</span>
-                  <span className="text-xs text-marsala-600 font-medium">AUTOMAÇÃO INDUSTRIAL</span>
                 </div>
               </Link>
 

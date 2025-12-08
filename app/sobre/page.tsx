@@ -49,12 +49,12 @@ export default function AboutPage() {
                 setores, oferecendo soluções completas em automação industrial.
               </p>
             </div>
-            <div className="relative h-96 bg-gray-200 rounded-2xl overflow-hidden">
+            <div className="relative h-96 bg-white rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/logo-grande-1.png"
+                src="/logo-cor.png"
                 alt="Althion Lab"
                 fill
-                className="object-contain p-8"
+                className="object-contain p-12"
               />
             </div>
           </div>

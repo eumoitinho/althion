@@ -58,22 +58,22 @@ export default function SolutionsPage() {
     {
       name: "Manufatura",
       description: "Soluções para linhas de produção, controle de qualidade e otimização de processos",
-      image: "/logo-grande-1.png"
+      image: "/logo-cor.png"
     },
     {
       name: "Alimentícia",
       description: "Automação para processos alimentícios com foco em segurança e rastreabilidade",
-      image: "/logo-grande-1.png"
+      image: "/logo-cor.png"
     },
     {
       name: "Química",
       description: "Controle de processos químicos com sistemas seguros e confiáveis",
-      image: "/logo-grande-1.png"
+      image: "/logo-cor.png"
     },
     {
       name: "Farmacêutica",
       description: "Automação farmacêutica com validação e conformidade regulatória",
-      image: "/logo-grande-1.png"
+      image: "/logo-cor.png"
     }
   ]
 

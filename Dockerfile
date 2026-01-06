@@ -1,13 +1,19 @@
-# Build stage
+# Dependencies stage
 FROM node:20-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
+# Use pnpm via Corepack (repo uses pnpm-lock.yaml)
+RUN corepack enable
+
 # Copy package files
-COPY package*.json ./
+COPY package.json pnpm-lock.yaml ./
+
+# Keep the pnpm store inside the project so it can be copied to the builder stage
+RUN printf "store-dir=.pnpm-store\n" > .npmrc
 
 # Install dependencies
-RUN npm ci --legacy-peer-deps
+RUN pnpm install --frozen-lockfile
 
 # Builder stage
 FROM node:20-alpine AS builder
@@ -23,6 +29,8 @@ ENV NEXT_PUBLIC_SANITY_DATASET=$NEXT_PUBLIC_SANITY_DATASET
 ENV NEXT_PUBLIC_MEDUSA_BACKEND_URL=$NEXT_PUBLIC_MEDUSA_BACKEND_URL
 
 COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps /app/.pnpm-store ./.pnpm-store
+COPY --from=deps /app/.npmrc ./.npmrc
 COPY . .
 
 # Set environment variables for build
@@ -30,7 +38,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 
 # Build the application
-RUN npm run build
+RUN pnpm run build
 
 # Production stage
 FROM node:20-alpine AS runner

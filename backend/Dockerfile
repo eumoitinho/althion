@@ -6,8 +6,12 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
+# Install ALL dependencies (including dev deps for build and patch-package)
 RUN npm ci --legacy-peer-deps
+
+# Copy patches and apply them
+COPY patches ./patches
+RUN npx patch-package
 
 # Copy source code
 COPY . .
@@ -20,20 +24,15 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
-
-# Install production dependencies only (ignore postinstall script that requires patch-package)
-RUN npm ci --legacy-peer-deps --omit=dev --ignore-scripts
-
-# Copy built files from builder (node_modules already have patches applied)
-COPY --from=builder /app/dist ./dist
+# Copy built application and patched node_modules from builder
 COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/dist ./dist
 
 # Copy necessary files
 COPY index.js ./
 COPY medusa-config.js ./
 COPY tsconfig.json ./
+COPY package*.json ./
 
 # Create uploads directory
 RUN mkdir -p uploads

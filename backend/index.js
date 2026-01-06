@@ -7,40 +7,7 @@ const { GracefulShutdownServer } = require("medusa-core-utils");
     const directory = process.cwd();
 
     try {
-      // Ensure payment providers exist before loading Medusa
-      const { DataSource } = require("typeorm");
-      const config = require("./medusa-config.js");
-      
-      const tempDataSource = new DataSource({
-        type: "postgres",
-        url: config.projectConfig.database_url,
-      });
-      
-      try {
-        await tempDataSource.initialize();
-        const queryRunner = tempDataSource.createQueryRunner();
-        await queryRunner.connect();
-        
-        // Ensure manual payment provider exists
-        const existingProvider = await queryRunner.query(
-          "SELECT id FROM payment_provider WHERE id = 'manual'"
-        );
-        
-        if (existingProvider.length === 0) {
-          await queryRunner.query(`
-            INSERT INTO payment_provider (id, is_installed)
-            VALUES ('manual', true)
-            ON CONFLICT (id) DO NOTHING
-          `);
-        }
-        
-        await queryRunner.release();
-        await tempDataSource.destroy();
-      } catch (error) {
-        console.warn("⚠️  Warning: Could not ensure payment providers exist:", error.message);
-      }
-
-      // Now load Medusa
+      // Load Medusa
       const { container } = await require("@medusajs/medusa/dist/loaders")
         .default({
           directory,

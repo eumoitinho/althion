@@ -53,10 +53,11 @@ export function Footer() {
               <Link href="/" className="flex items-center space-x-3 mb-6">
                 <div className="relative w-40 h-12">
                   <Image
-                    src="/logo-cor.png"
+                    src="/logotipo.webp"
                     alt="Althion Lab"
                     fill
                     className="object-contain object-left"
+                    sizes="160px"
                   />
                 </div>
               </Link>

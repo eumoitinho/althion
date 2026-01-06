@@ -51,10 +51,11 @@ export default function AboutPage() {
             </div>
             <div className="relative h-96 bg-white rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/logo-cor.png"
+                src="/logotipo.webp"
                 alt="Althion Lab"
                 fill
                 className="object-contain p-12"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           </div>

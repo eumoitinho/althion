@@ -209,15 +209,16 @@ export function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center group">
               <motion.div
-                className="transition-transform group-hover:scale-105 relative w-32 h-10"
+                className="transition-transform group-hover:scale-105 relative h-10 w-44 sm:w-48"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src={isHomePage && !scrolled ? "/logo-branco.png" : "/logo-cor.png"}
+                  src="/logotipo.webp"
                   alt="Althion Lab"
                   fill
                   className="object-contain object-left"
+                  sizes="(max-width: 640px) 176px, 192px"
                   priority
                 />
               </motion.div>

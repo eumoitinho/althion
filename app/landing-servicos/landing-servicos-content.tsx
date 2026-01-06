@@ -5,7 +5,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
 import { 
   Wrench, 
@@ -99,10 +98,7 @@ export default function LandingServicosContent() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-marsala-50 border border-marsala-100 rounded-full mb-6">
-                <span className="flex h-2 w-2 rounded-full bg-marsala-600"></span>
-                <span className="text-xs font-semibold text-marsala-800 tracking-wide uppercase">Engenharia Industrial</span>
-              </div>
+              {null}
               
               <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 leading-[1.1] tracking-tight">
                 Engenharia de <br/>
@@ -119,10 +115,6 @@ export default function LandingServicosContent() {
                 <div className="border-l-4 border-marsala-200 pl-4">
                   <div className="text-3xl font-bold text-marsala-700">+1.000</div>
                   <div className="text-sm font-medium text-gray-500 uppercase tracking-wide mt-1">projetos entregues</div>
-                </div>
-                <div className="border-l-4 border-marsala-200 pl-4">
-                  <div className="text-3xl font-bold text-marsala-700">+120</div>
-                  <div className="text-sm font-medium text-gray-500 uppercase tracking-wide mt-1">engenheiros e técnicos</div>
                 </div>
               </div>
               
@@ -153,18 +145,7 @@ export default function LandingServicosContent() {
                  <div className="absolute inset-0 bg-gradient-to-tr from-marsala-900/20 to-transparent"></div>
                  </div>
               
-              {/* Floating Badge */}
-              <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-xl shadow-xl border border-gray-50 max-w-xs z-20">
-                <div className="flex items-start gap-4">
-                    <div className="p-3 bg-green-50 rounded-lg text-green-600">
-                        <CheckCircle className="w-6 h-6" />
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-gray-900">Certificação ISO</h4>
-                        <p className="text-sm text-gray-500 mt-1">Garantia de processos e qualidade internacional.</p>
-                    </div>
-                </div>
-              </div>
+                {null}
             </motion.div>
           </div>
         </div>
@@ -236,7 +217,7 @@ export default function LandingServicosContent() {
                       alt={client.name} 
                       width={120} 
                       height={50} 
-                      className="object-contain max-h-12 grayscale group-hover:grayscale-0 transition-all duration-300"
+                      className={`object-contain grayscale group-hover:grayscale-0 transition-all duration-300 ${client.name === 'Hospital Albert Einstein' ? 'max-h-16' : 'max-h-12'}`}
                     />
                   </div>
                 ))}
@@ -260,7 +241,7 @@ export default function LandingServicosContent() {
                       alt={client.name} 
                       width={120} 
                       height={50} 
-                      className="object-contain max-h-12 grayscale group-hover:grayscale-0 transition-all duration-300"
+                      className={`object-contain grayscale group-hover:grayscale-0 transition-all duration-300 ${client.name === 'Hospital Albert Einstein' ? 'max-h-16' : 'max-h-12'}`}
                     />
                   </div>
                 ))}

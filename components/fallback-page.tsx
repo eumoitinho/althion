@@ -17,7 +17,7 @@ export function FallbackPage({ title, description, expectedFeatures }: FallbackP
     <div className="min-h-screen py-20 px-8 bg-gray-50">
       <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center"

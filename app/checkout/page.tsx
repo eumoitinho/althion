@@ -1,8 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { ArrowLeft, ShoppingCart, CreditCard, User, Building, Truck, Shield, Check, AlertCircle } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ArrowLeft, ShoppingCart, CreditCard, User, Building, Truck, Shield, Check, AlertCircle, Loader2, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -11,9 +11,14 @@ import Link from "next/link"
 import Image from "next/image"
 import { useCart } from "@/lib/cart-context"
 
+type SubmitStatus = 'idle' | 'loading' | 'success' | 'error'
+
 export default function CheckoutPage() {
   const { items, removeItem, clearCart } = useCart()
   const [currentStep, setCurrentStep] = useState(1)
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [orderNumber, setOrderNumber] = useState('')
   const [formData, setFormData] = useState({
     // Dados pessoais
     nome: "",
@@ -68,33 +73,70 @@ export default function CheckoutPage() {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
-    // Simular processamento do pagamento
-    const pedidoData = {
-      ...formData,
-      produtos: purchaseItems.map(item => ({
-        id: item.product.id,
-        nome: item.product.name,
-        preco: item.product.price,
-        quantidade: item.quantity,
-        subtotal: item.product.price * item.quantity
-      })),
-      subtotal: total,
-      frete: frete,
-      total: totalFinal,
-      data: new Date().toISOString(),
-      numero_pedido: Math.random().toString(36).substr(2, 9).toUpperCase()
-    }
+    setSubmitStatus('loading')
+    setErrorMessage('')
 
-    console.log("Pedido processado:", pedidoData)
-    alert(`Pedido confirmado! Número: ${pedidoData.numero_pedido}`)
-    
-    // Limpar carrinho dos itens comprados
-    purchaseItems.forEach(item => removeItem(item.product.id))
-    
-    setCurrentStep(4) // Tela de sucesso
+    try {
+      const orderData = {
+        type: 'purchase' as const,
+        customer: {
+          nome: formData.nome,
+          email: formData.email,
+          telefone: formData.telefone,
+          cpf: formData.cpf,
+          isEmpresa: formData.isEmpresa,
+          razaoSocial: formData.razaoSocial,
+          cnpj: formData.cnpj,
+          inscricaoEstadual: formData.inscricaoEstadual
+        },
+        address: {
+          cep: formData.cep,
+          endereco: formData.endereco,
+          numero: formData.numero,
+          complemento: formData.complemento,
+          bairro: formData.bairro,
+          cidade: formData.cidade,
+          estado: formData.estado
+        },
+        items: purchaseItems.map(item => ({
+          product_id: item.product.id,
+          product_name: item.product.name,
+          quantity: item.quantity,
+          unit_price: item.product.price || 0,
+          subtotal: (item.product.price || 0) * item.quantity
+        })),
+        payment_method: formData.formaPagamento,
+        subtotal: total,
+        shipping: frete,
+        total: totalFinal
+      }
+
+      const response = await fetch('/api/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(orderData)
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setOrderNumber(result.order?.number || '')
+        setSubmitStatus('success')
+        // Limpar carrinho dos itens comprados
+        purchaseItems.forEach(item => removeItem(item.product.id))
+        setCurrentStep(4) // Tela de sucesso
+      } else {
+        throw new Error(result.error || 'Erro ao processar pedido')
+      }
+    } catch (error) {
+      console.error('Erro ao processar pedido:', error)
+      setErrorMessage(error instanceof Error ? error.message : 'Erro ao processar pedido')
+      setSubmitStatus('error')
+    }
   }
 
   const nextStep = () => {
@@ -107,7 +149,7 @@ export default function CheckoutPage() {
 
   if (purchaseItems.length === 0 && currentStep !== 4) {
     return (
-      <div className="min-h-screen bg-gray-50 py-16">
+      <div className="min-h-screen bg-gray-50 pt-32 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <ShoppingCart className="h-16 w-16 mx-auto text-gray-400 mb-6" />
@@ -128,7 +170,7 @@ export default function CheckoutPage() {
 
   if (currentStep === 4) {
     return (
-      <div className="min-h-screen bg-gray-50 py-16">
+      <div className="min-h-screen bg-gray-50 pt-32 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -140,9 +182,31 @@ export default function CheckoutPage() {
               <Check className="h-10 w-10 text-green-600" />
             </div>
             <h1 className="text-3xl font-bold text-gray-800 mb-4">Pedido Confirmado!</h1>
-            <p className="text-gray-600 mb-8">
-              Seu pedido foi processado com sucesso. Você receberá um e-mail de confirmação em breve.
+            {orderNumber && (
+              <p className="text-lg font-semibold text-marsala-600 mb-4">
+                Número do Pedido: {orderNumber}
+              </p>
+            )}
+            <p className="text-gray-600 mb-6">
+              Seu pedido foi registrado com sucesso. Você receberá um e-mail de confirmação em breve.
             </p>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 max-w-md mx-auto mb-8">
+              <h3 className="font-semibold text-blue-800 mb-2">Próximos passos:</h3>
+              <ul className="text-sm text-blue-700 text-left space-y-2">
+                <li className="flex items-start">
+                  <Check className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+                  Confirmação enviada para seu e-mail
+                </li>
+                <li className="flex items-start">
+                  <Truck className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+                  Acompanhe o status do seu pedido
+                </li>
+                <li className="flex items-start">
+                  <Shield className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+                  Pagamento seguro processado
+                </li>
+              </ul>
+            </div>
             <div className="flex justify-center gap-4">
               <Link href="/">
                 <Button variant="outline" className="border-marsala-300 text-marsala-700">
@@ -162,7 +226,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pt-24">
       {/* Header */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
@@ -185,6 +249,29 @@ export default function CheckoutPage() {
       </motion.section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Feedback de erro */}
+        <AnimatePresence>
+          {submitStatus === 'error' && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center justify-between"
+            >
+              <div className="flex items-center">
+                <AlertCircle className="h-5 w-5 text-red-600 mr-3" />
+                <span className="text-red-700">{errorMessage || 'Erro ao processar pedido. Tente novamente.'}</span>
+              </div>
+              <button
+                onClick={() => setSubmitStatus('idle')}
+                className="text-red-600 hover:text-red-800"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Progress Steps */}
         <div className="mb-8">
           <div className="flex items-center justify-center space-x-4">
@@ -473,6 +560,7 @@ export default function CheckoutPage() {
                         type="button"
                         onClick={nextStep}
                         className="bg-marsala-600 hover:bg-marsala-700 text-white"
+                        disabled={submitStatus === 'loading'}
                       >
                         Continuar
                       </Button>
@@ -480,8 +568,16 @@ export default function CheckoutPage() {
                       <Button
                         type="submit"
                         className="bg-marsala-600 hover:bg-marsala-700 text-white px-8"
+                        disabled={submitStatus === 'loading'}
                       >
-                        Finalizar Pedido
+                        {submitStatus === 'loading' ? (
+                          <>
+                            <Loader2 className="h-5 w-5 mr-2 animate-spin" />
+                            Processando...
+                          </>
+                        ) : (
+                          'Finalizar Pedido'
+                        )}
                       </Button>
                     )}
                   </div>

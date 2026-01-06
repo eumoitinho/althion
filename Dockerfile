@@ -19,6 +19,9 @@ RUN pnpm install --frozen-lockfile
 FROM node:20-alpine AS builder
 WORKDIR /app
 
+# Enable pnpm via Corepack
+RUN corepack enable
+
 # Build-time environment variables
 ARG NEXT_PUBLIC_SANITY_PROJECT_ID
 ARG NEXT_PUBLIC_SANITY_DATASET

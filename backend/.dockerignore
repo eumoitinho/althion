@@ -16,5 +16,4 @@ coverage
 build/
 uploads/*
 !uploads/.gitkeep
-patches
 

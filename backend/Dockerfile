@@ -23,10 +23,10 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install production dependencies only
-RUN npm ci --legacy-peer-deps --omit=dev
+# Install production dependencies only (ignore postinstall script that requires patch-package)
+RUN npm ci --legacy-peer-deps --omit=dev --ignore-scripts
 
-# Copy built files from builder
+# Copy built files from builder (node_modules already have patches applied)
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 

@@ -57,3 +57,9 @@ https://seu-dominio.vercel.app/studio
 - [Vercel Dashboard](https://vercel.com/dashboard)
 - [Sanity Studio](https://www.sanity.io/manage)
 - [Railway Dashboard](https://railway.app/dashboard) (para o backend)
+
+## ☁️ Deploy no Coolify (Docker)
+
+Para provisionar **frontend + backend** no Coolify usando Docker Compose, veja:
+
+- [COOLIFY_DEPLOY.md](COOLIFY_DEPLOY.md)

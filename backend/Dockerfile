@@ -38,13 +38,16 @@ COPY tsconfig.json ./
 # Create uploads directory
 RUN mkdir -p uploads
 
+# Create entrypoint script to run migrations before starting
+RUN printf '#!/bin/sh\nset -e\necho "Running Medusa migrations..."\nnpx medusa migrations run\necho "Starting Medusa server..."\nexec node index.js\n' > /app/entrypoint.sh && chmod +x /app/entrypoint.sh
+
 # Expose port
 EXPOSE 9000
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=3s --start-period=60s --retries=5 \
   CMD node -e "require('http').get('http://localhost:9000/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
 
-# Start the application
-CMD ["node", "index.js"]
+# Start the application with migrations
+CMD ["/app/entrypoint.sh"]
 

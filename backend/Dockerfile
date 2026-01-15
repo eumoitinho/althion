@@ -41,8 +41,8 @@ COPY package*.json ./
 # Create uploads directory
 RUN mkdir -p uploads
 
-# Create entrypoint script to run migrations before starting
-RUN printf '#!/bin/sh\nset -e\necho "Running Medusa migrations..."\nnpx medusa migrations run\necho "Starting Medusa server..."\nexec node index.js\n' > /app/entrypoint.sh && chmod +x /app/entrypoint.sh
+# Create entrypoint script to run migrations and seed before starting
+RUN printf '#!/bin/sh\necho "=== Environment check ==="\necho "DATABASE_URL: ${DATABASE_URL}"\necho "REDIS_URL: ${REDIS_URL}"\necho "=== Running Medusa migrations ==="\nnpx medusa migrations run 2>&1 || echo "Migrations failed or already applied"\necho "=== Running seed script ==="\nnode scripts/seed-direct.js 2>&1 || echo "Seed failed or already applied"\necho "=== Starting Medusa server ==="\nnode index.js 2>&1\n' > /app/entrypoint.sh && chmod +x /app/entrypoint.sh
 
 # Expose port
 EXPOSE 9000

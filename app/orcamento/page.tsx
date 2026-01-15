@@ -215,7 +215,7 @@ export default function OrcamentoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
+    <div className="min-h-screen bg-gray-50 pt-32">
       {/* Header */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}

@@ -78,7 +78,7 @@ export default function SolutionsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-gray-50 pt-32">
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}

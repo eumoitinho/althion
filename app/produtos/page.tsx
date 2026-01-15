@@ -141,7 +141,7 @@ function ProductsContent() {
   // Estado de carregamento
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 pt-24 pb-12 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 pt-32 pb-12 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-marsala-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Carregando produtos...</p>
@@ -153,7 +153,7 @@ function ProductsContent() {
   // Estado de erro
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-50 pt-24 pb-12 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 pt-32 pb-12 flex items-center justify-center">
         <div className="text-center">
           <p className="text-red-600 mb-4">Erro ao carregar produtos: {error.message}</p>
           <Button onClick={() => window.location.reload()}>Tentar novamente</Button>
@@ -163,7 +163,7 @@ function ProductsContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-12">
+    <div className="min-h-screen bg-gray-50 pt-32 pb-12">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div

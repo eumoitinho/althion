@@ -39,6 +39,34 @@ export interface MedusaProduct {
   demo_video_url?: string
   recommended_applications?: string[]
   installation_complexity?: number
+  tags?: Array<{ id: string; value: string }>
+}
+
+// Helper para verificar se o produto tem preço ou é "sob consulta"
+export function getProductPrice(product: MedusaProduct): { hasPrice: boolean; price?: number; currency?: string } {
+  // Verificar se tem tag "sob-consulta"
+  const isSobConsulta = product.tags?.some(tag =>
+    tag.value.toLowerCase() === 'sob-consulta' ||
+    tag.value.toLowerCase() === 'sob consulta'
+  )
+
+  if (isSobConsulta) {
+    return { hasPrice: false }
+  }
+
+  // Verificar se a variante principal tem preço
+  const variant = product.variants?.[0]
+  const price = variant?.prices?.[0]
+
+  if (price && price.amount > 0) {
+    return {
+      hasPrice: true,
+      price: price.amount / 100, // Converter de centavos para reais
+      currency: price.currency_code
+    }
+  }
+
+  return { hasPrice: false }
 }
 
 interface UseProductsOptions {
@@ -97,9 +125,23 @@ export function useProduct(handleOrId: string) {
       try {
         setLoading(true)
         setError(null)
-        
-        const response = await medusaClient.products.retrieve(handleOrId)
-        setProduct(response.product)
+
+        // Check if it's an ID (starts with "prod_") or a handle
+        const isId = handleOrId.startsWith('prod_')
+
+        if (isId) {
+          // Fetch by ID
+          const response = await medusaClient.products.retrieve(handleOrId)
+          setProduct(response.product)
+        } else {
+          // Fetch by handle - use list with handle filter
+          const response = await medusaClient.products.list({ handle: handleOrId })
+          if (response.products && response.products.length > 0) {
+            setProduct(response.products[0])
+          } else {
+            setError(new Error('Produto não encontrado'))
+          }
+        }
       } catch (err) {
         console.error('Error fetching product:', err)
         setError(err instanceof Error ? err : new Error('Failed to fetch product'))

@@ -92,11 +92,20 @@ async function seedDatabase() {
           // Check if product already exists
           try {
             product = await productService.retrieveByHandle(productData.handle);
-            console.log(`   ℹ️  Produto "${productData.title}" já existe`);
+            // Product exists - update to published if currently draft
+            if (product.status !== "published") {
+              await productService.update(product.id, { status: "published" });
+              console.log(`   ✅ Produto "${productData.title}" atualizado para publicado`);
+            } else {
+              console.log(`   ℹ️  Produto "${productData.title}" já existe e está publicado`);
+            }
           } catch (error) {
-            // Product doesn't exist, create it
-            product = await productService.create(productData);
-            console.log(`   ✅ Produto "${productData.title}" criado`);
+            // Product doesn't exist, create it with published status
+            product = await productService.create({
+              ...productData,
+              status: "published"
+            });
+            console.log(`   ✅ Produto "${productData.title}" criado e publicado`);
           }
           
           // Associate product to default sales channel if not already associated

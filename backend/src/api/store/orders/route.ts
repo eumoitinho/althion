@@ -230,16 +230,48 @@ export async function POST(req: MedusaRequest, res: MedusaResponse) {
 
       await cartService.update(cart.id, {
         billing_address: addressData,
+        shipping_address: addressData,
         email: orderData.customer.email
       })
-      await cartService.createPaymentSessions(cart.id)
-      await cartService.setPaymentSession(cart.id, "manual")
 
-      console.log("✅ Endereços e pagamento configurados")
+      console.log("✅ Endereços configurados")
 
-      // 6. Criar order a partir do cart
-      const order = await orderService.createFromCart(cart.id)
-      console.log(`✅ Order criado no Medusa: ${order.id} (${orderNumber})`)
+      // 6. Buscar cart completo com items
+      const fullCart = await cartService.retrieve(cart.id, {
+        relations: ["items", "items.variant"]
+      })
+
+      // 7. Criar Draft Order (perfeito para quote requests sem pagamento)
+      const draftOrderService = req.scope.resolve("draftOrderService")
+      const draftOrder = await draftOrderService.create({
+        region_id: region.id,
+        email: orderData.customer.email,
+        customer_id: customer.id,
+        billing_address: addressData,
+        shipping_address: addressData,
+        items: fullCart.items.map((item: any) => ({
+          variant_id: item.variant_id,
+          quantity: item.quantity,
+          unit_price: item.unit_price,
+          title: item.title,
+          metadata: item.metadata
+        })),
+        shipping_methods: [],
+        metadata: {
+          order_number: orderNumber,
+          type: "quote_request",
+          customer_name: orderData.customer.nome,
+          customer_phone: orderData.customer.telefone,
+          customer_cpf: orderData.customer.cpf || "",
+          is_empresa: orderData.customer.isEmpresa || false,
+          razao_social: orderData.customer.razaoSocial || "",
+          cnpj: orderData.customer.cnpj || "",
+          observacoes: orderData.observacoes || ""
+        }
+      })
+
+      const order = draftOrder.order
+      console.log(`✅ Draft Order criado no Medusa: ${order.id} / Draft: ${draftOrder.id} (${orderNumber})`)
 
       // 7. Atualizar metadata do order
       await orderService.update(order.id, {

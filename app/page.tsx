@@ -567,17 +567,17 @@ function ProductsSection() {
 
                     {/* Botões */}
                     <div className="mt-4 space-y-2">
-                      <Button 
+                      <Button
                         className="w-full bg-marsala-600 hover:bg-marsala-700 text-white rounded-full"
                         onClick={() => addItem(product, 1)}
                       >
                         Adicionar ao Carrinho
                       </Button>
-                      <Link href={`/produtos/${product.handle || product.id}`} className="block">
-                        <Button variant="outline" className="w-full rounded-full border-marsala-300 text-marsala-700 hover:bg-marsala-50 hover:text-marsala-800">
+                      <Button asChild variant="outline" className="w-full rounded-full border-marsala-300 text-marsala-700 hover:bg-marsala-50 hover:text-marsala-800">
+                        <Link href={`/produtos/${product.handle || product.id}`}>
                           Ver Detalhes
-                        </Button>
-                      </Link>
+                        </Link>
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>

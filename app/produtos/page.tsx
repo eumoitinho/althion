@@ -494,17 +494,17 @@ function ProductCard({
                 )}
 
                 <div className={`space-y-2 ${viewMode === 'list' ? 'flex space-y-0 space-x-2' : ''}`}>
-                  <Button 
+                  <Button
                     className="w-full bg-marsala-600 hover:bg-marsala-700 text-white rounded-full"
                     onClick={onAddToCart}
                   >
                     {product.requiresQuote ? 'Adicionar ao Orçamento' : 'Adicionar ao Carrinho'}
                   </Button>
-                  <Link href={`/produtos/${product.id}`} className="block">
-                    <Button variant="outline" className="w-full rounded-full border-marsala-300 text-marsala-700 hover:bg-marsala-50 hover:text-marsala-800">
+                  <Button asChild variant="outline" className="w-full rounded-full border-marsala-300 text-marsala-700 hover:bg-marsala-50 hover:text-marsala-800">
+                    <Link href={`/produtos/${createSlug(product)}`}>
                       Ver Detalhes
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                 </div>
               </div>
             </div>

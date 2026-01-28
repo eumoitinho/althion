@@ -409,18 +409,22 @@ function ProductCard({
   onAddToCart: () => void
   index: number
 }) {
+  const productUrl = `/produtos/${createSlug(product)}`
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    onAddToCart()
+  }
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-    >
+    <div className="h-full">
       <Card className={`bg-white hover:shadow-xl transition-all duration-300 h-full ${
         viewMode === 'list' ? 'overflow-hidden' : ''
       }`}>
         <CardContent className={`p-6 ${viewMode === 'list' ? 'flex items-center gap-6' : ''}`}>
           {/* Imagem */}
-          <Link href={`/produtos/${createSlug(product)}`}>
+          <a href={productUrl} className="block">
             <div className={`relative bg-gray-100 rounded-lg overflow-hidden group cursor-pointer ${
               viewMode === 'list' ? 'w-32 h-32 flex-shrink-0' : 'h-48 mb-4'
             }`}>
@@ -436,17 +440,17 @@ function ProductCard({
                 </span>
               )}
             </div>
-          </Link>
+          </a>
 
           {/* Conteúdo */}
           <div className={`${viewMode === 'list' ? 'flex-1' : ''}`}>
             <div className={`${viewMode === 'list' ? 'flex justify-between items-start' : ''}`}>
               <div className={`${viewMode === 'list' ? 'flex-1 pr-4' : ''}`}>
-                <Link href={`/produtos/${createSlug(product)}`}>
+                <a href={productUrl}>
                   <h3 className="text-lg font-semibold text-gray-800 mb-1 hover:text-marsala-600 cursor-pointer transition-colors">
                     {product.name}
                   </h3>
-                </Link>
+                </a>
                 {product.technicalName && (
                   <p className="text-xs text-gray-500 mb-2">{product.technicalName}</p>
                 )}
@@ -495,23 +499,24 @@ function ProductCard({
 
                 <div className={`space-y-2 ${viewMode === 'list' ? 'flex space-y-0 space-x-2' : ''}`}>
                   <Button
+                    type="button"
                     className="w-full bg-marsala-600 hover:bg-marsala-700 text-white rounded-full"
-                    onClick={onAddToCart}
+                    onClick={handleAddToCart}
                   >
                     {product.requiresQuote ? 'Adicionar ao Orçamento' : 'Adicionar ao Carrinho'}
                   </Button>
-                  <Button asChild variant="outline" className="w-full rounded-full border-marsala-300 text-marsala-700 hover:bg-marsala-50 hover:text-marsala-800">
-                    <Link href={`/produtos/${createSlug(product)}`}>
+                  <a href={productUrl} className="block w-full">
+                    <Button type="button" variant="outline" className="w-full rounded-full border-marsala-300 text-marsala-700 hover:bg-marsala-50 hover:text-marsala-800">
                       Ver Detalhes
-                    </Link>
-                  </Button>
+                    </Button>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </CardContent>
       </Card>
-    </motion.div>
+    </div>
   )
 }
 

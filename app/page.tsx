@@ -500,89 +500,95 @@ function ProductsSection() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            {categoryProducts.length > 0 ? categoryProducts.map((product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="bg-white hover:shadow-xl transition-all duration-300 h-full">
-                  <CardContent className="p-6">
-                    {/* Imagem do Produto */}
-                    <div className="relative h-48 bg-gray-100 rounded-lg mb-4 overflow-hidden group">
-                      <Image
-                        src={product.images[0] || "/product-placeholder.jpg"}
-                        alt={product.name}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      {product.featured && (
-                        <span className="absolute top-2 right-2 bg-marsala-600 text-white text-xs px-2 py-1 rounded-full">
-                          Destaque
-                        </span>
+            {categoryProducts.length > 0 ? categoryProducts.map((product) => {
+              const productUrl = `/produtos/${product.handle || product.id}`
+              return (
+                <div key={product.id} className="h-full">
+                  <Card className="bg-white hover:shadow-xl transition-all duration-300 h-full">
+                    <CardContent className="p-6">
+                      {/* Imagem do Produto */}
+                      <a href={productUrl} className="block">
+                        <div className="relative h-48 bg-gray-100 rounded-lg mb-4 overflow-hidden group">
+                          <Image
+                            src={product.images[0] || "/product-placeholder.jpg"}
+                            alt={product.name}
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                          {product.featured && (
+                            <span className="absolute top-2 right-2 bg-marsala-600 text-white text-xs px-2 py-1 rounded-full">
+                              Destaque
+                            </span>
+                          )}
+                        </div>
+                      </a>
+
+                      {/* Informações do Produto */}
+                      <a href={productUrl}>
+                        <h3 className="text-lg font-semibold text-gray-800 mb-1 hover:text-marsala-600 transition-colors">{product.name}</h3>
+                      </a>
+                      {product.technicalName && (
+                        <p className="text-xs text-gray-500 mb-2">{product.technicalName}</p>
                       )}
-                    </div>
+                      <p className="text-sm text-gray-600 mb-4 line-clamp-2">{product.description}</p>
 
-                    {/* Informações do Produto */}
-                    <h3 className="text-lg font-semibold text-gray-800 mb-1">{product.name}</h3>
-                    {product.technicalName && (
-                      <p className="text-xs text-gray-500 mb-2">{product.technicalName}</p>
-                    )}
-                    <p className="text-sm text-gray-600 mb-4 line-clamp-2">{product.description}</p>
+                      {/* Especificações */}
+                      {product.specifications && (
+                        <div className="mb-4 space-y-1">
+                          {product.specifications.model && (
+                            <p className="text-xs text-gray-500">
+                              <span className="font-medium">Modelo:</span> {product.specifications.model}
+                            </p>
+                          )}
+                          {product.specifications.voltage && (
+                            <p className="text-xs text-gray-500">
+                              <span className="font-medium">Tensão:</span> {product.specifications.voltage}
+                            </p>
+                          )}
+                        </div>
+                      )}
 
-                    {/* Especificações */}
-                    {product.specifications && (
-                      <div className="mb-4 space-y-1">
-                        {product.specifications.model && (
-                          <p className="text-xs text-gray-500">
-                            <span className="font-medium">Modelo:</span> {product.specifications.model}
-                          </p>
-                        )}
-                        {product.specifications.voltage && (
-                          <p className="text-xs text-gray-500">
-                            <span className="font-medium">Tensão:</span> {product.specifications.voltage}
-                          </p>
+                      {/* Preço e Ações */}
+                      <div className="flex items-center justify-between">
+                        {product.hasPrice && product.price ? (
+                          <div>
+                            <p className="text-2xl font-bold text-marsala-700">
+                              R$ {product.price.toFixed(2)}
+                            </p>
+                            <p className="text-xs text-gray-500">à vista</p>
+                          </div>
+                        ) : (
+                          <div>
+                            <p className="text-lg font-semibold text-orange-600">Sob consulta</p>
+                            <p className="text-xs text-gray-500">Solicite orçamento</p>
+                          </div>
                         )}
                       </div>
-                    )}
 
-                    {/* Preço e Ações */}
-                    <div className="flex items-center justify-between">
-                      {product.hasPrice && product.price ? (
-                        <div>
-                          <p className="text-2xl font-bold text-marsala-700">
-                            R$ {product.price.toFixed(2)}
-                          </p>
-                          <p className="text-xs text-gray-500">à vista</p>
-                        </div>
-                      ) : (
-                        <div>
-                          <p className="text-lg font-semibold text-orange-600">Sob consulta</p>
-                          <p className="text-xs text-gray-500">Solicite orçamento</p>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Botões */}
-                    <div className="mt-4 space-y-2">
-                      <Button
-                        className="w-full bg-marsala-600 hover:bg-marsala-700 text-white rounded-full"
-                        onClick={() => addItem(product, 1)}
-                      >
-                        Adicionar ao Carrinho
-                      </Button>
-                      <Button asChild variant="outline" className="w-full rounded-full border-marsala-300 text-marsala-700 hover:bg-marsala-50 hover:text-marsala-800">
-                        <Link href={`/produtos/${product.handle || product.id}`}>
-                          Ver Detalhes
-                        </Link>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            )) : (
+                      {/* Botões */}
+                      <div className="mt-4 space-y-2">
+                        <Button
+                          type="button"
+                          className="w-full bg-marsala-600 hover:bg-marsala-700 text-white rounded-full"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            addItem(product, 1)
+                          }}
+                        >
+                          Adicionar ao Carrinho
+                        </Button>
+                        <a href={productUrl} className="block w-full">
+                          <Button type="button" variant="outline" className="w-full rounded-full border-marsala-300 text-marsala-700 hover:bg-marsala-50 hover:text-marsala-800">
+                            Ver Detalhes
+                          </Button>
+                        </a>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              )
+            }) : (
               <div className="col-span-3 text-center py-12">
                 <p className="text-gray-600">Nenhum produto encontrado nesta categoria.</p>
               </div>
